@@ -1,17 +1,14 @@
-# Running EAGLE on a Google Cloud GPU VM
+# Running EAGLE on Google Cloud or the Insomnia HPC Cluster
 
-This guide covers everything from creating a GPU VM to running EAGLE-3 with Llama-3.1-8B-Instruct:
-
-1. Create the VM.
-2. Connect to it from your local terminal with `gcloud`.
-3. Install the driver and packages.
-4. Get EAGLE running.
+This guide covers setting up and running EAGLE-3 with Llama-3.1-8B-Instruct in either environment:
 
 Placeholders are written as `<LIKE_THIS>`. Replace them with your own values.
 
 ---
 
-## 1. Create a GCP virtual machine with GPU
+## Google Cloud
+
+### 1. Create a GCP virtual machine with GPU
 
 1. Go to `cloud.google.com` and click on Console
 2. Click 'Create a VM'
@@ -19,9 +16,7 @@ Placeholders are written as `<LIKE_THIS>`. Replace them with your own values.
 
 Installing all dependencies takes up about 16 GB. The 8B model in fp16 needs about another 17–18 GB of GPU memory. I recommend starting with 50GB, which is enough for one 8B model. If you want to store more models at a time, increase the disk size in **Disk -> Click on your disk -> Edit**, or through the gcloud cli (See bottom of this file). Note that you can increase disk size but not decrease it.
 
----
-
-## 2. Networking: Cloud NAT and SSH access
+### 2. Networking: Cloud NAT and SSH access
 
 Columbia blocks external IP so we'll need to set up Cloud NAT Gateway on Google Console.
 
@@ -45,11 +40,11 @@ Columbia blocks external IP so we'll need to set up Cloud NAT Gateway on Google 
     Click "Create".
 ---
 
-## 3. Local setup: install and configure `gcloud`
+### 3. Local setup: install and configure `gcloud`
 
 Technically you can use "SSH-in-browser" (click on "SSH" next to your VM name in Computer Engine -> VM Machines), and skip the gcloud set up. However, I find "SSH-in-browser" highly unreliable since it can disconnect at anytime without any reason.
 
-Install the Google Cloud CLI on your local machine by following https://cl    oud.google.com/sdk/docs/install. Then:
+Install the Google Cloud CLI on your local machine by following https://cloud.google.com/sdk/docs/install. Then:
 
 ```bash
 gcloud auth login
@@ -65,7 +60,7 @@ gcloud config set compute/zone us-east4-a
 ```
 
 
-## 4. SSH into the VM from your local terminal
+### 4. SSH into the VM from your local terminal
 
 ```bash
 gcloud compute ssh <VM_NAME> --zone=<ZONE> --tunnel-through-iap
@@ -89,9 +84,7 @@ gcloud compute instances start <VM_NAME> --zone=<ZONE>
 ```
 Or stop the VM on Google Cloud Console.
 
----
-
-## 6. Install the NVIDIA driver
+### 5. Install the NVIDIA driver
 
 Run all of the following steps while **connected to the VM**.
 
@@ -109,9 +102,7 @@ Check to see if the driver is installed. It should show your GPU:
 nvidia-smi
 ```
 
----
-
-## 7. Install system packages
+### 6. Install system packages
 
 ```bash
 sudo apt update && sudo apt install -y git build-essential curl
@@ -119,7 +110,39 @@ sudo apt update && sudo apt install -y git build-essential curl
 
 ---
 
-## 8. Connect the VM to GitHub (optional; needed to push)
+## Insomnia HPC Cluster
+
+For an Insomnia setup, first follow Columbia's getting-started guide:
+
+https://columbiauniversity.atlassian.net/wiki/spaces/rcs/pages/62145140/Insomnia+Getting+Started#Prepare-VPN-(if-necessary)
+
+This guide covers VPN access, connecting to Insomnia, and the cluster's basic workflow. After logging in to a login node, request an interactive compute node before running EAGLE:
+
+```bash
+srun --pty -t 0-02:00 --gres=gpu:1 -c 8 --mem=64G -A edu /bin/bash
+```
+
+The options mean:
+
+- `--pty`: allocate an interactive terminal.
+- `-t 0-02:00`: request a two-hour time limit.
+- `--gres=gpu:1`: request one GPU.
+- `-c 8`: request eight CPU cores.
+- `--mem=64G`: request 64 GB of memory.
+- `-A edu`: charge the job to the `edu` account.
+- `/bin/bash`: start a Bash shell on the compute node.
+
+Request just **one GPU** for EAGLE so the model, draft model, and all generated tokens remain on the same GPU. Do not run GPU workloads directly on the login node.
+
+Insomnia users do not have `sudo` privileges. Do not run the `sudo` commands in the Google Cloud driver and system-package steps above. Use the cluster's preinstalled software and install Python packages in your virtual environment instead; contact the cluster administrators if a required system package is unavailable.
+
+---
+
+## Shared EAGLE setup
+
+Complete the following steps in either environment. On Insomnia, use the allocated compute node; on Google Cloud, use the VM.
+
+### 1. Connect the machine to GitHub (optional; needed to push)
 
 ```bash
 ssh-keygen -t ed25519 -C "<YOUR_EMAIL>"     # press Enter to accept the defaults
@@ -136,7 +159,7 @@ git config --global user.email "<YOUR_EMAIL>"
 
 ---
 
-## 9. Install Python 3.10 and create a virtual environment
+### 2. Install Python 3.10 and create a virtual environment
 
 The packages pinned in `requirements.txt` are old, and some of them (`protobuf==3.19.0`, `sentencepiece==0.1.99`) need **Python 3.10**. `uv` installs that Python version and creates the venv:
 
@@ -152,7 +175,7 @@ You can activate the venv from any directory, for example with `source ~/venvs/e
 
 ---
 
-## 10. Clone EAGLE and install dependencies
+### 3. Clone EAGLE and install dependencies
 
 Make a fork of the EAGLE repo. Then:
 
@@ -179,11 +202,11 @@ If `transformers` shows `5.x`, pin it: `uv pip install "transformers==4.53.1"`.
 
 ---
 
-## 11. Hugging Face access
+### 4. Hugging Face access
 
 1. Create a token at **huggingface.co → Settings → Access Tokens**. **Read** access is enough. For a fine-grained token, tick only *"Read access to contents of all public gated repos you can access"*.
 2. Request access to the gated base model at https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct. Approval can take minutes to hours. I got approved in half an hour.
-3. Log in to Hugging Face on the VM:
+3. Log in to Hugging Face on the machine:
 
 ```bash
 huggingface-cli login       # paste the token; answer "n" to the git-credential question
@@ -201,7 +224,7 @@ A `403` or `GatedRepoError` means the request is still pending.
 
 ---
 
-## 12. Run EAGLE-3 with Llama-3.1-8B-Instruct
+### 5. Run EAGLE-3 with Llama-3.1-8B-Instruct
 
 Both models download automatically on first use and are stored in `~/.cache/huggingface`:
 
@@ -215,7 +238,7 @@ python -m eagle.application.webui \
   --ea-model-path yuhuili/EAGLE3-LLaMA3.1-Instruct-8B \
   --base-model-path meta-llama/Llama-3.1-8B-Instruct \
   --model-type llama-3-instruct \
-  --total-token -1
+  --total-token -1 \
   --no-eagle3
 ```
 
