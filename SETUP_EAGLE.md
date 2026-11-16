@@ -231,6 +231,8 @@ Both models download automatically on first use and are stored in `~/.cache/hugg
 - Base model: `meta-llama/Llama-3.1-8B-Instruct` (about 16 GB)
 - EAGLE-3 draft model: `yuhuili/EAGLE3-LLaMA3.1-Instruct-8B`
 
+On Insomnia, the models can exceed your home directory quota. To store them elsewhere, see [Move the Hugging Face cache to scratch space](#move-the-hugging-face-cache-to-scratch-space).
+
 ### Option A: Web UI
 
 ```bash
@@ -305,6 +307,7 @@ The answers are written to `mt_bench/<model-id>.jsonl`. To compare speeds, edit 
 | `libtorch_cuda.so: undefined symbol: ncclCommRegister` | Mixed versions of torch and NVIDIA packages left over from that downgrade | Recreate the venv (below) |
 | `403` / `GatedRepoError` when loading Llama | Hugging Face access not granted yet, or not logged in | Wait for approval; run `huggingface-cli login` |
 | CUDA out of memory | GPU too small (for example a T4 with 16 GB) | Use an L4 or A100, or a smaller model |
+| `Disk quota exceeded` on Insomnia | Your home directory has a small quota, and the pip, uv and Hugging Face caches fill it | [Delete the pip and uv caches](#delete-the-pip-and-uv-caches) or [move the Hugging Face cache to scratch space](#move-the-hugging-face-cache-to-scratch-space) |
 
 ### Resize the boot disk
 
@@ -345,3 +348,76 @@ rm -rf ~/.cache/huggingface/hub/models--<ORG>--<NAME>
 # or choose interactively:
 huggingface-cli delete-cache
 ```
+
+### Delete the pip and uv caches
+
+pip and uv keep copies of every package they download in `~/.cache/pip` and `~/.cache/uv` so that later installs skip the download. Installed packages run from the virtual environment, not from these caches, so deleting the caches doesn't affect your environment. Future installs download the packages again.
+
+Check how much space the caches use:
+
+```bash
+du -sh ~/.cache/* ~/venvs/* 2>/dev/null | sort -h
+```
+
+Delete the pip cache:
+
+```bash
+pip cache purge             # or: rm -rf ~/.cache/pip
+```
+
+Before you delete the uv cache, check that your virtual environment doesn't link to it:
+
+```bash
+python -c "import torch, os; print(os.path.realpath(torch.__file__))"
+```
+
+If the path is inside `~/venvs/ea_env`, delete the uv cache:
+
+```bash
+uv cache clean
+```
+
+If the path is inside `~/.cache/uv`, keep the cache. Deleting it breaks the virtual environment.
+
+**Note:** uv hard-links packages from its cache into the virtual environment, so `du` can report several GB for `~/.cache/uv` and almost nothing for the virtual environment. Deleting the uv cache then frees less space than `du` reports, because the virtual environment still uses those files.
+
+### Move the Hugging Face cache to scratch space
+
+The Hugging Face cache holds the downloaded models, about 16 GB for Llama-3.1-8B-Instruct and its EAGLE-3 draft model. Keep these models, because EAGLE downloads them again if you delete them. Instead, move the cache out of your home directory to scratch or group storage, which has a much larger quota.
+
+The `HF_HOME` environment variable tells Hugging Face where its cache is. After you set it, your code and commands stay the same, and EAGLE loads the models from the new location without downloading them again.
+
+1. Find your scratch or group storage. On Insomnia, it's usually under `/insomnia001/depts/`:
+
+   ```bash
+   ls /insomnia001/depts/
+   ```
+
+   Check the Insomnia documentation or ask your course staff if you can't find your group's folder.
+
+2. Move the cache. The move copies about 16 GB between file systems, so it takes a few minutes:
+
+   ```bash
+   SCRATCH=/insomnia001/depts/<GROUP>/users/$USER    # replace with your actual path
+   mkdir -p $SCRATCH/hf_cache
+   mv ~/.cache/huggingface/* $SCRATCH/hf_cache/
+   ```
+
+3. Set `HF_HOME` for this session and future sessions:
+
+   ```bash
+   echo "export HF_HOME=$SCRATCH/hf_cache" >> ~/.bashrc
+   source ~/.bashrc
+   ```
+
+   If you submit jobs with `sbatch`, also add the `export HF_HOME=...` line to your job script.
+
+4. Verify that Hugging Face uses the new location:
+
+   ```bash
+   python -c "from huggingface_hub import constants; print(constants.HF_HUB_CACHE)"
+   ```
+
+   The output is a path inside `$SCRATCH/hf_cache/hub`.
+
+**Note:** Many clusters delete scratch files that nobody has used for a while, and they don't back up scratch storage. This is fine for a model cache, because the worst case is a new download. Keep your code and results in your home directory or group storage.
