@@ -1,0 +1,2 @@
+width 1.0: update 25/50  loss 7.096  acc guess1 0.16  acc guesses2-8 0.04  14 s  33.9 GB peak
+width 1.0: update 50/50  loss 6.681  acc guess1 0.21  acc guesses2-8 0.06  28 s  33.9 GB peak
