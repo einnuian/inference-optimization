@@ -1,2 +1,55 @@
-# external folder containing repos like eagle
-/external
+# Local runtimes, upstream checkouts, and package caches.
+/external/
+/.venv*/
+/venv/
+/envs/
+/cache/
+/containers/
+/node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+
+# Local credentials and runtime service state.
+.env
+.env.*
+!.env.example
+.netrc
+*.pem
+*.key
+/.ssh/
+/wandb/
+
+# Model weights and generated execution files remain in their evidence storage.
+*.pt
+*.pth
+*.safetensors
+*.sif
+*.whl
+*.log
+*.tmp
+*.partial
+/baselines/results/
+/runs/
+/dist/
+/build/
+
+# Preserve the final report, selected inputs, and compact measured results.
+/measurements/*
+!/measurements/report/
+!/measurements/results/
+/measurements/report/*
+!/measurements/report/README.md
+!/measurements/report/report.tex
+!/measurements/report/benchmark_report.tex
+!/measurements/report/report.pdf
+!/measurements/report/HPML_Midpoint_Report_All_Categories.pptx
+!/measurements/report/generated/
+!/measurements/report/slide-assets/
+/measurements/report/generated/*
+!/measurements/report/generated/*.tex
+/measurements/report/slide-assets/*
+!/measurements/report/slide-assets/*.png
+!/measurements/report/slide-assets/*.mjs

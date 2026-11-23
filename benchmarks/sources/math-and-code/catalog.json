@@ -1,0 +1,449 @@
+[
+  {
+    "id": "gsm8k",
+    "name": "GSM8K",
+    "family": "Mathematics",
+    "sourceUrl": "https://github.com/openai/grade-school-math",
+    "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+    "sourceSplit": "Official test split",
+    "selection": "The official test set contains 1,319 grade-school math word problems. Eight also appear in the pilot. The primary and reserve files contain the remaining 1,311.",
+    "grouping": "The project sorts the eligible prompts by character count and divides them into four equal-sized groups. Each group contributes about one fifth of its prompts to the reserve.",
+    "promptRule": "Each message contains the original word problem, followed by a request to show the reasoning and put the final answer in a box.",
+    "scoring": "Compare the boxed numerical answer with the number after the final #### marker in the official answer. Ignore numeric formatting such as thousands separators. Report the percentage correct across the selected prompts. Count a missing or invalid final answer as incorrect.",
+    "access": "The private site can provide the prepared files with the OpenAI MIT notice.",
+    "host": true,
+    "license": "MIT",
+    "licenseUrl": "https://github.com/openai/grade-school-math/blob/3101c7d5072418e28b9008a6636bde82a006892c/LICENSE",
+    "attribution": "Karl Cobbe and colleagues at OpenAI created GSM8K. The project adds a response instruction and assigns each question to a set.",
+    "sourceDownload": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/grade_school_math/data/test.jsonl",
+    "sourceSha256": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14",
+    "availableCount": 1319,
+    "eligibleCount": 1311,
+    "selectedCount": 1049,
+    "reserveCount": 262,
+    "parts": {
+      "primary": {
+        "file": "gsm8k-primary.jsonl",
+        "sha256": "892880c316dcee6f66bb3efe2469fd7dbd9fd2b4a8822a8c81d3461cad4d27a8",
+        "count": 1049,
+        "sampleIds": [
+          "gsm8k/test/0",
+          "gsm8k/test/652",
+          "gsm8k/test/1318"
+        ],
+        "groups": {
+          "Prompt length band 1": 262,
+          "Prompt length band 2": 262,
+          "Prompt length band 3": 263,
+          "Prompt length band 4": 262
+        }
+      },
+      "reserve": {
+        "file": "gsm8k-reserve.jsonl",
+        "sha256": "46c702d82ac1d3a44b4ad3e66189c67568ea39c4675ae33ed30c1ebacdcd2044",
+        "count": 262,
+        "sampleIds": [
+          "gsm8k/test/5",
+          "gsm8k/test/697",
+          "gsm8k/test/1314"
+        ],
+        "groups": {
+          "Prompt length band 1": 66,
+          "Prompt length band 2": 66,
+          "Prompt length band 3": 65,
+          "Prompt length band 4": 65
+        }
+      }
+    },
+    "file": "gsm8k-primary.jsonl",
+    "sha256": "892880c316dcee6f66bb3efe2469fd7dbd9fd2b4a8822a8c81d3461cad4d27a8",
+    "sampleIds": [
+      "gsm8k/test/0",
+      "gsm8k/test/652",
+      "gsm8k/test/1318"
+    ]
+  },
+  {
+    "id": "math500",
+    "name": "MATH-500",
+    "family": "Mathematics",
+    "sourceUrl": "https://github.com/openai/prm800k#math-splits",
+    "revision": "7ecc794703b2877f63226f2477a49b34f9b25163",
+    "sourceSplit": "PRM800K held-out MATH split",
+    "selection": "The collection covers all 500 problems in the published split. The problems span seven subjects and five difficulty levels.",
+    "grouping": "The project groups problems by the source subject and difficulty level before assigning the reserve.",
+    "promptRule": "Each message contains the original problem, followed by a request to show the reasoning and put the final answer in a box. The text preserves the diagram descriptions in Asymptote code wherever the source includes them.",
+    "scoring": "Extract the final boxed expression and compare it with the source answer using the PRM800K mathematical-equivalence grader. Report the percentage correct across the selected prompts. Count a missing or invalid final expression as incorrect.",
+    "scoringUrl": "https://github.com/openai/prm800k/tree/7ecc794703b2877f63226f2477a49b34f9b25163/prm800k/grading",
+    "access": "The project keeps the competition texts in the local files. The site provides the selection and the preparation script.",
+    "host": false,
+    "license": "The PRM800K repository lists MIT. The source problems come from third-party mathematics competitions.",
+    "licenseUrl": "https://github.com/openai/prm800k/blob/7ecc794703b2877f63226f2477a49b34f9b25163/LICENSE",
+    "attribution": "Dan Hendrycks and colleagues created MATH. OpenAI published this 500-problem test split.",
+    "sourceDownload": "https://media.githubusercontent.com/media/openai/prm800k/7ecc794703b2877f63226f2477a49b34f9b25163/prm800k/math_splits/test.jsonl",
+    "sourceSha256": "35dc41080a3680858b27fa7e0533d2d547825316fc5dafe5d316f4ccc5a06132",
+    "availableCount": 500,
+    "eligibleCount": 500,
+    "selectedCount": 400,
+    "reserveCount": 100,
+    "parts": {
+      "primary": {
+        "file": "math500-primary.jsonl",
+        "sha256": "73b0488b7d07ea094babf1e538691f6f2bf5d6b3f57196e843dea8d0a3e6ba7e",
+        "count": 400,
+        "sampleIds": [
+          "test/precalculus/807.json",
+          "test/prealgebra/1458.json",
+          "test/geometry/615.json"
+        ],
+        "groups": {
+          "Algebra | level 1": 13,
+          "Algebra | level 2": 17,
+          "Algebra | level 3": 21,
+          "Algebra | level 4": 24,
+          "Algebra | level 5": 24,
+          "Counting & Probability | level 1": 2,
+          "Counting & Probability | level 2": 6,
+          "Counting & Probability | level 3": 3,
+          "Counting & Probability | level 4": 10,
+          "Counting & Probability | level 5": 10,
+          "Geometry | level 1": 2,
+          "Geometry | level 2": 6,
+          "Geometry | level 3": 6,
+          "Geometry | level 4": 8,
+          "Geometry | level 5": 10,
+          "Intermediate Algebra | level 1": 6,
+          "Intermediate Algebra | level 2": 10,
+          "Intermediate Algebra | level 3": 15,
+          "Intermediate Algebra | level 4": 18,
+          "Intermediate Algebra | level 5": 29,
+          "Number Theory | level 1": 4,
+          "Number Theory | level 2": 8,
+          "Number Theory | level 3": 13,
+          "Number Theory | level 4": 15,
+          "Number Theory | level 5": 10,
+          "Prealgebra | level 1": 6,
+          "Prealgebra | level 2": 15,
+          "Prealgebra | level 3": 14,
+          "Prealgebra | level 4": 16,
+          "Prealgebra | level 5": 15,
+          "Precalculus | level 1": 2,
+          "Precalculus | level 2": 10,
+          "Precalculus | level 3": 12,
+          "Precalculus | level 4": 10,
+          "Precalculus | level 5": 10
+        }
+      },
+      "reserve": {
+        "file": "math500-reserve.jsonl",
+        "sha256": "685033ab380be9fae39de5ddac6e0a3b2ba1aa954a259d166ac1950f7e92ff57",
+        "count": 100,
+        "sampleIds": [
+          "test/algebra/2584.json",
+          "test/prealgebra/1251.json",
+          "test/intermediate_algebra/1508.json"
+        ],
+        "groups": {
+          "Algebra | level 1": 4,
+          "Algebra | level 2": 4,
+          "Algebra | level 3": 5,
+          "Algebra | level 4": 6,
+          "Algebra | level 5": 6,
+          "Counting & Probability | level 2": 1,
+          "Counting & Probability | level 3": 1,
+          "Counting & Probability | level 4": 3,
+          "Counting & Probability | level 5": 2,
+          "Geometry | level 2": 2,
+          "Geometry | level 3": 2,
+          "Geometry | level 4": 2,
+          "Geometry | level 5": 3,
+          "Intermediate Algebra | level 1": 1,
+          "Intermediate Algebra | level 2": 2,
+          "Intermediate Algebra | level 3": 4,
+          "Intermediate Algebra | level 4": 5,
+          "Intermediate Algebra | level 5": 7,
+          "Number Theory | level 1": 1,
+          "Number Theory | level 2": 2,
+          "Number Theory | level 3": 3,
+          "Number Theory | level 4": 4,
+          "Number Theory | level 5": 2,
+          "Prealgebra | level 1": 1,
+          "Prealgebra | level 2": 4,
+          "Prealgebra | level 3": 3,
+          "Prealgebra | level 4": 4,
+          "Prealgebra | level 5": 4,
+          "Precalculus | level 1": 1,
+          "Precalculus | level 2": 3,
+          "Precalculus | level 3": 3,
+          "Precalculus | level 4": 3,
+          "Precalculus | level 5": 2
+        }
+      }
+    },
+    "file": "math500-primary.jsonl",
+    "sha256": "73b0488b7d07ea094babf1e538691f6f2bf5d6b3f57196e843dea8d0a3e6ba7e",
+    "sampleIds": [
+      "test/precalculus/807.json",
+      "test/prealgebra/1458.json",
+      "test/geometry/615.json"
+    ]
+  },
+  {
+    "id": "aime25",
+    "name": "AIME 2025",
+    "family": "Mathematics",
+    "sourceUrl": "https://huggingface.co/datasets/MathArena/aime_2025",
+    "revision": "c94da77eb22bbd6439e62a323bec18493a421302",
+    "sourceSplit": "MathArena publishes these 30 exam questions under a split named train. The project uses them for evaluation.",
+    "selection": "The collection contains all 15 problems from AIME I and all 15 from AIME II in 2025. Each exam contributes 12 primary problems and three reserve problems.",
+    "grouping": "The project assigns the reserve separately within each exam. MathArena identifies AIME I with problem numbers 1 through 15 and AIME II with numbers 16 through 30 in the combined file.",
+    "promptRule": "Each message contains the original competition problem and asks for reasoning and a boxed integer. The text preserves diagram descriptions in TikZ code wherever the source includes them.",
+    "scoring": "Compare the final boxed integer with the MathArena reference answer. Accept integers from 0 through 999 and ignore leading zeros. Count a missing or invalid final integer as incorrect. Report the number correct and the total alongside the percentage.",
+    "access": "The project keeps the exam texts in the local files. The site provides the selection and the preparation script.",
+    "host": false,
+    "license": "MathArena lists CC BY-NC-SA 4.0 for its collection. The Mathematical Association of America supplies the competition questions.",
+    "licenseUrl": "https://huggingface.co/datasets/MathArena/aime_2025/blob/c94da77eb22bbd6439e62a323bec18493a421302/README.md",
+    "attribution": "The Mathematical Association of America organizes AIME. MathArena transcribed the 2025 exams.",
+    "sourceDownload": "https://huggingface.co/datasets/MathArena/aime_2025/resolve/c94da77eb22bbd6439e62a323bec18493a421302/data/train-00000-of-00001.parquet",
+    "sourceSha256": "9f9066ff48ad2e31f9bf1b1ac6d5e80693195f987985f2859f89dd25ffa51c2d",
+    "availableCount": 30,
+    "eligibleCount": 30,
+    "selectedCount": 24,
+    "reserveCount": 6,
+    "parts": {
+      "primary": {
+        "file": "aime25-primary.jsonl",
+        "sha256": "68508f50cd6cb4eac2ae6183c422e55ffcae67a47c6e1db1c204f3873de0fb0f",
+        "count": 24,
+        "sampleIds": [
+          "1",
+          "16",
+          "30"
+        ],
+        "groups": {
+          "AIME I": 12,
+          "AIME II": 12
+        }
+      },
+      "reserve": {
+        "file": "aime25-reserve.jsonl",
+        "sha256": "c5f5312a9c1fd059e0ff0edde3d7543f9b7beb77ee8d7fd8e8ca33e966da79ee",
+        "count": 6,
+        "sampleIds": [
+          "10",
+          "21",
+          "27"
+        ],
+        "groups": {
+          "AIME I": 3,
+          "AIME II": 3
+        }
+      }
+    },
+    "file": "aime25-primary.jsonl",
+    "sha256": "68508f50cd6cb4eac2ae6183c422e55ffcae67a47c6e1db1c204f3873de0fb0f",
+    "sampleIds": [
+      "1",
+      "16",
+      "30"
+    ]
+  },
+  {
+    "id": "humaneval",
+    "name": "HumanEval",
+    "family": "Python programming",
+    "sourceUrl": "https://github.com/openai/human-eval",
+    "revision": "b9453e8f1865df0a0057a1383767caa400acfbcf",
+    "sourceSplit": "Official 164-task Python test set",
+    "selection": "Eight of the 164 tasks also appear in the pilot. The primary and reserve files contain the remaining 156 tasks.",
+    "grouping": "The project sorts the eligible prompts by character count and divides them into four equal-sized groups. Each group contributes about one fifth of its prompts to the reserve. The two bracket-checking variants stay together in the primary set.",
+    "promptRule": "Each message asks the model to continue the original Python code. The input preserves the signature, documentation string, examples, and whitespace. The response should contain the missing code with its indentation.",
+    "scoring": "Append the returned code to the original prompt. Match the official test by task ID and run the test in an isolated Python environment. Pass@1 is the percentage of assigned tasks whose first completion passes every check.",
+    "scoringUrl": "https://github.com/openai/human-eval/blob/b9453e8f1865df0a0057a1383767caa400acfbcf/human_eval/evaluation.py",
+    "access": "The private site can provide the prepared files with the OpenAI MIT notice.",
+    "host": true,
+    "license": "MIT",
+    "licenseUrl": "https://github.com/openai/human-eval/blob/b9453e8f1865df0a0057a1383767caa400acfbcf/LICENSE",
+    "attribution": "Mark Chen and colleagues at OpenAI created HumanEval. The project adds a completion instruction and assigns each task to a set.",
+    "sourceDownload": "https://raw.githubusercontent.com/openai/human-eval/b9453e8f1865df0a0057a1383767caa400acfbcf/data/HumanEval.jsonl.gz",
+    "sourceSha256": "b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef",
+    "availableCount": 164,
+    "eligibleCount": 156,
+    "selectedCount": 125,
+    "reserveCount": 31,
+    "parts": {
+      "primary": {
+        "file": "humaneval-primary.jsonl",
+        "sha256": "22b58279e640a95594bc0ad3b958320150a4a1b30ff936aaf0d50969450dab1d",
+        "count": 125,
+        "sampleIds": [
+          "HumanEval/0",
+          "HumanEval/81",
+          "HumanEval/162"
+        ],
+        "groups": {
+          "Prompt length band 1": 31,
+          "Prompt length band 2": 31,
+          "Prompt length band 3": 31,
+          "Prompt length band 4": 32
+        }
+      },
+      "reserve": {
+        "file": "humaneval-reserve.jsonl",
+        "sha256": "08ce31edbc629903b86155f4b81ba9d393fc4bddb0233908f31ebe2eb0e92a8e",
+        "count": 31,
+        "sampleIds": [
+          "HumanEval/8",
+          "HumanEval/88",
+          "HumanEval/163"
+        ],
+        "groups": {
+          "Prompt length band 1": 8,
+          "Prompt length band 2": 8,
+          "Prompt length band 3": 8,
+          "Prompt length band 4": 7
+        }
+      }
+    },
+    "file": "humaneval-primary.jsonl",
+    "sha256": "22b58279e640a95594bc0ad3b958320150a4a1b30ff936aaf0d50969450dab1d",
+    "sampleIds": [
+      "HumanEval/0",
+      "HumanEval/81",
+      "HumanEval/162"
+    ]
+  },
+  {
+    "id": "mbpp",
+    "name": "Mostly Basic Python Problems (MBPP)",
+    "family": "Python programming",
+    "sourceUrl": "https://github.com/google-research/google-research/tree/f82046ba5aabbbb427dbfd38a254d26bff08b533/mbpp",
+    "revision": "f82046ba5aabbbb427dbfd38a254d26bff08b533",
+    "sourceSplit": "Hand-verified test tasks with original task IDs from 11 through 510",
+    "selection": "The authors hand-verified 427 tasks across all splits. Exactly 257 of those tasks belong to the official test range.",
+    "grouping": "The project sorts the eligible prompts by character count and divides them into four equal-sized groups. Each group contributes about one fifth of its prompts to the reserve. Two sorting tasks share a description and stay together in the primary set.",
+    "promptRule": "Each message contains the verified task description and the required Python function signature. The project obtains the signature from the reference code. The model sees the signature and writes the implementation. The original MBPP paper supplied examples and tests in its prompts. This project uses a zero-example instruction.",
+    "scoring": "Use the original task ID to retrieve the imports and tests from sanitized-mbpp.json. Check the first submitted Python program in an isolated environment. Report the percentage of assigned tasks that pass every supplied test.",
+    "access": "The private site can provide the prepared files. Each download credits Google Research, links to CC BY 4.0, and identifies the added instructions.",
+    "host": true,
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "attribution": "Jacob Austin and colleagues at Google Research created MBPP. The project uses their hand-verified problem descriptions, adds the expected function signature and a response instruction, and assigns each task to a set.",
+    "sourceDownload": "https://raw.githubusercontent.com/google-research/google-research/f82046ba5aabbbb427dbfd38a254d26bff08b533/mbpp/sanitized-mbpp.json",
+    "sourceSha256": "ca95deaa9a01ef0a6f439f88bcf0dd3db3563d22f22aad6cae04ebb9a8d8c8e9",
+    "availableCount": 257,
+    "eligibleCount": 257,
+    "selectedCount": 206,
+    "reserveCount": 51,
+    "parts": {
+      "primary": {
+        "file": "mbpp-primary.jsonl",
+        "sha256": "ea445cbc5e4094184f9fab71e119eef73905b55b440f6acb9f230cd2c31678f3",
+        "count": 206,
+        "sampleIds": [
+          "11",
+          "265",
+          "479"
+        ],
+        "groups": {
+          "Prompt length band 1": 52,
+          "Prompt length band 2": 51,
+          "Prompt length band 3": 51,
+          "Prompt length band 4": 52
+        }
+      },
+      "reserve": {
+        "file": "mbpp-reserve.jsonl",
+        "sha256": "575361ca9d3e15b5e8d275a6efd236e3496de55bdcd8a61b986d8fb9fc293422",
+        "count": 51,
+        "sampleIds": [
+          "17",
+          "233",
+          "477"
+        ],
+        "groups": {
+          "Prompt length band 1": 13,
+          "Prompt length band 2": 13,
+          "Prompt length band 3": 13,
+          "Prompt length band 4": 12
+        }
+      }
+    },
+    "file": "mbpp-primary.jsonl",
+    "sha256": "ea445cbc5e4094184f9fab71e119eef73905b55b440f6acb9f230cd2c31678f3",
+    "sampleIds": [
+      "11",
+      "265",
+      "479"
+    ]
+  },
+  {
+    "id": "livecodebench",
+    "name": "LiveCodeBench",
+    "family": "Python programming",
+    "sourceUrl": "https://huggingface.co/datasets/livecodebench/code_generation_lite",
+    "revision": "0fe84c3912ea0c4d4a78037083943e8f0c4dd505",
+    "sourceSplit": "Code Generation Lite, v6 increment (test6.jsonl)",
+    "selection": "The project uses all 175 problems added from January 4 through April 6, 2025. The increment contains 112 AtCoder and 63 LeetCode problems. The cumulative release_v6 contains 1,055 problems.",
+    "grouping": "The project groups problems by platform and difficulty before assigning the reserve. The full increment contains 43 easy, 52 medium, and 80 hard problems.",
+    "promptRule": "Each message preserves the statement and its written examples. AtCoder tasks ask for a full Python program that reads and writes standard input and output. LeetCode tasks supply starter code and ask for a complete Python class. The project uses the released text for this text-only evaluation.",
+    "scoring": "Use the platform and question ID to find the original public and private test cases. Evaluate the first Python solution with the LiveCodeBench code-generation evaluator in an isolated environment. Report the percentage of assigned tasks that pass every test.",
+    "scoringUrl": "https://github.com/LiveCodeBench/LiveCodeBench#code-generation",
+    "access": "The project keeps the contest statements in the local files. The site provides the selection and the preparation script.",
+    "host": false,
+    "license": "The data card lists Creative Commons without naming a specific license. The contest platforms supply the questions.",
+    "licenseUrl": "https://huggingface.co/datasets/livecodebench/code_generation_lite/blob/0fe84c3912ea0c4d4a78037083943e8f0c4dd505/README.md",
+    "attribution": "Naman Jain and colleagues created LiveCodeBench using contest problems supplied by AtCoder and LeetCode for this date range.",
+    "sourceDownload": "https://huggingface.co/datasets/livecodebench/code_generation_lite/resolve/0fe84c3912ea0c4d4a78037083943e8f0c4dd505/test6.jsonl",
+    "sourceSha256": "bb4c364f71921c4495a6ad15abe1a927350b720009f4933e2e71f8af0f6fd1f5",
+    "availableCount": 175,
+    "eligibleCount": 175,
+    "selectedCount": 140,
+    "reserveCount": 35,
+    "parts": {
+      "primary": {
+        "file": "livecodebench-primary.jsonl",
+        "sha256": "b16ceec88863c5cf44196f7e7ad7c809edf79e1e3544497591524923ae6702a2",
+        "count": 140,
+        "sampleIds": [
+          "atcoder/abc387_b",
+          "atcoder/abc400_e",
+          "leetcode/3765"
+        ],
+        "groups": {
+          "atcoder | easy": 21,
+          "atcoder | hard": 48,
+          "atcoder | medium": 21,
+          "leetcode | easy": 13,
+          "leetcode | hard": 16,
+          "leetcode | medium": 21
+        }
+      },
+      "reserve": {
+        "file": "livecodebench-reserve.jsonl",
+        "sha256": "6b61395978bed6cab5172c1eda8cbb3263e403ed1722dac93ea37b046f962901",
+        "count": 35,
+        "sampleIds": [
+          "atcoder/abc388_d",
+          "atcoder/arc192_a",
+          "leetcode/3784"
+        ],
+        "groups": {
+          "atcoder | easy": 5,
+          "atcoder | hard": 12,
+          "atcoder | medium": 5,
+          "leetcode | easy": 4,
+          "leetcode | hard": 4,
+          "leetcode | medium": 5
+        }
+      }
+    },
+    "file": "livecodebench-primary.jsonl",
+    "sha256": "b16ceec88863c5cf44196f7e7ad7c809edf79e1e3544497591524923ae6702a2",
+    "sampleIds": [
+      "atcoder/abc387_b",
+      "atcoder/abc400_e",
+      "leetcode/3765"
+    ]
+  }
+]

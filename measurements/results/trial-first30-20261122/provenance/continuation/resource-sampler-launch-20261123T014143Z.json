@@ -1,0 +1,19 @@
+{
+  "scope": "Passive device-memory samples during existing primary inference",
+  "started_utc": "2026-11-23T01:41:43.820296+00:00",
+  "started_unix_ns": 1795398103820330636,
+  "started_monotonic_ns": 1068210332766622,
+  "slurm_job_id": "14058516",
+  "hostname": "ins060",
+  "gpu_uuid": "GPU-ef7f1958-590f-7adb-4fd6-f5426219822e",
+  "command": [
+    "/usr/bin/python3",
+    "/insomnia001/depts/edu/users/aa5886/hpml-baselines/source/hpml-project/baselines/trial_resources.py",
+    "gpu",
+    "--device",
+    "GPU-ef7f1958-590f-7adb-4fd6-f5426219822e",
+    "--output",
+    "/insomnia001/depts/edu/users/aa5886/hpml-baselines/runs/team-original-first30-14058516/results/gpu-memory.jsonl"
+  ],
+  "coverage_note": "Sampling begins at the first saved sample. Earlier request intervals and completed Pilot FFN 75% and 50% runs have no coverage from this sampler."
+}

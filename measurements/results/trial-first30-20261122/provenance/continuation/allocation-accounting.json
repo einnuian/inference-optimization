@@ -1,0 +1,78 @@
+{
+  "observed_unix_ns": 1795398845528197550,
+  "source_command": [
+    "sacct",
+    "-X",
+    "-P",
+    "-j",
+    "14056875,14058494,14058685,14058516",
+    "--format=JobIDRaw,JobName,Partition,State,Start,End,ElapsedRaw,AllocCPUS,ReqMem,AllocTRES,CPUTimeRAW,TotalCPU,ExitCode"
+  ],
+  "raw_text": "JobIDRaw|JobName|Partition|State|Start|End|ElapsedRaw|AllocCPUS|ReqMem|AllocTRES|CPUTimeRAW|TotalCPU|ExitCode\n14056875|hpml-first30-trial|short|TIMEOUT|2026-11-22T15:06:26|2026-11-22T18:06:45|10819|16|96G|billing=16,cpu=16,gres/gpu:l40s=1,gres/gpu=1,mem=96G,node=1|173104|00:00:00|0:0\n14058494|hpml-team-original30|short|CANCELLED by 563802|2026-11-22T16:55:09|2026-11-22T16:59:10|241|16|96G|billing=16,cpu=16,gres/gpu:l40s=1,gres/gpu=1,mem=96G,node=1|3856|00:00:00|0:0\n14058516|hpml-team-original30|short|FAILED|2026-11-22T19:20:46|2026-11-22T20:51:09|5423|16|96G|billing=16,cpu=16,gres/gpu:l40s=1,gres/gpu=1,mem=96G,node=1|86768|00:00:00|1:0\n14058685|hpml-team-cpu-prepare|short|COMPLETED|2026-11-22T17:34:31|2026-11-22T17:41:28|417|8|48G|billing=8,cpu=8,mem=48G,node=1|3336|00:00:00|0:0\n",
+  "rows": [
+    {
+      "JobIDRaw": "14056875",
+      "JobName": "hpml-first30-trial",
+      "Partition": "short",
+      "State": "TIMEOUT",
+      "Start": "2026-11-22T15:06:26",
+      "End": "2026-11-22T18:06:45",
+      "ElapsedRaw": "10819",
+      "AllocCPUS": "16",
+      "ReqMem": "96G",
+      "AllocTRES": "billing=16,cpu=16,gres/gpu:l40s=1,gres/gpu=1,mem=96G,node=1",
+      "CPUTimeRAW": "173104",
+      "TotalCPU": "00:00:00",
+      "ExitCode": "0:0"
+    },
+    {
+      "JobIDRaw": "14058494",
+      "JobName": "hpml-team-original30",
+      "Partition": "short",
+      "State": "CANCELLED by 563802",
+      "Start": "2026-11-22T16:55:09",
+      "End": "2026-11-22T16:59:10",
+      "ElapsedRaw": "241",
+      "AllocCPUS": "16",
+      "ReqMem": "96G",
+      "AllocTRES": "billing=16,cpu=16,gres/gpu:l40s=1,gres/gpu=1,mem=96G,node=1",
+      "CPUTimeRAW": "3856",
+      "TotalCPU": "00:00:00",
+      "ExitCode": "0:0"
+    },
+    {
+      "JobIDRaw": "14058516",
+      "JobName": "hpml-team-original30",
+      "Partition": "short",
+      "State": "FAILED",
+      "Start": "2026-11-22T19:20:46",
+      "End": "2026-11-22T20:51:09",
+      "ElapsedRaw": "5423",
+      "AllocCPUS": "16",
+      "ReqMem": "96G",
+      "AllocTRES": "billing=16,cpu=16,gres/gpu:l40s=1,gres/gpu=1,mem=96G,node=1",
+      "CPUTimeRAW": "86768",
+      "TotalCPU": "00:00:00",
+      "ExitCode": "1:0"
+    },
+    {
+      "JobIDRaw": "14058685",
+      "JobName": "hpml-team-cpu-prepare",
+      "Partition": "short",
+      "State": "COMPLETED",
+      "Start": "2026-11-22T17:34:31",
+      "End": "2026-11-22T17:41:28",
+      "ElapsedRaw": "417",
+      "AllocCPUS": "8",
+      "ReqMem": "48G",
+      "AllocTRES": "billing=8,cpu=8,mem=48G,node=1",
+      "CPUTimeRAW": "3336",
+      "TotalCPU": "00:00:00",
+      "ExitCode": "0:0"
+    }
+  ],
+  "allocated_gpu_seconds": 16483,
+  "allocated_gpu_hours": 4.578611111111111,
+  "allocated_cpu_core_seconds": 267064,
+  "scope": "These four job allocation rows cover the shared initial trial, cancelled team startup, CPU preparation, and pilot continuation. Step rows are excluded to prevent duplication. Separate publication jobs have their own accounting."
+}

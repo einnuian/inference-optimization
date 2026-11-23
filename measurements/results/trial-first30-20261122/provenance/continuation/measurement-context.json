@@ -1,0 +1,16 @@
+{
+  "recorded_unix_ns": 1795398235287124499,
+  "gpu_uuid": "GPU-ef7f1958-590f-7adb-4fd6-f5426219822e",
+  "device_memory_sampler": {
+    "path": "/insomnia001/depts/edu/users/aa5886/hpml-baselines/runs/team-original-first30-14058516/results/gpu-memory.jsonl",
+    "started_utc": "2026-11-23T01:41:43.820+00:00",
+    "first_sample_utc": "2026-11-23T01:41:44.425+00:00",
+    "scope": "The sampler starts during the AR run. The earlier 75% and 50% runs have no device samples.",
+    "coverage_policy": "Report sampled memory only when the timestamped samples cover the complete measurement interval. Preserve empty values for missing coverage."
+  },
+  "source_equivalence": {
+    "team-ffn-75": "Twelve cases passed.",
+    "team-ffn-50": "Twelve cases passed.",
+    "team-ffn-100": "The optional probe is omitted by the recorded launch policy. Required checkpoint loader checks remain active."
+  }
+}

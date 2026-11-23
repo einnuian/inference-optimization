@@ -1,0 +1,239 @@
+% This file requires the array and booktabs packages and uses full-width benchmark panels.
+% The three benchmark panels share one caption for each metric.
+\begin{table*}[!tp]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\caption{Output tokens per second (OTPS) (output tokens/s).}
+\label{tab:otps}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(106.46 \pm 1.1\;[3]\) & \(103.23 \pm 0.086\;[3]\) & \(104.17 \pm 0.26\;[3]\) \\
+P-EAGLE & \(117.50 \pm 0.82\;[3]\) & \(\mathbf{153.49} \pm 0.012\;[3]\) & \(\mathbf{157.94} \pm 0.0071\;[3]\) \\
+DFlash & \(\mathbf{213.37} \pm 0.29\;[3]\) & \(138.76 \pm 0.31\;[3]\) & \(154.89 \pm 0.062\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(43.27 \pm 0.046\;[3]\) & \(43.44 \pm 0.0078\;[3]\) & \(43.34 \pm 0.058\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(46.28 \pm 0.0013\;[3]\) & \(46.47 \pm 0.002\;[3]\) & \(46.30 \pm 0.00078\;[3]\) \\
+Pilot FFN 100\% & \(39.02 \pm 0.036\;[3]\) & \(33.96 \pm 0.022\;[3]\) & \(32.42 \pm 0.026\;[3]\) \\
+Pilot FFN 75\% & \(39.02 \pm 0.045\;[3]\) & \(31.92 \pm 2.8\;[3]\) & \(32.74 \pm 0.054\;[3]\) \\
+Pilot FFN 50\% & \(37.59 \pm 0.082\;[3]\) & \(32.85 \pm 0.22\;[3]\) & \(31.56 \pm 0.035\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(40.17 \pm 0.15\;[3]\) & \(40.01 \pm 0.027\;[3]\) & \(39.12 \pm 0.05\;[3]\) \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(100.29 \pm 0.28\;[3]\) & \(110.69 \pm 1.1\;[3]\) & \(99.48 \pm 0.39\;[3]\) \\
+P-EAGLE & \(114.10 \pm 0.011\;[3]\) & \(124.91 \pm 0.0019\;[3]\) & \(107.91 \pm 0.01\;[3]\) \\
+DFlash & \(\mathbf{137.18} \pm 1.4\;[3]\) & \(\mathbf{155.12} \pm 0.35\;[3]\) & \(\mathbf{117.21} \pm 0.21\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(42.88 \pm 0.081\;[3]\) & \(43.27 \pm 0.056\;[3]\) & \(43.27 \pm 0.043\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(45.72 \pm 0.0035\;[3]\) & \(46.17 \pm 0.029\;[3]\) & \(46.21 \pm 0.021\;[3]\) \\
+Pilot FFN 100\% & \(36.12 \pm 0.052\;[3]\) & \(37.10 \pm 0.057\;[3]\) & \(35.49 \pm 0.18\;[3]\) \\
+Pilot FFN 75\% & \(35.42 \pm 0.064\;[3]\) & \(35.39 \pm 0.044\;[3]\) & \(35.10 \pm 0.082\;[3]\) \\
+Pilot FFN 50\% & \(35.66 \pm 0.13\;[3]\) & \(36.68 \pm 0.06\;[3]\) & \(34.45 \pm 0.03\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(39.73 \pm 0.077\;[3]\) & \(40.03 \pm 0.042\;[3]\) & \(39.87 \pm 0.13\;[3]\) \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(\mathbf{110.29} \pm 0.77\;[3]\) & \(116.71 \pm 0.37\;[3]\) & \(94.66 \pm 0.49\;[3]\) & \(\mathbf{97.98} \pm 1.2\;[3]\) \\
+P-EAGLE & \(82.75 \pm 0.37\;[3]\) & \(105.33 \pm 0.0069\;[3]\) & \(93.02 \pm 0.12\;[3]\) & \(83.56 \pm 0.012\;[3]\) \\
+DFlash & \(109.73 \pm 0.13\;[3]\) & \(\mathbf{117.62} \pm 0.39\;[3]\) & \(\mathbf{112.30} \pm 0.14\;[3]\) & \(97.67 \pm 0.067\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(43.37 \pm 0.067\;[3]\) & \(43.38 \pm 0.011\;[3]\) & \(43.25 \pm 0.018\;[3]\) & \(43.00 \pm 0.044\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(46.43 \pm 0.0034\;[3]\) & \(46.37 \pm 0.0016\;[3]\) & \(46.19 \pm 0.0067\;[3]\) & \(45.80 \pm 0.0037\;[3]\) \\
+Pilot FFN 100\% & \(36.30 \pm 0.038\;[3]\) & \(36.34 \pm 0.055\;[3]\) & \(34.89 \pm 0.1\;[3]\) & \(34.28 \pm 0.019\;[3]\) \\
+Pilot FFN 75\% & \(36.33 \pm 0.0059\;[3]\) & \(36.42 \pm 0.045\;[3]\) & \(34.36 \pm 0.012\;[3]\) & \(34.48 \pm 0.044\;[3]\) \\
+Pilot FFN 50\% & \(35.71 \pm 0.11\;[3]\) & \(35.54 \pm 0.13\;[3]\) & \(33.96 \pm 0.095\;[3]\) & \(33.25 \pm 0.078\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(39.97 \pm 0.093\;[3]\) & \(40.02 \pm 0.029\;[3]\) & \(39.76 \pm 0.039\;[3]\) & \(39.39 \pm 0.013\;[3]\) \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Brackets give the number of eligible repetitions. With two or more repetitions, entries give the mean and sample standard deviation. A single repetition supplies one observed value. Each repetition uses the same three prompts. Empty cells have no validated measurement. The target is Meta Llama-3.1-8B-Instruct on an NVIDIA L40S GPU. Generation uses greedy decoding, one active request, and a 2,048-token output limit. Pilot FFN rows identify the notebook's P-EAGLE-style drafter at feed-forward widths of 100\%, 75\%, and 50\%. Run metadata identifies each checkpoint's origin. Their AR reference uses Transformers. The P-EAGLE row uses the H-Spec reproduction. Acceptance uses validated native counters or matched diagnostic runs. The evidence records identify each measurement scope. Committed tokens are counted before output trimming.
+
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!tp]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\caption{Speedup over AR (\(\times\)).}
+\label{tab:speedup}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(2.46 \pm 0.029\;[3]\) & \(2.38 \pm 0.0016\;[3]\) & \(2.40 \pm 0.0057\;[3]\) \\
+P-EAGLE & \(2.54 \pm 0.018\;[3]\) & \(\mathbf{3.30} \pm 0.00034\;[3]\) & \(3.41 \pm 0.00021\;[3]\) \\
+DFlash & \(\mathbf{4.93} \pm 0.0036\;[3]\) & \(3.19 \pm 0.0075\;[3]\) & \(\mathbf{3.57} \pm 0.0062\;[3]\) \\
+Pilot FFN 100\% &  &  &  \\
+Pilot FFN 75\% & \(0.97 \pm 0.0048\;[3]\) & \(0.80 \pm 0.07\;[3]\) & \(0.84 \pm 0.0015\;[3]\) \\
+Pilot FFN 50\% & \(0.94 \pm 0.0024\;[3]\) & \(0.82 \pm 0.006\;[3]\) & \(0.81 \pm 0.00092\;[3]\) \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(2.34 \pm 0.0059\;[3]\) & \(2.56 \pm 0.025\;[3]\) & \(2.30 \pm 0.0098\;[3]\) \\
+P-EAGLE & \(2.50 \pm 0.00022\;[3]\) & \(2.71 \pm 0.0017\;[3]\) & \(2.34 \pm 0.0012\;[3]\) \\
+DFlash & \(\mathbf{3.20} \pm 0.028\;[3]\) & \(\mathbf{3.59} \pm 0.0073\;[3]\) & \(\mathbf{2.71} \pm 0.0022\;[3]\) \\
+Pilot FFN 100\% &  &  &  \\
+Pilot FFN 75\% & \(0.89 \pm 0.0016\;[3]\) & \(0.88 \pm 0.0016\;[3]\) & \(0.88 \pm 0.0021\;[3]\) \\
+Pilot FFN 50\% & \(0.90 \pm 0.0026\;[3]\) & \(0.92 \pm 0.0024\;[3]\) & \(0.86 \pm 0.0029\;[3]\) \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(\mathbf{2.54} \pm 0.014\;[3]\) & \(2.69 \pm 0.0091\;[3]\) & \(2.19 \pm 0.011\;[3]\) & \(\mathbf{2.28} \pm 0.027\;[3]\) \\
+P-EAGLE & \(1.78 \pm 0.0078\;[3]\) & \(2.27 \pm 0.00021\;[3]\) & \(2.01 \pm 0.0028\;[3]\) & \(1.82 \pm 0.00018\;[3]\) \\
+DFlash & \(2.53 \pm 0.0027\;[3]\) & \(\mathbf{2.71} \pm 0.0083\;[3]\) & \(\mathbf{2.60} \pm 0.0027\;[3]\) & \(2.27 \pm 0.0038\;[3]\) \\
+Pilot FFN 100\% &  &  &  &  \\
+Pilot FFN 75\% & \(0.91 \pm 0.0021\;[3]\) & \(0.91 \pm 0.00065\;[3]\) & \(0.86 \pm 0.00082\;[3]\) & \(0.88 \pm 0.00085\;[3]\) \\
+Pilot FFN 50\% & \(0.89 \pm 0.00097\;[3]\) & \(0.89 \pm 0.0031\;[3]\) & \(0.85 \pm 0.0028\;[3]\) & \(0.84 \pm 0.0019\;[3]\) \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Brackets give the number of eligible repetitions. With two or more repetitions, entries give the mean and sample standard deviation. A single repetition supplies one observed value. Each repetition uses the same three prompts. Empty cells have no validated measurement. The target is Meta Llama-3.1-8B-Instruct on an NVIDIA L40S GPU. Generation uses greedy decoding, one active request, and a 2,048-token output limit. Pilot FFN rows identify the notebook's P-EAGLE-style drafter at feed-forward widths of 100\%, 75\%, and 50\%. Run metadata identifies each checkpoint's origin. Their AR reference uses Transformers. The P-EAGLE row uses the H-Spec reproduction. Acceptance uses validated native counters or matched diagnostic runs. The evidence records identify each measurement scope. Committed tokens are counted before output trimming.
+
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!tp]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\caption{Allocated GPU time per million output tokens (GPU-seconds/million output tokens).}
+\label{tab:gpu-time}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(9394 \pm 100\;[3]\) & \(9687 \pm 8.1\;[3]\) & \(9600 \pm 24\;[3]\) \\
+P-EAGLE & \(8511 \pm 60\;[3]\) & \(\mathbf{6515} \pm 0.5\;[3]\) & \(\mathbf{6331} \pm 0.29\;[3]\) \\
+DFlash & \(\mathbf{4687} \pm 6.3\;[3]\) & \(7206 \pm 16\;[3]\) & \(6456 \pm 2.6\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(23110 \pm 25\;[3]\) & \(23020 \pm 4.1\;[3]\) & \(23080 \pm 31\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(21610 \pm 0.59\;[3]\) & \(21520 \pm 0.95\;[3]\) & \(21600 \pm 0.36\;[3]\) \\
+Pilot FFN 100\% & \(25630 \pm 23\;[3]\) & \(29440 \pm 19\;[3]\) & \(30850 \pm 25\;[3]\) \\
+Pilot FFN 75\% & \(25630 \pm 30\;[3]\) & \(31500 \pm 2900\;[3]\) & \(30540 \pm 50\;[3]\) \\
+Pilot FFN 50\% & \(26600 \pm 58\;[3]\) & \(30440 \pm 210\;[3]\) & \(31690 \pm 35\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(24900 \pm 94\;[3]\) & \(24990 \pm 17\;[3]\) & \(25560 \pm 32\;[3]\) \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(9971 \pm 28\;[3]\) & \(9035 \pm 93\;[3]\) & \(10050 \pm 40\;[3]\) \\
+P-EAGLE & \(8764 \pm 0.87\;[3]\) & \(8006 \pm 0.12\;[3]\) & \(9267 \pm 0.87\;[3]\) \\
+DFlash & \(\mathbf{7290} \pm 73\;[3]\) & \(\mathbf{6447} \pm 15\;[3]\) & \(\mathbf{8532} \pm 15\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(23320 \pm 44\;[3]\) & \(23110 \pm 30\;[3]\) & \(23110 \pm 23\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(21870 \pm 1.7\;[3]\) & \(21660 \pm 14\;[3]\) & \(21640 \pm 9.7\;[3]\) \\
+Pilot FFN 100\% & \(27690 \pm 40\;[3]\) & \(26950 \pm 41\;[3]\) & \(28180 \pm 140\;[3]\) \\
+Pilot FFN 75\% & \(28230 \pm 51\;[3]\) & \(28260 \pm 35\;[3]\) & \(28490 \pm 66\;[3]\) \\
+Pilot FFN 50\% & \(28040 \pm 100\;[3]\) & \(27260 \pm 45\;[3]\) & \(29020 \pm 25\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(25170 \pm 49\;[3]\) & \(24980 \pm 26\;[3]\) & \(25080 \pm 82\;[3]\) \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(\mathbf{9067} \pm 63\;[3]\) & \(8568 \pm 27\;[3]\) & \(10560 \pm 55\;[3]\) & \(\mathbf{10210} \pm 130\;[3]\) \\
+P-EAGLE & \(12080 \pm 54\;[3]\) & \(9494 \pm 0.62\;[3]\) & \(10750 \pm 13\;[3]\) & \(11970 \pm 1.8\;[3]\) \\
+DFlash & \(9113 \pm 11\;[3]\) & \(\mathbf{8502} \pm 28\;[3]\) & \(\mathbf{8904} \pm 11\;[3]\) & \(10240 \pm 7\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(23060 \pm 36\;[3]\) & \(23050 \pm 5.9\;[3]\) & \(23120 \pm 9.8\;[3]\) & \(23260 \pm 24\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(21540 \pm 1.6\;[3]\) & \(21570 \pm 0.74\;[3]\) & \(21650 \pm 3.2\;[3]\) & \(21830 \pm 1.8\;[3]\) \\
+Pilot FFN 100\% & \(27550 \pm 29\;[3]\) & \(27520 \pm 42\;[3]\) & \(28660 \pm 83\;[3]\) & \(29170 \pm 16\;[3]\) \\
+Pilot FFN 75\% & \(27520 \pm 4.5\;[3]\) & \(27460 \pm 34\;[3]\) & \(29100 \pm 10\;[3]\) & \(29000 \pm 37\;[3]\) \\
+Pilot FFN 50\% & \(28000 \pm 86\;[3]\) & \(28140 \pm 110\;[3]\) & \(29440 \pm 82\;[3]\) & \(30070 \pm 71\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(25020 \pm 58\;[3]\) & \(24990 \pm 18\;[3]\) & \(25150 \pm 25\;[3]\) & \(25380 \pm 8.1\;[3]\) \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Brackets give the number of eligible repetitions. With two or more repetitions, entries give the mean and sample standard deviation. A single repetition supplies one observed value. Each repetition uses the same three prompts. Empty cells have no validated measurement. The target is Meta Llama-3.1-8B-Instruct on an NVIDIA L40S GPU. Generation uses greedy decoding, one active request, and a 2,048-token output limit. Pilot FFN rows identify the notebook's P-EAGLE-style drafter at feed-forward widths of 100\%, 75\%, and 50\%. Run metadata identifies each checkpoint's origin. Their AR reference uses Transformers. The P-EAGLE row uses the H-Spec reproduction. Acceptance uses validated native counters or matched diagnostic runs. The evidence records identify each measurement scope. Committed tokens are counted before output trimming.
+Compute cost uses each timed benchmark interval and the GPU count from its final Slurm allocation. The interval includes client gaps between requests. Startup, warmups, and time outside the benchmark have separate whole-job accounting. Per-prompt GPU-seconds multiply the allocated GPU count by that prompt's completion time in seconds.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Lower values are preferred.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!tp]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\caption{Mean acceptance length (\(\tau\)) (committed tokens/round).}
+\label{tab:acceptance-length}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(3.443 \pm 0\;[3]\) & \(3.306 \pm 0\;[3]\) & \(3.328 \pm 0\;[3]\) \\
+P-EAGLE &  &  &  \\
+DFlash & \(\mathbf{6.656} \pm 0\;[3]\) & \(\mathbf{4.297} \pm 0\;[3]\) & \(\mathbf{4.803} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(1.245 \pm 0\;[3]\) & \(1.095 \pm 0\;[3]\) & \(1.121 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(1.248 \pm 0\;[3]\) & \(1.085 \pm 0\;[3]\) & \(1.133 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(1.216 \pm 0\;[3]\) & \(1.072 \pm 0\;[3]\) & \(1.106 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(3.365 \pm 0\;[3]\) & \(3.624 \pm 0\;[3]\) & \(3.218 \pm 0\;[3]\) \\
+P-EAGLE &  &  &  \\
+DFlash & \(\mathbf{4.429} \pm 0\;[3]\) & \(\mathbf{4.909} \pm 0\;[3]\) & \(\mathbf{3.67} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(1.159 \pm 0\;[3]\) & \(1.181 \pm 0\;[3]\) & \(1.157 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(1.136 \pm 0\;[3]\) & \(1.13 \pm 0\;[3]\) & \(1.148 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(1.163 \pm 0\;[3]\) & \(1.184 \pm 0\;[3]\) & \(1.144 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(\mathbf{3.558} \pm 0\;[3]\) & \(\mathbf{3.753} \pm 0\;[3]\) & \(3.045 \pm 0\;[3]\) & \(\mathbf{3.145} \pm 0\;[3]\) \\
+P-EAGLE &  &  &  &  \\
+DFlash & \(3.399 \pm 0\;[3]\) & \(3.66 \pm 0\;[3]\) & \(\mathbf{3.503} \pm 0\;[3]\) & \(3.085 \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(1.178 \pm 0\;[3]\) & \(1.158 \pm 0\;[3]\) & \(1.153 \pm 0\;[3]\) & \(1.154 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(1.181 \pm 0\;[3]\) & \(1.164 \pm 0\;[3]\) & \(1.139 \pm 0\;[3]\) & \(1.163 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(1.175 \pm 0\;[3]\) & \(1.15 \pm 0\;[3]\) & \(1.139 \pm 0\;[3]\) & \(1.136 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Brackets give the number of eligible repetitions. With two or more repetitions, entries give the mean and sample standard deviation. A single repetition supplies one observed value. Each repetition uses the same three prompts. Empty cells have no validated measurement. The target is Meta Llama-3.1-8B-Instruct on an NVIDIA L40S GPU. Generation uses greedy decoding, one active request, and a 2,048-token output limit. Pilot FFN rows identify the notebook's P-EAGLE-style drafter at feed-forward widths of 100\%, 75\%, and 50\%. Run metadata identifies each checkpoint's origin. Their AR reference uses Transformers. The P-EAGLE row uses the H-Spec reproduction. Acceptance uses validated native counters or matched diagnostic runs. The evidence records identify each measurement scope. Committed tokens are counted before output trimming.
+
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred.
+\end{minipage}
+\end{table*}
