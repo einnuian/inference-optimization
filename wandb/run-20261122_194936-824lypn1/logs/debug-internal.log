@@ -1,0 +1,6 @@
+{"time":"2026-11-22T19:49:36.179574884-05:00","level":"INFO","msg":"stream: starting","core version":"0.25.0"}
+{"time":"2026-11-22T19:49:36.37806843-05:00","level":"INFO","msg":"stream: created new stream","id":"824lypn1"}
+{"time":"2026-11-22T19:49:36.378143889-05:00","level":"INFO","msg":"handler: started","stream_id":"824lypn1"}
+{"time":"2026-11-22T19:49:36.379226429-05:00","level":"INFO","msg":"stream: started","id":"824lypn1"}
+{"time":"2026-11-22T19:49:36.379255998-05:00","level":"INFO","msg":"writer: started","stream_id":"824lypn1"}
+{"time":"2026-11-22T19:49:36.379274908-05:00","level":"INFO","msg":"sender: started","stream_id":"824lypn1"}
