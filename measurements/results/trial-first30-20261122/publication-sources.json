@@ -1,0 +1,32 @@
+{
+  "publication_version": "final-pilot-20261123T015828Z",
+  "created_utc": "2026-11-23T01:58:28.570476+00:00",
+  "initial_source": "/Users/ayo/Documents/Columbia/FALL 26/HIGH PERFORMANCE ML/PROJECT/hpml-project/measurements/trial-first30-20261122",
+  "pilot_100_source": "/Users/ayo/Documents/Columbia/FALL 26/HIGH PERFORMANCE ML/PROJECT/hpml-project/measurements/team-priority-first30-14056875/results/team-ffn-100",
+  "pilot_75_50_ar_source": "/Users/ayo/Documents/Columbia/FALL 26/HIGH PERFORMANCE ML/PROJECT/hpml-project/measurements/team-original-first30-14058516/results",
+  "memory_sample_files": [
+    "gpu-memory-snapshot-20261123T013545Z.jsonl",
+    "gpu-memory-snapshot-20261123T015408Z.jsonl"
+  ],
+  "scope": "The initial five configurations and three pilot widths have complete measurements. The active pilot AR reference matches the 75% and 50% configurations. The original 100% run uses another physical GPU, so its paired cells remain empty.",
+  "historical_attempt_archive": "/Users/ayo/Documents/Columbia/FALL 26/HIGH PERFORMANCE ML/PROJECT/hpml-project/measurements/archives/pilot-original-first30-14056875.zip",
+  "provenance_corrections": [
+    {
+      "file": "provenance/continuation/attempt-outcome.json",
+      "sha256": "45e6ab2e39460a2b10773f23bd47f3f7a9e313c42282688e479d721af6f050a2",
+      "description": "The publication copy corrects the launch-log sequence directory. The failure_log_recorded field preserves the original value."
+    }
+  ],
+  "report_artifacts": [
+    {
+      "file": "report/benchmark_report.pdf",
+      "sha256": "79d6bacc1518b2632aca3f64731f709c3b4f758a5879c348c55c852c86eaad71",
+      "bytes": 185469
+    },
+    {
+      "file": "report/benchmark_report.tex",
+      "sha256": "54ca0b0020aa57135df97a1f949b6e0aab33f51bbac3eae5f0f5e35e474fa259",
+      "bytes": 209510
+    }
+  ]
+}

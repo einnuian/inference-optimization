@@ -1,0 +1,6 @@
+{
+  "controller_sha256": "2db8369c4efc24aa0edf5f0331621d2f3e0a5c00154c4f1bd14c20ce8caedd25",
+  "controller_source_snapshot": "/insomnia001/depts/edu/users/aa5886/hpml-baselines/runs/team-priority-first30-14056875/controller-execution-source.py",
+  "snapshot_unix_ns": 1795387819946803389,
+  "purpose": "Preserve the executing controller source before changing the queued continuation policy."
+}

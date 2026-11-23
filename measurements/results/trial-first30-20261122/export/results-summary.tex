@@ -1,0 +1,84 @@
+\subsection{Available observations}
+
+The initial record set contains 150 of 150 planned benchmark blocks. Each complete block contains three request executions.
+
+The team record set contains 120 of 120 planned benchmark blocks. Each complete block contains three request executions.
+
+The current initial scope contains 450 completed timed request executions out of 450 planned executions.
+
+The 30 unique prompts recur across three timing repetitions. A complete configuration therefore contains 90 timed request executions.
+
+Pilot FFN 100\% uses an imported original team checkpoint. The run evidence preserves available training provenance and leaves unknown fields unresolved.
+
+Pilot FFN 75\% uses an imported original team checkpoint. The run evidence preserves available training provenance and leaves unknown fields unresolved.
+
+Pilot FFN 50\% uses an imported original team checkpoint. The run evidence preserves available training provenance and leaves unknown fields unresolved.
+
+\subsection{Saved diagnostic coverage}
+
+EAGLE-3 has validated complete-round timing for 30 benchmark repetitions across 10 benchmarks. Those intervals cover 90 diagnostic request executions.
+
+DFlash has validated complete-round timing for 4 benchmark repetitions across 4 benchmarks. Those intervals cover 12 diagnostic request executions.
+
+These separate diagnostic executions include synchronization and trace-construction overhead. Primary requests supply the throughput and response-time tables. The appendix reports the eligible diagnostic measurements and their repetition counts.
+
+\subsection{Throughput and paired speedup}
+
+EAGLE-3 has benchmark mean speedups from 2.189\(\times\) on Arena-Hard to 2.690\(\times\) on Alpaca across 10 measured benchmarks. Table entries retain the repetition counts and standard deviations.
+
+P-EAGLE has benchmark mean speedups from 1.782\(\times\) on MT-Bench to 3.411\(\times\) on AIME 2025 across 10 measured benchmarks. Table entries retain the repetition counts and standard deviations.
+
+DFlash has benchmark mean speedups from 2.271\(\times\) on CNN/DailyMail to 4.931\(\times\) on GSM8K across 10 measured benchmarks. Table entries retain the repetition counts and standard deviations.
+
+Pilot FFN 75\% has benchmark mean speedups from 0.798\(\times\) on MATH-500 to 0.971\(\times\) on GSM8K across 10 measured benchmarks. Table entries retain the repetition counts and standard deviations.
+
+Pilot FFN 50\% has benchmark mean speedups from 0.807\(\times\) on AIME 2025 to 0.936\(\times\) on GSM8K across 10 measured benchmarks. Table entries retain the repetition counts and standard deviations.
+
+The throughput ratio describes delivered output per elapsed second under the recorded prompts and settings. Response length and output-agreement results define the scope of each comparison.
+
+\subsection{Team pilot observations}
+
+Pilot FFN 100\% has observed benchmark mean OTPS from 32.42 tokens/s on AIME 2025 to 39.02 tokens/s on GSM8K across 10 benchmarks. These measurements use the team's recorded Transformers implementation.
+
+The active AR reference supports paired speedup on 0 of these 10 benchmarks. Compatibility checks leave the remaining speedup and exact-agreement cells empty. The measured OTPS remains available for each completed method block.
+
+Pilot FFN 100\% has benchmark mean acceptance length from 1.095 to 1.245 committed tokens per verification round. The calculation uses the saved primary round counts before final output trimming.
+
+Pilot FFN 75\% has observed benchmark mean OTPS from 31.92 tokens/s on MATH-500 to 39.02 tokens/s on GSM8K across 10 benchmarks. These measurements use the team's recorded Transformers implementation.
+
+Pilot FFN 75\% has benchmark mean acceptance length from 1.085 to 1.248 committed tokens per verification round. The calculation uses the saved primary round counts before final output trimming.
+
+Pilot FFN 50\% has observed benchmark mean OTPS from 31.56 tokens/s on AIME 2025 to 37.59 tokens/s on GSM8K across 10 benchmarks. These measurements use the team's recorded Transformers implementation.
+
+Pilot FFN 50\% has benchmark mean acceptance length from 1.072 to 1.216 committed tokens per verification round. The calculation uses the saved primary round counts before final output trimming.
+
+\subsection{Exact response agreement}
+
+EAGLE-3 matches its AR reference on 33 of 90 checked request executions (36.7\%). All observed repetitions match for 11 of 30 distinct prompts. Each prompt has the same agreement outcome across its observed repetitions. The earliest recorded token divergence occurs at returned token 4. Output lengths match in every observed repetition for 13 of 30 distinct prompts. Across one response per distinct prompt, the method delivers 10,534 tokens and its AR reference delivers 12,513. Each observed repetition has these same per-prompt lengths.
+
+P-EAGLE matches its AR reference on 42 of 90 checked request executions (46.7\%). All observed repetitions match for 14 of 30 distinct prompts. Each prompt has the same agreement outcome across its observed repetitions. The earliest recorded token divergence occurs at returned token 4. Output lengths match in every observed repetition for 15 of 30 distinct prompts. Across one response per distinct prompt, the method delivers 11,210 tokens and its AR reference delivers 10,560. Each observed repetition has these same per-prompt lengths.
+
+DFlash matches its AR reference on 39 of 90 checked request executions (43.3\%). All observed repetitions match for 13 of 30 distinct prompts. Each prompt has the same agreement outcome across its observed repetitions. The earliest recorded token divergence occurs at returned token 4. Output lengths match in every observed repetition for 15 of 30 distinct prompts. Across one response per distinct prompt, the method delivers 12,993 tokens and its AR reference delivers 12,513. Each observed repetition has these same per-prompt lengths.
+
+Pilot FFN 75\% matches its AR reference on 36 of 90 checked request executions (40.0\%). All observed repetitions match for 12 of 30 distinct prompts. Each prompt has the same agreement outcome across its observed repetitions. The earliest recorded token divergence occurs at returned token 4. Output lengths match in every observed repetition for 13 of 30 distinct prompts. Across one response per distinct prompt, the method delivers 11,579 tokens and its AR reference delivers 9,816. Each observed repetition has these same per-prompt lengths.
+
+Pilot FFN 50\% matches its AR reference on 36 of 90 checked request executions (40.0\%). All observed repetitions match for 12 of 30 distinct prompts. Each prompt has the same agreement outcome across its observed repetitions. The earliest recorded token divergence occurs at returned token 4. Output lengths match in every observed repetition for 13 of 30 distinct prompts. Across one response per distinct prompt, the method delivers 11,579 tokens and its AR reference delivers 9,816. Each observed repetition has these same per-prompt lengths.
+
+The response mismatches are a material finding. Their cause remains unresolved. The measured throughput gains describe the recorded executions. An exact-response-preservation claim requires resolving these mismatches. A causal explanation requires checking target scores, input token IDs, verification behavior, and cache state at the first divergent position.
+
+Benchmark task accuracy remains unmeasured. Exact token agreement evaluates reproduction of the AR response. Math correctness, code pass@1, summarization quality, and conversational judging require separate scoring procedures.
+
+\begin{table*}[!htp]
+\centering\small
+\caption{Allocated compute resources for the evaluation jobs.}
+\label{tab:allocations}
+\begin{tabular}{@{}lp{5.0cm}lrr@{}}
+\toprule
+Job ID & Purpose & GPU model / count & GPU-hours & CPU-hours \\
+\midrule
+14056875 & Released-method evaluation and the original pilot attempt. & NVIDIA L40S / 1 & 3.0053 & 48.0844 \\
+14058516 & Pilot width evaluation and its AR reference. & NVIDIA L40S / 1 & 1.5064 & 24.1022 \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{\linewidth}\footnotesize
+Each parent allocation appears once. These totals include all elapsed allocation time, including setup, model loading, qualification, warmups, recorded requests, and incomplete attempts. The table covers the evaluation allocations used by these result rows. The project compute ledger separately preserves earlier preparation jobs. Final Slurm records and their hashes accompany the exported evidence. CPU-hours count allocated CPU cores multiplied by elapsed hours.
+\end{minipage}\end{table*}

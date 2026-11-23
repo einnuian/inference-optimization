@@ -1,0 +1,33 @@
+{
+  "recorded_unix_ns": 1795398898607213951,
+  "slurm_job_id": "14058516",
+  "final_job_state": "FAILED",
+  "completed_configurations": [
+    "team-ffn-75",
+    "team-ffn-50",
+    "team-ar"
+  ],
+  "completed_requests_per_configuration": 90,
+  "measurement_phases": [
+    "primary"
+  ],
+  "final_100_replay": {
+    "status": "not_started",
+    "failure_stage": "Writing the optional source-equivalence omission record.",
+    "failure_type": "AttributeError",
+    "failure_log": "/insomnia001/depts/edu/users/aa5886/hpml-baselines/runs/team-original-first30-14058516/sequence-76103dc5edb34a1fa267a42ca929a2ed/primary-team-ffn-100-qualification.log",
+    "model_inference_started": false,
+    "failure_log_recorded": "/insomnia001/depts/edu/users/aa5886/hpml-baselines/runs/team-original-first30-14058516/sequence-policy.json/primary-team-ffn-100-qualification.log",
+    "failure_log_correction": "The publication copy corrects the sequence directory after verification of the saved launch log. The recorded path remains preserved."
+  },
+  "original_100_result": {
+    "path": "/insomnia001/depts/edu/users/aa5886/hpml-baselines/runs/team-priority-first30-14056875/results/team-ffn-100",
+    "status": "complete",
+    "measured_requests": 90,
+    "gpu_uuid": "GPU-2b339976-866e-636d-c1de-fbc4789c6d88",
+    "paired_reference_complete": false
+  },
+  "continuation_gpu_uuid": "GPU-ef7f1958-590f-7adb-4fd6-f5426219822e",
+  "pairing_scope": "The continuation AR reference supports the 75% and 50% comparisons. The original 100% run retains its separate device and incomplete reference.",
+  "further_inference": "No further inference is authorized for this report."
+}

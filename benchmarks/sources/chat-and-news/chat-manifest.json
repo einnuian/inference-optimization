@@ -1,0 +1,247 @@
+[
+  {
+    "id": "mt-bench",
+    "name": "MT-Bench",
+    "family": "Conversation",
+    "sourceSplit": "EAGLE’s 80-question MT-Bench evaluation file.",
+    "selection": "The comparison includes five writing questions and six questions from each of the seven other categories. The reserve includes the remaining 22 eligible questions.",
+    "promptRule": "Send the first user turn from the source record. The second turn depends on the model’s first reply. A separate multi-turn evaluation would send the first reply as conversation history before asking the second question.",
+    "scoring": "Use these first turns to measure speed and to compare generated tokens against the target model at temperature zero. The original MT-Bench quality evaluation uses both turns and a judge with task-specific instructions.",
+    "access": "The private hub can include these first turns with attribution.",
+    "sourceCredit": "LMSYS and the MT-Bench authors created the questions. The EAGLE authors distributed this evaluation file. The first turns match all 80 questions in the authors’ Apache-2.0 FastChat release. The original license accompanies these files.",
+    "creditUrl": "https://github.com/lm-sys/FastChat/blob/587d5cfa1609a43d192cedb8441cac3c17db105d/LICENSE",
+    "protocolUrl": "https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge",
+    "pilotExclusions": [
+      "81",
+      "91",
+      "101",
+      "111",
+      "121",
+      "131",
+      "141",
+      "151"
+    ],
+    "historicalExclusions": [
+      "81",
+      "82",
+      "83",
+      "84"
+    ],
+    "historicalEvidence": "The complete first turns in rows 1–4 of HuggingFaceH4/mt_bench_prompts (train) exactly match EAGLE IDs 81–84. ID 81 also appears in the project pilot.",
+    "historicalSourceUrl": "https://huggingface.co/datasets/HuggingFaceH4/mt_bench_prompts/tree/e3a795c5e9a82ee40611c416b8a7786c73198991",
+    "sourceUrl": "https://github.com/SafeAILab/EAGLE/blob/cb7e0841fe0c206c6ed74a197ad5e2a1f13f5a2b/eagle/data/mt_bench/question.jsonl",
+    "downloadUrl": "https://raw.githubusercontent.com/SafeAILab/EAGLE/cb7e0841fe0c206c6ed74a197ad5e2a1f13f5a2b/eagle/data/mt_bench/question.jsonl",
+    "revision": "cb7e0841fe0c206c6ed74a197ad5e2a1f13f5a2b",
+    "sourceSha256": "119565adbab82227089cefdb44c8d7e2cf04dc0a0ec233634c82e7d4e2a944f7",
+    "sourceFilename": "mt_bench.jsonl",
+    "availableCount": 80,
+    "indexFile": "mt-bench.index.json",
+    "file": "mt-bench.comparison.jsonl",
+    "reserveFile": "mt-bench.reserve.jsonl",
+    "siteHostsPrompts": true,
+    "comparisonCount": 47,
+    "reserveCount": 22,
+    "selectedCount": 69,
+    "countsByStratum": {
+      "coding": {
+        "comparison": 6,
+        "reserve": 3
+      },
+      "extraction": {
+        "comparison": 6,
+        "reserve": 3
+      },
+      "humanities": {
+        "comparison": 6,
+        "reserve": 3
+      },
+      "math": {
+        "comparison": 6,
+        "reserve": 3
+      },
+      "reasoning": {
+        "comparison": 6,
+        "reserve": 3
+      },
+      "roleplay": {
+        "comparison": 6,
+        "reserve": 3
+      },
+      "stem": {
+        "comparison": 6,
+        "reserve": 3
+      },
+      "writing": {
+        "comparison": 5,
+        "reserve": 1
+      }
+    },
+    "selectionOrder": "Within each group, sort the lowercase hexadecimal SHA-256 hash of the UTF-8 string team34-baseline-v1| followed by the project item ID. Take the comparison records first and the reserve records next. Check for repeated text across the four collections and the 24 pilot prompts after Unicode normalization, case folding and whitespace normalization.",
+    "indexSha256": "09456b6e1cd20e358d66fc05f39d01c7c519a327c2cf5b34b90b8df6de4d7f1f",
+    "comparisonSha256": "552e752641b9cf19a7d42b839b0293cd8b0e55dcf2f92b8a960a673d0b2bbce0",
+    "reserveSha256": "491b8b55800ae11c9d010370c385fa20e973df6a4546bcc938990e0757534904",
+    "sampleIds": [
+      "mt-bench/123",
+      "mt-bench/140",
+      "mt-bench/152",
+      "mt-bench/119",
+      "mt-bench/109",
+      "mt-bench/93",
+      "mt-bench/145",
+      "mt-bench/88"
+    ]
+  },
+  {
+    "id": "alpaca",
+    "name": "Stanford Alpaca",
+    "family": "Instruction following",
+    "sourceSplit": "DeepSpec’s formatted copy of Stanford Alpaca’s training split contains 52,002 instruction examples.",
+    "selection": "The comparison uses 64 prompts with a separate input and 64 standalone instructions. The reserve uses 16 prompts from each group. The reserve is specific to this project. Alpaca’s public training data may already be familiar to a model.",
+    "promptRule": "Send the released first turn exactly. For instructions with a separate input, DeepSpec joins the instruction to the input with the literal marker “Input:” on its own line.",
+    "scoring": "Measure speed and exact token agreement with the target model at temperature zero. Alpaca has an example answer for each instruction. Many instructions admit multiple valid answers, so exact agreement with the example would give a misleading accuracy score.",
+    "access": "The private academic hub can share the selected prompts under Stanford’s noncommercial attribution terms.",
+    "sourceCredit": "Stanford’s Alpaca team released the instruction data under CC BY-NC 4.0. DeepSeek’s DeepSpec project formatted the inputs.",
+    "creditUrl": "https://github.com/tatsu-lab/stanford_alpaca/blob/main/DATA_LICENSE",
+    "protocolUrl": "https://github.com/deepseek-ai/DeepSpec/blob/005e03b81cec38b7da6399833d609ee89a2587f2/eval_datasets/convert_eval_datasets_to_jsonl.py#L66-L72",
+    "sourceUrl": "https://github.com/deepseek-ai/DeepSpec/blob/005e03b81cec38b7da6399833d609ee89a2587f2/eval_datasets/alpaca.jsonl",
+    "downloadUrl": "https://raw.githubusercontent.com/deepseek-ai/DeepSpec/005e03b81cec38b7da6399833d609ee89a2587f2/eval_datasets/alpaca.jsonl",
+    "revision": "005e03b81cec38b7da6399833d609ee89a2587f2",
+    "sourceSha256": "c1f1623ac08e4c4f024604bb2689a024963eb7eb9dbbc29e57dda5a11d87e07b",
+    "sourceFilename": "deep-alpaca.jsonl",
+    "availableCount": 52002,
+    "indexFile": "alpaca.index.json",
+    "file": "alpaca.comparison.jsonl",
+    "reserveFile": "alpaca.reserve.jsonl",
+    "siteHostsPrompts": true,
+    "pilotExclusions": [],
+    "historicalExclusions": [],
+    "comparisonCount": 128,
+    "reserveCount": 32,
+    "selectedCount": 160,
+    "countsByStratum": {
+      "instruction with input": {
+        "comparison": 64,
+        "reserve": 16
+      },
+      "standalone instruction": {
+        "comparison": 64,
+        "reserve": 16
+      }
+    },
+    "selectionOrder": "Within each group, sort the lowercase hexadecimal SHA-256 hash of the UTF-8 string team34-baseline-v1| followed by the project item ID. Take the comparison records first and the reserve records next. Check for repeated text across the four collections and the 24 pilot prompts after Unicode normalization, case folding and whitespace normalization.",
+    "indexSha256": "9545efc3e4336f4fd343cc130754ae7a83dd896c05f39d22713e40d26ced0541",
+    "comparisonSha256": "8034cb0dd891b692c7c423d83bc725c5d97f5ccdb12d92476915fb8465c4c2e0",
+    "reserveSha256": "9012bb3361968db6d178d42bdd530376df931abb9ddd26415db6b6b3e247d734",
+    "sampleIds": [
+      "alpaca/25970",
+      "alpaca/37165"
+    ]
+  },
+  {
+    "id": "arena-hard-v2",
+    "name": "Arena-Hard v2.0",
+    "family": "Difficult instructions and creative writing",
+    "sourceSplit": "The official v2.0 question file contains 500 difficult requests and 250 creative-writing requests.",
+    "selection": "The comparison uses 64 difficult requests and 32 creative-writing requests. The reserve uses 16 difficult requests and eight creative-writing requests. Both groups preserve the published two-to-one mix. The project excludes three source records from consideration. The index records the replacement requests, and the manifest gives the reason for each exclusion.",
+    "promptRule": "Send the prompt field as a single user message. The ID in the source file identifies the original request.",
+    "scoring": "Use each prompt for speed and greedy token agreement. Arena-Hard’s own quality evaluation compares a model answer with a baseline answer and uses a judge. Publish a project subset score only with its subset and judging procedure identified.",
+    "access": "The hub lists source IDs. The preparation tool retrieves the original requests for local use.",
+    "sourceCredit": "The Arena-Hard authors and LMArena released the v2.0 file. The official dataset card lists Apache 2.0.",
+    "creditUrl": "https://huggingface.co/datasets/lmarena-ai/arena-hard-auto/blob/15f3746e21432264ce9b453999bde4f3c946d2e6/README.md",
+    "protocolUrl": "https://github.com/lmarena/arena-hard-auto",
+    "sourceUrl": "https://huggingface.co/datasets/lmarena-ai/arena-hard-auto/blob/15f3746e21432264ce9b453999bde4f3c946d2e6/data/arena-hard-v2.0/question.jsonl",
+    "downloadUrl": "https://huggingface.co/datasets/lmarena-ai/arena-hard-auto/resolve/15f3746e21432264ce9b453999bde4f3c946d2e6/data/arena-hard-v2.0/question.jsonl",
+    "revision": "15f3746e21432264ce9b453999bde4f3c946d2e6",
+    "sourceSha256": "6cfe75abb0e09cd39e7f9b0b18ea96d41be2d4d9ddf76dc1d07d78b6accb2039",
+    "sourceFilename": "arena-original.jsonl",
+    "availableCount": 750,
+    "indexFile": "arena-hard-v2.index.json",
+    "file": "arena-hard-v2.comparison.jsonl",
+    "reserveFile": "arena-hard-v2.reserve.jsonl",
+    "siteHostsPrompts": false,
+    "pilotExclusions": [],
+    "historicalExclusions": [],
+    "comparisonCount": 96,
+    "reserveCount": 24,
+    "selectedCount": 120,
+    "countsByStratum": {
+      "creative_writing": {
+        "comparison": 32,
+        "reserve": 8
+      },
+      "hard_prompt": {
+        "comparison": 64,
+        "reserve": 16
+      }
+    },
+    "selectionOrder": "Within each group, sort the lowercase hexadecimal SHA-256 hash of the UTF-8 string team34-baseline-v1| followed by the project item ID. Take the comparison records first and the reserve records next. Check for repeated text across the four collections and the 24 pilot prompts after Unicode normalization, case folding and whitespace normalization.",
+    "indexSha256": "df453e6d0066e94ffe2339d54f8bb8764f6c03ee01209056973c05c399a4bd8f",
+    "comparisonSha256": "3477a24dcc324ab46651a8260c5dadb7ec75b056b9e3cabdaf1525c1006782b9",
+    "reserveSha256": "e943797810a5a962f65905c626633288a787c21eda885e4a5267bb7319a0b758",
+    "contentExclusions": {
+      "36e1c64944434a4d": "The request contains a corporate test endpoint and authentication fields.",
+      "94968598fd4f48e2": "The request asks for a script that modifies a running game process.",
+      "11a638d7129444c7": "The request asks for graphic animal suffering."
+    },
+    "sampleIds": [
+      "arena-hard-v2/91bced9012dd4289",
+      "arena-hard-v2/a066c5b4e6b641f5"
+    ]
+  },
+  {
+    "id": "cnn-dm",
+    "name": "CNN/Daily Mail",
+    "family": "News summarization",
+    "sourceSplit": "EAGLE’s published summarization file contains 80 news articles with reference highlights.",
+    "selection": "Sort the 80 prompts by character count and split the order into four equal groups. Within each group, use 16 articles for comparison and four for reserve. Short and long articles therefore appear in both sets.",
+    "promptRule": "Send EAGLE’s complete first turn, which starts with “Summarize: ” and includes the article. Keep the source highlights in the separate reference file.",
+    "scoring": "Measure speed and greedy token agreement. To assess summary quality separately, compare generated summaries with the reference highlights. Report word overlap with ROUGE-1, adjacent word-pair overlap with ROUGE-2 and sequence overlap with ROUGE-L. State the scorer, tokenization and score convention.",
+    "access": "The hub lists article IDs and length groups. The preparation tool builds the article prompts and reference highlights locally.",
+    "sourceCredit": "CNN and Daily Mail published the news articles. The EAGLE authors distributed the 80-question summarization file.",
+    "creditUrl": "https://aclanthology.org/K16-1028/",
+    "protocolUrl": "https://github.com/SafeAILab/EAGLE/blob/cb7e0841fe0c206c6ed74a197ad5e2a1f13f5a2b/eagle/data/sum/question.jsonl",
+    "sourceUrl": "https://github.com/SafeAILab/EAGLE/blob/cb7e0841fe0c206c6ed74a197ad5e2a1f13f5a2b/eagle/data/sum/question.jsonl",
+    "downloadUrl": "https://raw.githubusercontent.com/SafeAILab/EAGLE/cb7e0841fe0c206c6ed74a197ad5e2a1f13f5a2b/eagle/data/sum/question.jsonl",
+    "revision": "cb7e0841fe0c206c6ed74a197ad5e2a1f13f5a2b",
+    "sourceSha256": "916876f0c42f938a944de96eed16e51425f29f27438cca5c9ef4737c0fedf771",
+    "sourceFilename": "cnn_dm.jsonl",
+    "availableCount": 80,
+    "indexFile": "cnn-dm.index.json",
+    "file": "cnn-dm.comparison.jsonl",
+    "reserveFile": "cnn-dm.reserve.jsonl",
+    "siteHostsPrompts": false,
+    "pilotExclusions": [],
+    "historicalExclusions": [],
+    "comparisonCount": 64,
+    "reserveCount": 16,
+    "selectedCount": 80,
+    "countsByStratum": {
+      "length group 1": {
+        "comparison": 16,
+        "reserve": 4
+      },
+      "length group 2": {
+        "comparison": 16,
+        "reserve": 4
+      },
+      "length group 3": {
+        "comparison": 16,
+        "reserve": 4
+      },
+      "length group 4": {
+        "comparison": 16,
+        "reserve": 4
+      }
+    },
+    "selectionOrder": "Within each group, sort the lowercase hexadecimal SHA-256 hash of the UTF-8 string team34-baseline-v1| followed by the project item ID. Take the comparison records first and the reserve records next. Check for repeated text across the four collections and the 24 pilot prompts after Unicode normalization, case folding and whitespace normalization.",
+    "indexSha256": "91de368a9891a69f912d7dd16109ce8e0b0ed473a9ed00082ae68c43201859a8",
+    "comparisonSha256": "d22847f2a7f8a6f07587b8544c3dded252c879c1e01fe6168766d125cc010ff3",
+    "reserveSha256": "bb12edc5dead761b000a5fc2e60d62717b28da8c6565353ae3c02c23bbbd09ee",
+    "sampleIds": [
+      "cnn-dm/259",
+      "cnn-dm/314",
+      "cnn-dm/264",
+      "cnn-dm/267"
+    ]
+  }
+]

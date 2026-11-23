@@ -1,0 +1,295 @@
+{
+  "schema": 1,
+  "purpose": "The files preserve the exact inputs and attribution for the completed 30-prompt evaluation. Source catalogues describe the broader prepared benchmark collections.",
+  "target_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+  "selection": "The trial uses the first three prepared prompts from each benchmark in the saved input order. Each prompt contains one user turn.",
+  "files": [
+    {
+      "path": "inputs/trial-tokenized.json",
+      "bytes": 127819,
+      "sha256": "8d3302b67672b22bda85c929b464c56c8935d823609776fa96da3d091cfe6e1e"
+    },
+    {
+      "path": "inputs/trial-first-three.jsonl",
+      "bytes": 29803,
+      "sha256": "b5ae4556936743902d455576aa0d71deb9005ac5f28b8b9a1fd4daa49b20fd1c"
+    },
+    {
+      "path": "sources/math-and-code/catalog.json",
+      "bytes": 21743,
+      "sha256": "7748af6864c7f408400cd406746db1e5a3b8e7b1c75ce86f147c96378d02e85c"
+    },
+    {
+      "path": "sources/chat-and-news/chat-manifest.json",
+      "bytes": 14132,
+      "sha256": "ef53d34e032b16847847151d8247aca02c33a1a5066c94529dc5b7c58968de2d"
+    },
+    {
+      "path": "sources/math-and-code/notices/GSM8K-MIT.txt",
+      "bytes": 1062,
+      "sha256": "86bbb73e855821d7c401912fd4bf82e34313e6e3b6fd6f909f2b6cc9e209a53b"
+    },
+    {
+      "path": "sources/math-and-code/notices/HumanEval-MIT.txt",
+      "bytes": 1083,
+      "sha256": "bcba3de214851cce46ed5af42d6698044616eeace887c3231bc7a20474ab639e"
+    },
+    {
+      "path": "sources/math-and-code/notices/MBPP-attribution.txt",
+      "bytes": 564,
+      "sha256": "153b7768b6beb9119695d37de7aabad4e85585ba55c55682089bca699fa78b0e"
+    },
+    {
+      "path": "sources/chat-and-news/FastChat-LICENSE.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "sources/chat-and-news/Stanford-Alpaca-DATA_LICENSE.txt",
+      "bytes": 19346,
+      "sha256": "3711f963c05d0be80d53e5923308a6dee31b203da23435c9cfb7c7b6e4dd5e19"
+    }
+  ],
+  "selected_prompts": [
+    {
+      "id": "mt-bench/source-index/0",
+      "benchmark": "mt-bench",
+      "sourceIndex": 0,
+      "sourceItemId": "81",
+      "projectItemId": "mt_bench/81",
+      "promptSha256": "ae0703a93d5816aaeadc9bb86cf60a81a2f6b4b7ae3474a4969ee2829b7f3e98"
+    },
+    {
+      "id": "mt-bench/source-index/1",
+      "benchmark": "mt-bench",
+      "sourceIndex": 1,
+      "sourceItemId": "82",
+      "projectItemId": null,
+      "promptSha256": "3a10cad88c0e1c791b33ee9b50c35a5e024f0e1a9d9e361ea77bab32d47f0e25"
+    },
+    {
+      "id": "mt-bench/source-index/2",
+      "benchmark": "mt-bench",
+      "sourceIndex": 2,
+      "sourceItemId": "83",
+      "projectItemId": null,
+      "promptSha256": "bfa9789b68b0ecf4f4d7f62de614e225099783f93c4eaada4111add69343026a"
+    },
+    {
+      "id": "alpaca/source-index/0",
+      "benchmark": "alpaca",
+      "sourceIndex": 0,
+      "sourceItemId": null,
+      "projectItemId": null,
+      "promptSha256": "4354beb7755cbf2190034ae5ac9b6f8777928e763ee2308831bb015f62072076"
+    },
+    {
+      "id": "alpaca/source-index/1",
+      "benchmark": "alpaca",
+      "sourceIndex": 1,
+      "sourceItemId": null,
+      "projectItemId": null,
+      "promptSha256": "5fcc25093b2b787a044efe9fad8979ca6a80a61a7530bad106248cb119fbc25f"
+    },
+    {
+      "id": "alpaca/source-index/2",
+      "benchmark": "alpaca",
+      "sourceIndex": 2,
+      "sourceItemId": null,
+      "projectItemId": null,
+      "promptSha256": "7351dc37f18a54d79d1027c087c4022de9a8b845803a00dd6a249f6379a6b853"
+    },
+    {
+      "id": "arena-hard-v2/source-index/0",
+      "benchmark": "arena-hard-v2",
+      "sourceIndex": 0,
+      "sourceItemId": "2edbb5f36f5b42be",
+      "projectItemId": null,
+      "promptSha256": "1b2b7f6044122c77c3d01ec4c0bda54865b58737858297f94f84c41e405ffa54"
+    },
+    {
+      "id": "arena-hard-v2/source-index/1",
+      "benchmark": "arena-hard-v2",
+      "sourceIndex": 1,
+      "sourceItemId": "ec71c09662a64365",
+      "projectItemId": null,
+      "promptSha256": "9a27b1429fff70b3e913ce3d0326c30849474eaaaf2e2c82ae1beae2e344dcf1"
+    },
+    {
+      "id": "arena-hard-v2/source-index/2",
+      "benchmark": "arena-hard-v2",
+      "sourceIndex": 2,
+      "sourceItemId": "d5cdf24c4e614beb",
+      "projectItemId": null,
+      "promptSha256": "a82e028c9d7409a773993269496b450f71f4d622e1a9e4d611e4ee8dc5108313"
+    },
+    {
+      "id": "cnn-dm/source-index/0",
+      "benchmark": "cnn-dm",
+      "sourceIndex": 0,
+      "sourceItemId": "241",
+      "projectItemId": "cnn-dm/241",
+      "promptSha256": "6a0fb44e7d07da349e34e131c8fd5717a095cd58a5ce17f2fe527efe5f84e2ab"
+    },
+    {
+      "id": "cnn-dm/source-index/1",
+      "benchmark": "cnn-dm",
+      "sourceIndex": 1,
+      "sourceItemId": "242",
+      "projectItemId": "cnn-dm/242",
+      "promptSha256": "c4bb6a3f576afaaef208bea10b7a8b07f66230b8d14cd64f0e50016c7b2c9b37"
+    },
+    {
+      "id": "cnn-dm/source-index/2",
+      "benchmark": "cnn-dm",
+      "sourceIndex": 2,
+      "sourceItemId": "243",
+      "projectItemId": "cnn-dm/243",
+      "promptSha256": "846ce1bd9fe826799b0aae122ec1d18e0c57cef2117660c1297e44a538e8b488"
+    },
+    {
+      "id": "gsm8k/source-index/0",
+      "benchmark": "gsm8k",
+      "sourceIndex": 0,
+      "sourceItemId": null,
+      "projectItemId": "gsm8k/test/0",
+      "promptSha256": "87ad8bb2b9186beff4310f336bcbb9b743d215c0406198678c2bab5f1575f44a"
+    },
+    {
+      "id": "gsm8k/source-index/1",
+      "benchmark": "gsm8k",
+      "sourceIndex": 1,
+      "sourceItemId": null,
+      "projectItemId": "gsm8k/test/1",
+      "promptSha256": "f0aa09becc964414b8688883796670ba4e6c08f1cdb70b6b0b51b39850499914"
+    },
+    {
+      "id": "gsm8k/source-index/2",
+      "benchmark": "gsm8k",
+      "sourceIndex": 2,
+      "sourceItemId": null,
+      "projectItemId": "gsm8k/test/2",
+      "promptSha256": "965010f2a710bc07559ff182fa45851869f0f0c57d71c71ff9cc4c21adbc85f6"
+    },
+    {
+      "id": "math500/source-index/0",
+      "benchmark": "math500",
+      "sourceIndex": 0,
+      "sourceItemId": null,
+      "projectItemId": "test/precalculus/807.json",
+      "promptSha256": "52521bd10722b51313e0735502d3c03a08692d834dae48a42947b7fb877c432f"
+    },
+    {
+      "id": "math500/source-index/1",
+      "benchmark": "math500",
+      "sourceIndex": 1,
+      "sourceItemId": null,
+      "projectItemId": "test/intermediate_algebra/1994.json",
+      "promptSha256": "4aa72ab7c8e5f45aa7573884c186b513b5a0c55542f634ea6a25c1fe9a8e96b2"
+    },
+    {
+      "id": "math500/source-index/2",
+      "benchmark": "math500",
+      "sourceIndex": 2,
+      "sourceItemId": null,
+      "projectItemId": "test/algebra/2584.json",
+      "promptSha256": "dee350b0f69983663628ad88df1bb6493e22572b380ba22ebf0b6240ab7ab655"
+    },
+    {
+      "id": "aime25/source-index/0",
+      "benchmark": "aime25",
+      "sourceIndex": 0,
+      "sourceItemId": null,
+      "projectItemId": "1",
+      "promptSha256": "67dd81b4b4cbd40c20fa8e2a4a6400fa53f08b942493592dd400d6ee5d1205ea"
+    },
+    {
+      "id": "aime25/source-index/1",
+      "benchmark": "aime25",
+      "sourceIndex": 1,
+      "sourceItemId": null,
+      "projectItemId": "2",
+      "promptSha256": "32c78626be16cf1041b94993242857c086a20866791a0d0c714e24361352b31c"
+    },
+    {
+      "id": "aime25/source-index/2",
+      "benchmark": "aime25",
+      "sourceIndex": 2,
+      "sourceItemId": null,
+      "projectItemId": "3",
+      "promptSha256": "864bc6c9741ac2acf220f2adbf550187e66b78df4d1bcf19af592d53b524475d"
+    },
+    {
+      "id": "humaneval/source-index/0",
+      "benchmark": "humaneval",
+      "sourceIndex": 0,
+      "sourceItemId": null,
+      "projectItemId": "HumanEval/0",
+      "promptSha256": "3211d99783de0bc7a36b8fd5a9ebc088307504aa82af9af034cbde2436980ca8"
+    },
+    {
+      "id": "humaneval/source-index/1",
+      "benchmark": "humaneval",
+      "sourceIndex": 1,
+      "sourceItemId": null,
+      "projectItemId": "HumanEval/1",
+      "promptSha256": "d6cb26de87050c68d2714a2655588fe74049df80568fd285b207155776bec86f"
+    },
+    {
+      "id": "humaneval/source-index/2",
+      "benchmark": "humaneval",
+      "sourceIndex": 2,
+      "sourceItemId": null,
+      "projectItemId": "HumanEval/2",
+      "promptSha256": "1dc5bd98298f15fa956cd6f8fffd05e9bad15982dfbd75fffc7c0ba548727bfe"
+    },
+    {
+      "id": "mbpp/source-index/7",
+      "benchmark": "mbpp",
+      "sourceIndex": 7,
+      "sourceItemId": null,
+      "projectItemId": "11",
+      "promptSha256": "03a04fe56a284dffc1ea654ca8ef7187dd70d7a9628b76df8a564945040114c5"
+    },
+    {
+      "id": "mbpp/source-index/8",
+      "benchmark": "mbpp",
+      "sourceIndex": 8,
+      "sourceItemId": null,
+      "projectItemId": "12",
+      "promptSha256": "30e0130fd6fc6158eb2b62a705b3cbae5608bea0f927a5a27aaa4239576718c8"
+    },
+    {
+      "id": "mbpp/source-index/9",
+      "benchmark": "mbpp",
+      "sourceIndex": 9,
+      "sourceItemId": null,
+      "projectItemId": "14",
+      "promptSha256": "8bf3d14c202d9e48c4518750c58a8a44b2c71a75eb30b935df573c031160f16a"
+    },
+    {
+      "id": "livecodebench/source-index/0",
+      "benchmark": "livecodebench",
+      "sourceIndex": 0,
+      "sourceItemId": null,
+      "projectItemId": "atcoder/abc387_b",
+      "promptSha256": "1c3f16327db4a8fcd62ddd54fb54c12e1bbe100d444dec1bf1e73c16c3946891"
+    },
+    {
+      "id": "livecodebench/source-index/1",
+      "benchmark": "livecodebench",
+      "sourceIndex": 1,
+      "sourceItemId": null,
+      "projectItemId": "atcoder/abc387_f",
+      "promptSha256": "3739bbdbdfccc1c7fcc1ca5c83d166968dd7cc159c0c0a594e5a163564781b7b"
+    },
+    {
+      "id": "livecodebench/source-index/2",
+      "benchmark": "livecodebench",
+      "sourceIndex": 2,
+      "sourceItemId": null,
+      "projectItemId": "atcoder/abc387_a",
+      "promptSha256": "5a6211508ea674b70f3fd9725515653a9b5c5df39d06773269cfba174d58dfe8"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "phases": [
+    "primary"
+  ],
+  "reason": "Measure the remaining pilot widths first, then the matching AR reference and the complete 100% width on this GPU. Preserve all thirty prompts and three repetitions.",
+  "checkpoint_storage": "verified_references",
+  "configurations": [
+    "team-ffn-75",
+    "team-ffn-50",
+    "team-ar",
+    "team-ffn-100"
+  ],
+  "reuse_completed_primary": {
+    "team-ffn-100": "/insomnia001/depts/edu/users/aa5886/hpml-baselines/runs/team-priority-first30-14056875/results/team-ffn-100"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "entity": "ayoadetayo-columbia-university",
+  "project": "hpml-first30-trial-2026-11-22",
+  "trial": "trial-first30-20261122",
+  "evidence_version": "final-pilot-20261123T015828Z",
+  "run_id": "48b0a0ffa383382fa011",
+  "url": "https://wandb.ai/ayoadetayo-columbia-university/hpml-first30-trial-2026-11-22/runs/48b0a0ffa383382fa011",
+  "artifact": "ayoadetayo-columbia-university/hpml-first30-trial-2026-11-22/trial-48b0a0ffa383382fa011-metric-catalogue:v0",
+  "artifact_digest": "dcbf2a87f4ab09be13d225de24d66c53",
+  "status": "uploaded",
+  "recorded_requests": 810,
+  "measured_cells": 2056,
+  "files": [
+    "all-recordings.zip",
+    "benchmark_report.pdf",
+    "benchmark_report.tex",
+    "HPML_Midpoint_Report_Completed.pptx"
+  ],
+  "completed_unix_ns": 1795400489509976320
+}

@@ -1,0 +1,7 @@
+Jacob Austin and colleagues at Google Research created MBPP. The project uses their hand-verified problem descriptions, adds the expected function signature and a response instruction, and assigns each task to a set.
+
+Google Research lists the dataset under the Creative Commons Attribution 4.0 International license.
+
+Dataset: https://huggingface.co/datasets/google-research-datasets/mbpp
+License: https://creativecommons.org/licenses/by/4.0/
+Original release: https://github.com/google-research/google-research/tree/f82046ba5aabbbb427dbfd38a254d26bff08b533/mbpp

@@ -1,0 +1,1998 @@
+% Generated appendix tables contain measured observations only.
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Exact output agreement with AR (\% of checked requests).}
+\label{tab:appendix-metric-quality-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(\mathbf{66.67} \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+P-EAGLE & \(\mathbf{66.67} \pm 0\;[3]\) & \(\mathbf{33.33} \pm 0\;[3]\) & \(\mathbf{33.33} \pm 0\;[3]\) \\
+DFlash & \(\mathbf{66.67} \pm 0\;[3]\) & \(\mathbf{33.33} \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(33.33 \pm 0\;[3]\) & \(\mathbf{33.33} \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(33.33 \pm 0\;[3]\) & \(\mathbf{33.33} \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(66.67 \pm 0\;[3]\) & \(66.67 \pm 0\;[3]\) & \(\mathbf{33.33} \pm 0\;[3]\) \\
+P-EAGLE & \(66.67 \pm 0\;[3]\) & \(66.67 \pm 0\;[3]\) & \(\mathbf{33.33} \pm 0\;[3]\) \\
+DFlash & \(66.67 \pm 0\;[3]\) & \(66.67 \pm 0\;[3]\) & \(\mathbf{33.33} \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(\mathbf{100} \pm 0\;[3]\) & \(\mathbf{100} \pm 0\;[3]\) & \(\mathbf{33.33} \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(\mathbf{100} \pm 0\;[3]\) & \(\mathbf{100} \pm 0\;[3]\) & \(\mathbf{33.33} \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(33.33 \pm 0\;[3]\) & \(33.33 \pm 0\;[3]\) & \(\mathbf{66.67} \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+P-EAGLE & \(\mathbf{66.67} \pm 0\;[3]\) & \(33.33 \pm 0\;[3]\) & \(33.33 \pm 0\;[3]\) & \(33.33 \pm 0\;[3]\) \\
+DFlash & \(33.33 \pm 0\;[3]\) & \(33.33 \pm 0\;[3]\) & \(33.33 \pm 0\;[3]\) & \(\mathbf{66.67} \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(\mathbf{66.67} \pm 0\;[3]\) & \(33.33 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(\mathbf{66.67} \pm 0\;[3]\) & \(33.33 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Under greedy decoding, compare each method with the target model generating alone in the same engine. Match the prompt and generation settings. Count requests with identical output token IDs, output lengths and stopping reasons. Divide by all checked requests and multiply by 100.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{End-to-end request latency; Median (ms/request).}
+\label{tab:appendix-metric-completion-median-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(1375 \pm 32\;[3]\) & \(4110 \pm 6.9\;[3]\) & \(\mathbf{8338} \pm 40\;[3]\) \\
+P-EAGLE & \(1328 \pm 0.18\;[3]\) & \(\mathbf{2833} \pm 0.16\;[3]\) & \(8932 \pm 0.37\;[3]\) \\
+DFlash & \(\mathbf{1097} \pm 12\;[3]\) & \(3010 \pm 8.9\;[3]\) & \(11320 \pm 11\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(3321 \pm 36\;[3]\) & \(10040 \pm 9.8\;[3]\) & \(21160 \pm 11\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(4511 \pm 0.21\;[3]\) & \(11120 \pm 0.23\;[3]\) & \(18350 \pm 0.97\;[3]\) \\
+Pilot FFN 100\% & \(3992 \pm 9.4\;[3]\) & \(12900 \pm 7.8\;[3]\) & \(62870 \pm 70\;[3]\) \\
+Pilot FFN 75\% & \(4100 \pm 12\;[3]\) & \(12970 \pm 14\;[3]\) & \(62110 \pm 230\;[3]\) \\
+Pilot FFN 50\% & \(4101 \pm 28\;[3]\) & \(13080 \pm 180\;[3]\) & \(64800 \pm 160\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(3596 \pm 0.82\;[3]\) & \(11070 \pm 5.2\;[3]\) & \(19430 \pm 42\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(833.6 \pm 1.1\;[3]\) & \(1018 \pm 12\;[3]\) & \(2522 \pm 9.1\;[3]\) \\
+P-EAGLE & \(835 \pm 0.27\;[3]\) & \(782.9 \pm 0.24\;[3]\) & \(2128 \pm 0.072\;[3]\) \\
+DFlash & \(\mathbf{703.9} \pm 7.4\;[3]\) & \(\mathbf{699.8} \pm 7.1\;[3]\) & \(\mathbf{1740} \pm 4.2\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(2422 \pm 3.2\;[3]\) & \(2556 \pm 2.4\;[3]\) & \(7439 \pm 11\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(2277 \pm 0.075\;[3]\) & \(2383 \pm 7.1\;[3]\) & \(6347 \pm 6.9\;[3]\) \\
+Pilot FFN 100\% & \(2848 \pm 3.6\;[3]\) & \(3089 \pm 6.3\;[3]\) & \(7912 \pm 70\;[3]\) \\
+Pilot FFN 75\% & \(3012 \pm 11\;[3]\) & \(3224 \pm 9.6\;[3]\) & \(8040 \pm 14\;[3]\) \\
+Pilot FFN 50\% & \(2929 \pm 18\;[3]\) & \(3129 \pm 9.2\;[3]\) & \(8045 \pm 19\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(2614 \pm 3.1\;[3]\) & \(2751 \pm 7.4\;[3]\) & \(4959 \pm 9.9\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(1921 \pm 38\;[3]\) & \(2035 \pm 30\;[3]\) & \(4457 \pm 40\;[3]\) & \(2582 \pm 36\;[3]\) \\
+P-EAGLE & \(2384 \pm 0.28\;[3]\) & \(1816 \pm 0.32\;[3]\) & \(4770 \pm 15\;[3]\) & \(2810 \pm 1.2\;[3]\) \\
+DFlash & \(\mathbf{1851} \pm 9.1\;[3]\) & \(\mathbf{1679} \pm 5\;[3]\) & \(\mathbf{3927} \pm 13\;[3]\) & \(\mathbf{2491} \pm 4\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(4871 \pm 3.3\;[3]\) & \(5061 \pm 17\;[3]\) & \(8800 \pm 6\;[3]\) & \(5773 \pm 9.3\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(4455 \pm 0.48\;[3]\) & \(5032 \pm 0.25\;[3]\) & \(7315 \pm 2.4\;[3]\) & \(5064 \pm 0.17\;[3]\) \\
+Pilot FFN 100\% & \(5780 \pm 5.1\;[3]\) & \(5874 \pm 5\;[3]\) & \(11500 \pm 21\;[3]\) & \(7236 \pm 25\;[3]\) \\
+Pilot FFN 75\% & \(5770 \pm 17\;[3]\) & \(5854 \pm 19\;[3]\) & \(11790 \pm 5.5\;[3]\) & \(7042 \pm 12\;[3]\) \\
+Pilot FFN 50\% & \(5909 \pm 56\;[3]\) & \(6016 \pm 64\;[3]\) & \(11740 \pm 15\;[3]\) & \(7329 \pm 11\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(5203 \pm 16\;[3]\) & \(5490 \pm 7.9\;[3]\) & \(8545 \pm 7\;[3]\) & \(5903 \pm 8\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Time each successful request from actual submission until completion. Sort those times and report the median and the 95th percentile (p95). The median describes the middle request. The p95 describes the time within which roughly 95\% of successful requests finish.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Lower values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{End-to-end request latency; 95th percentile (ms/request).}
+\label{tab:appendix-metric-completion-95th-percentile-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(2919 \pm 3.6\;[3]\) & \(5010 \pm 4\;[3]\) & \(17600 \pm 100\;[3]\) \\
+P-EAGLE & \(\mathbf{2323} \pm 31\;[3]\) & \(4016 \pm 0.5\;[3]\) & \(12050 \pm 0.71\;[3]\) \\
+DFlash & \(8009 \pm 2.1\;[3]\) & \(\mathbf{3811} \pm 14\;[3]\) & \(\mathbf{12000} \pm 4.5\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(42930 \pm 11\;[3]\) & \(14430 \pm 8\;[3]\) & \(44660 \pm 46\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(6273 \pm 0.036\;[3]\) & \(13670 \pm 0.86\;[3]\) & \(41650 \pm 0.48\;[3]\) \\
+Pilot FFN 100\% & \(6866 \pm 7.4\;[3]\) & \(16180 \pm 44\;[3]\) & \(63710 \pm 54\;[3]\) \\
+Pilot FFN 75\% & \(6804 \pm 8.7\;[3]\) & \(18640 \pm 3500\;[3]\) & \(62520 \pm 100\;[3]\) \\
+Pilot FFN 50\% & \(7148 \pm 20\;[3]\) & \(16950 \pm 110\;[3]\) & \(64930 \pm 66\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(5390 \pm 39\;[3]\) & \(14650 \pm 2.9\;[3]\) & \(49570 \pm 73\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(1009 \pm 7.7\;[3]\) & \(2078 \pm 25\;[3]\) & \(3802 \pm 12\;[3]\) \\
+P-EAGLE & \(839.5 \pm 0.17\;[3]\) & \(1922 \pm 0.15\;[3]\) & \(\mathbf{3233} \pm 0.55\;[3]\) \\
+DFlash & \(\mathbf{758.9} \pm 9.8\;[3]\) & \(\mathbf{1368} \pm 2.5\;[3]\) & \(3555 \pm 11\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(2672 \pm 9.2\;[3]\) & \(5496 \pm 5\;[3]\) & \(7719 \pm 17\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(2493 \pm 0.33\;[3]\) & \(4997 \pm 0.3\;[3]\) & \(7694 \pm 1.1\;[3]\) \\
+Pilot FFN 100\% & \(3139 \pm 2.6\;[3]\) & \(6370 \pm 11\;[3]\) & \(9136 \pm 33\;[3]\) \\
+Pilot FFN 75\% & \(3136 \pm 12\;[3]\) & \(6777 \pm 8.4\;[3]\) & \(9235 \pm 34\;[3]\) \\
+Pilot FFN 50\% & \(3175 \pm 15\;[3]\) & \(6447 \pm 18\;[3]\) & \(9495 \pm 19\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(2885 \pm 10\;[3]\) & \(5955 \pm 8.3\;[3]\) & \(7683 \pm 23\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(\mathbf{7080} \pm 44\;[3]\) & \(\mathbf{3570} \pm 9.6\;[3]\) & \(4809 \pm 44\;[3]\) & \(2816 \pm 28\;[3]\) \\
+P-EAGLE & \(11000 \pm 0.39\;[3]\) & \(3821 \pm 0.32\;[3]\) & \(5057 \pm 1.6\;[3]\) & \(3210 \pm 0.32\;[3]\) \\
+DFlash & \(7335 \pm 17\;[3]\) & \(3731 \pm 14\;[3]\) & \(\mathbf{4296} \pm 6.1\;[3]\) & \(\mathbf{2550} \pm 12\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(16800 \pm 32\;[3]\) & \(9296 \pm 10\;[3]\) & \(11290 \pm 10\;[3]\) & \(5931 \pm 19\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(15720 \pm 4.1\;[3]\) & \(7841 \pm 0.29\;[3]\) & \(10970 \pm 1.1\;[3]\) & \(5410 \pm 0.72\;[3]\) \\
+Pilot FFN 100\% & \(20550 \pm 19\;[3]\) & \(11020 \pm 23\;[3]\) & \(13920 \pm 61\;[3]\) & \(7630 \pm 14\;[3]\) \\
+Pilot FFN 75\% & \(20530 \pm 24\;[3]\) & \(10960 \pm 18\;[3]\) & \(14120 \pm 9.9\;[3]\) & \(7687 \pm 5\;[3]\) \\
+Pilot FFN 50\% & \(20770 \pm 71\;[3]\) & \(11200 \pm 12\;[3]\) & \(14160 \pm 52\;[3]\) & \(8031 \pm 8.9\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(14890 \pm 31\;[3]\) & \(10210 \pm 8.3\;[3]\) & \(12080 \pm 2.6\;[3]\) & \(6296 \pm 3.5\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Time each successful request from actual submission until completion. Sort those times and report the median and the 95th percentile (p95). The median describes the middle request. The p95 describes the time within which roughly 95\% of successful requests finish.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Lower values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Time to first token (TTFT); Median (ms/request).}
+\label{tab:appendix-metric-ttft-median-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(33.05 \pm 0.73\;[3]\) & \(34.53 \pm 0.16\;[3]\) & \(35.76 \pm 0.14\;[3]\) \\
+P-EAGLE & \(56.65 \pm 0.088\;[3]\) & \(57.44 \pm 0.48\;[3]\) & \(59.73 \pm 0.18\;[3]\) \\
+DFlash & \(31.74 \pm 0.81\;[3]\) & \(32.68 \pm 0.59\;[3]\) & \(33.96 \pm 0.57\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(\mathbf{30.82} \pm 0.067\;[3]\) & \(\mathbf{31.6} \pm 0.072\;[3]\) & \(\mathbf{32.82} \pm 0.48\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(48.11 \pm 0.28\;[3]\) & \(48.56 \pm 0.41\;[3]\) & \(50.38 \pm 0.15\;[3]\) \\
+Pilot FFN 100\% & \(31.51 \pm 0.075\;[3]\) & \(31.86 \pm 0.54\;[3]\) & \(34.51 \pm 0.099\;[3]\) \\
+Pilot FFN 75\% & \(31.51 \pm 0.16\;[3]\) & \(32.01 \pm 0.19\;[3]\) & \(34.4 \pm 0.34\;[3]\) \\
+Pilot FFN 50\% & \(31.75 \pm 0.091\;[3]\) & \(32.29 \pm 0.41\;[3]\) & \(34.62 \pm 0.15\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(31.62 \pm 0.36\;[3]\) & \(32.17 \pm 0.064\;[3]\) & \(34.65 \pm 0.16\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(36.35 \pm 0.47\;[3]\) & \(33.21 \pm 0.56\;[3]\) & \(42.47 \pm 0.36\;[3]\) \\
+P-EAGLE & \(58.23 \pm 0.18\;[3]\) & \(56.2 \pm 0.19\;[3]\) & \(59.96 \pm 0.55\;[3]\) \\
+DFlash & \(34.29 \pm 0.26\;[3]\) & \(31.58 \pm 0.43\;[3]\) & \(40.84 \pm 0.28\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(\mathbf{33.32} \pm 0.2\;[3]\) & \(\mathbf{30.21} \pm 0.065\;[3]\) & \(\mathbf{39.13} \pm 0.62\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(49.92 \pm 0.23\;[3]\) & \(47.82 \pm 0.38\;[3]\) & \(50.83 \pm 0.15\;[3]\) \\
+Pilot FFN 100\% & \(34.39 \pm 0.16\;[3]\) & \(30.86 \pm 0.096\;[3]\) & \(40.16 \pm 0.2\;[3]\) \\
+Pilot FFN 75\% & \(34.38 \pm 0.1\;[3]\) & \(30.87 \pm 0.11\;[3]\) & \(39.9 \pm 0.079\;[3]\) \\
+Pilot FFN 50\% & \(34.5 \pm 0.15\;[3]\) & \(31.02 \pm 0.22\;[3]\) & \(40.14 \pm 0.21\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(34.58 \pm 0.11\;[3]\) & \(30.99 \pm 0.15\;[3]\) & \(40.19 \pm 0.23\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(33.46 \pm 1.1\;[3]\) & \(32.39 \pm 0.42\;[3]\) & \(33.23 \pm 0.6\;[3]\) & \(62.16 \pm 0.32\;[3]\) \\
+P-EAGLE & \(56.71 \pm 0.3\;[3]\) & \(55.46 \pm 0.49\;[3]\) & \(57.18 \pm 0.31\;[3]\) & \(79.96 \pm 1.1\;[3]\) \\
+DFlash & \(32.01 \pm 0.16\;[3]\) & \(30.77 \pm 0.064\;[3]\) & \(31.64 \pm 0.25\;[3]\) & \(60.61 \pm 0.41\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(\mathbf{30.66} \pm 0.22\;[3]\) & \(29.59 \pm 0.0031\;[3]\) & \(\mathbf{30.38} \pm 0.33\;[3]\) & \(\mathbf{59.51} \pm 0.64\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(48.8 \pm 0.4\;[3]\) & \(47.1 \pm 0.19\;[3]\) & \(48.35 \pm 0.28\;[3]\) & \(69.97 \pm 0.61\;[3]\) \\
+Pilot FFN 100\% & \(31.54 \pm 0.1\;[3]\) & \(29.31 \pm 0.12\;[3]\) & \(31.46 \pm 0.27\;[3]\) & \(65.81 \pm 1\;[3]\) \\
+Pilot FFN 75\% & \(31.48 \pm 0.22\;[3]\) & \(\mathbf{29.29} \pm 0.24\;[3]\) & \(31.68 \pm 0.16\;[3]\) & \(64.71 \pm 0.91\;[3]\) \\
+Pilot FFN 50\% & \(31.36 \pm 0.28\;[3]\) & \(29.51 \pm 0.14\;[3]\) & \(31.69 \pm 0.23\;[3]\) & \(65.26 \pm 0.48\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(31.59 \pm 0.17\;[3]\) & \(29.65 \pm 0.21\;[3]\) & \(31.82 \pm 0.15\;[3]\) & \(65.56 \pm 0.39\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Time each request from actual client submission until the first streamed output arrives. Use the first nonempty output chunk as the client observation. Exclude metadata-only events. Report the median and p95 among requests that return output, and count requests that return none.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Lower values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Time to first token (TTFT); 95th percentile (ms/request).}
+\label{tab:appendix-metric-ttft-95th-percentile-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(34.02 \pm 0.44\;[3]\) & \(35.7 \pm 0.089\;[3]\) & \(59.57 \pm 1.2\;[3]\) \\
+P-EAGLE & \(78.33 \pm 37\;[3]\) & \(59.09 \pm 0.34\;[3]\) & \(86.14 \pm 1.6\;[3]\) \\
+DFlash & \(32.88 \pm 0.68\;[3]\) & \(33.84 \pm 0.41\;[3]\) & \(57.28 \pm 0.74\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(\mathbf{31.55} \pm 0.17\;[3]\) & \(\mathbf{33.14} \pm 0.24\;[3]\) & \(\mathbf{56.18} \pm 0.64\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(48.54 \pm 0.14\;[3]\) & \(50.35 \pm 0.34\;[3]\) & \(58.67 \pm 0.55\;[3]\) \\
+Pilot FFN 100\% & \(32.33 \pm 0.18\;[3]\) & \(50.37 \pm 29\;[3]\) & \(63.01 \pm 0.93\;[3]\) \\
+Pilot FFN 75\% & \(32.62 \pm 0.27\;[3]\) & \(2072 \pm 3500\;[3]\) & \(61.93 \pm 0.75\;[3]\) \\
+Pilot FFN 50\% & \(32.55 \pm 0.3\;[3]\) & \(35.39 \pm 2.3\;[3]\) & \(62.48 \pm 0.38\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(32.36 \pm 0.1\;[3]\) & \(34.41 \pm 0.21\;[3]\) & \(62.42 \pm 0.099\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(37.18 \pm 0.56\;[3]\) & \(33.42 \pm 0.51\;[3]\) & \(42.77 \pm 0.43\;[3]\) \\
+P-EAGLE & \(59.17 \pm 0.09\;[3]\) & \(56.39 \pm 0.11\;[3]\) & \(66.06 \pm 0.28\;[3]\) \\
+DFlash & \(34.83 \pm 0.62\;[3]\) & \(32.05 \pm 0.47\;[3]\) & \(41.2 \pm 0.2\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(\mathbf{34.02} \pm 0.18\;[3]\) & \(\mathbf{30.69} \pm 0.12\;[3]\) & \(\mathbf{39.77} \pm 0.2\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(50.36 \pm 0.14\;[3]\) & \(48.02 \pm 0.56\;[3]\) & \(56.1 \pm 0.098\;[3]\) \\
+Pilot FFN 100\% & \(34.95 \pm 0.24\;[3]\) & \(31.02 \pm 0.084\;[3]\) & \(44.33 \pm 0.087\;[3]\) \\
+Pilot FFN 75\% & \(34.91 \pm 0.13\;[3]\) & \(31.13 \pm 0.22\;[3]\) & \(44.1 \pm 0.2\;[3]\) \\
+Pilot FFN 50\% & \(35.21 \pm 0.091\;[3]\) & \(31.3 \pm 0.36\;[3]\) & \(44.21 \pm 0.13\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(34.69 \pm 0.17\;[3]\) & \(31.33 \pm 0.25\;[3]\) & \(44.21 \pm 0.4\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(37.79 \pm 6.8\;[3]\) & \(32.75 \pm 0.95\;[3]\) & \(79.17 \pm 0.4\;[3]\) & \(62.8 \pm 0.29\;[3]\) \\
+P-EAGLE & \(97.28 \pm 70\;[3]\) & \(55.7 \pm 0.31\;[3]\) & \(95.92 \pm 18\;[3]\) & \(87.77 \pm 0.86\;[3]\) \\
+DFlash & \(\mathbf{32.09} \pm 0.15\;[3]\) & \(31.36 \pm 0.28\;[3]\) & \(76.04 \pm 0.83\;[3]\) & \(61.58 \pm 0.71\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(34.53 \pm 6.5\;[3]\) & \(30.17 \pm 0.18\;[3]\) & \(\mathbf{76.03} \pm 0.35\;[3]\) & \(\mathbf{60.87} \pm 1.3\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(51.89 \pm 5.3\;[3]\) & \(47.39 \pm 0.089\;[3]\) & \(85.33 \pm 1.9\;[3]\) & \(77.24 \pm 0.66\;[3]\) \\
+Pilot FFN 100\% & \(35.71 \pm 6.9\;[3]\) & \(29.67 \pm 0.32\;[3]\) & \(83.3 \pm 2.8\;[3]\) & \(67.52 \pm 0.64\;[3]\) \\
+Pilot FFN 75\% & \(35.47 \pm 6.7\;[3]\) & \(\mathbf{29.62} \pm 0.14\;[3]\) & \(81.65 \pm 0.98\;[3]\) & \(66.07 \pm 0.32\;[3]\) \\
+Pilot FFN 50\% & \(35.61 \pm 7.2\;[3]\) & \(29.81 \pm 0.51\;[3]\) & \(82.32 \pm 1.2\;[3]\) & \(66.86 \pm 0.071\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(36.27 \pm 8.2\;[3]\) & \(30.05 \pm 0.43\;[3]\) & \(80.98 \pm 1.8\;[3]\) & \(66.73 \pm 0.28\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Time each request from actual client submission until the first streamed output arrives. Use the first nonempty output chunk as the client observation. Exclude metadata-only events. Report the median and p95 among requests that return output, and count requests that return none.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Lower values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Maximum inter-chunk latency per request (ms, p95 across eligible requests).}
+\label{tab:appendix-metric-pause-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(32.34 \pm 0.32\;[3]\) & \(33.17 \pm 0.6\;[3]\) & \(34.21 \pm 0.52\;[3]\) \\
+P-EAGLE & \(27.3 \pm 0.48\;[3]\) & \(27.42 \pm 0.8\;[3]\) & \(28.13 \pm 0.37\;[3]\) \\
+DFlash & \(31.8 \pm 0.071\;[3]\) & \(31.26 \pm 0.16\;[3]\) & \(32.17 \pm 0.47\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(24.33 \pm 0.43\;[3]\) & \(30.81 \pm 12\;[3]\) & \(\mathbf{24.41} \pm 0.092\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(\mathbf{22.09} \pm 0.48\;[3]\) & \(\mathbf{21.94} \pm 0.23\;[3]\) & \(28.44 \pm 10\;[3]\) \\
+Pilot FFN 100\% & \(32.59 \pm 0.11\;[3]\) & \(33.59 \pm 0.16\;[3]\) & \(38.92 \pm 0.024\;[3]\) \\
+Pilot FFN 75\% & \(32.65 \pm 0.2\;[3]\) & \(33.87 \pm 0.19\;[3]\) & \(38.99 \pm 0.23\;[3]\) \\
+Pilot FFN 50\% & \(33.41 \pm 0.14\;[3]\) & \(34.03 \pm 0.36\;[3]\) & \(39.5 \pm 0.098\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(25.21 \pm 0.18\;[3]\) & \(25.56 \pm 0.15\;[3]\) & \(26.9 \pm 0.16\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(32.99 \pm 0.94\;[3]\) & \(32.74 \pm 0.6\;[3]\) & \(32.84 \pm 0.26\;[3]\) \\
+P-EAGLE & \(26.2 \pm 0.098\;[3]\) & \(26.63 \pm 0.55\;[3]\) & \(27.4 \pm 0.25\;[3]\) \\
+DFlash & \(31.07 \pm 0.083\;[3]\) & \(31.02 \pm 0.066\;[3]\) & \(31.38 \pm 0.16\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(23.91 \pm 0.83\;[3]\) & \(23.69 \pm 0.43\;[3]\) & \(24.49 \pm 1.2\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(\mathbf{22.11} \pm 0.63\;[3]\) & \(\mathbf{21.62} \pm 0.1\;[3]\) & \(\mathbf{21.95} \pm 0.24\;[3]\) \\
+Pilot FFN 100\% & \(32.24 \pm 0.2\;[3]\) & \(32.41 \pm 0.31\;[3]\) & \(34.1 \pm 0.061\;[3]\) \\
+Pilot FFN 75\% & \(32.34 \pm 0.067\;[3]\) & \(32.5 \pm 0.32\;[3]\) & \(33.78 \pm 0.44\;[3]\) \\
+Pilot FFN 50\% & \(32.96 \pm 0.31\;[3]\) & \(33.19 \pm 0.58\;[3]\) & \(34.5 \pm 0.16\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(25.22 \pm 0.19\;[3]\) & \(25.43 \pm 0.43\;[3]\) & \(25.36 \pm 0.088\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(33.33 \pm 0.41\;[3]\) & \(32.75 \pm 0.5\;[3]\) & \(33.64 \pm 0.44\;[3]\) & \(32.24 \pm 0.96\;[3]\) \\
+P-EAGLE & \(27.28 \pm 0.29\;[3]\) & \(26.81 \pm 0.35\;[3]\) & \(27.19 \pm 0.33\;[3]\) & \(27.05 \pm 0.24\;[3]\) \\
+DFlash & \(31.66 \pm 0.4\;[3]\) & \(31.61 \pm 0.51\;[3]\) & \(31.82 \pm 0.43\;[3]\) & \(31.68 \pm 0.43\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(24.1 \pm 0.22\;[3]\) & \(23.71 \pm 0.35\;[3]\) & \(23.87 \pm 0.2\;[3]\) & \(23.91 \pm 0.36\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(\mathbf{24} \pm 2\;[3]\) & \(\mathbf{21.88} \pm 0.088\;[3]\) & \(\mathbf{22.21} \pm 0.43\;[3]\) & \(\mathbf{22.62} \pm 1.1\;[3]\) \\
+Pilot FFN 100\% & \(36.08 \pm 3\;[3]\) & \(32.98 \pm 0.027\;[3]\) & \(43.36 \pm 1.1\;[3]\) & \(38.85 \pm 0.2\;[3]\) \\
+Pilot FFN 75\% & \(34.54 \pm 0.11\;[3]\) & \(32.85 \pm 0.14\;[3]\) & \(40.18 \pm 0.3\;[3]\) & \(36.94 \pm 0.18\;[3]\) \\
+Pilot FFN 50\% & \(34.95 \pm 0.43\;[3]\) & \(34.01 \pm 0.18\;[3]\) & \(38.92 \pm 0.34\;[3]\) & \(36.38 \pm 0.24\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(25.7 \pm 0.31\;[3]\) & \(25.4 \pm 0.24\;[3]\) & \(25.81 \pm 0.0024\;[3]\) & \(25.67 \pm 0.044\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+A streaming server sends an answer in pieces called chunks. For each request with at least two nonempty chunks, find the longest gap between successive chunks. Take the p95 of those longest gaps, giving each eligible request one observation.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Lower values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Peak GPU memory; Sampled whole-device memory (GiB/device).}
+\label{tab:appendix-metric-memory-sampled-whole-device-memory-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(31.15 \pm 0.0011\;[3]\) & \(31.15 \pm 0.0011\;[3]\) & \(31.15 \pm 0.0011\;[3]\) \\
+P-EAGLE & \(29.26 \pm 0\;[3]\) & \(29.26 \pm 0\;[3]\) & \(29.26 \pm 0\;[3]\) \\
+DFlash & \(32.2 \pm 0.016\;[3]\) & \(32.2 \pm 0.016\;[3]\) & \(32.2 \pm 0.016\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(32.01 \pm 0\;[3]\) & \(32.01 \pm 0\;[3]\) & \(32.01 \pm 0\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(29.2 \pm 0\;[3]\) & \(29.2 \pm 0\;[3]\) & \(29.2 \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(18.39 \pm 0.015\;[3]\) & \(18.39 \pm 0.015\;[3]\) & \(18.39 \pm 0.015\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(\mathbf{16.57} \pm 0\;[2]\) & \(\mathbf{16.57} \pm 0\;[2]\) & \(\mathbf{16.57} \pm 0\;[2]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(31.15 \pm 0.0011\;[3]\) & \(31.15 \pm 0.0011\;[3]\) & \(31.15 \pm 0.0011\;[3]\) \\
+P-EAGLE & \(29.26 \pm 0\;[3]\) & \(29.26 \pm 0\;[3]\) & \(29.26 \pm 0\;[3]\) \\
+DFlash & \(32.2 \pm 0.016\;[3]\) & \(32.2 \pm 0.016\;[3]\) & \(32.2 \pm 0.016\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(32.01 \pm 0\;[3]\) & \(32.01 \pm 0\;[3]\) & \(32.01 \pm 0\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(29.2 \pm 0\;[3]\) & \(29.2 \pm 0\;[3]\) & \(29.2 \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(18.39 \pm 0.015\;[3]\) & \(18.39 \pm 0.015\;[3]\) & \(18.39 \pm 0\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(\mathbf{16.57} \pm 0\;[3]\) & \(\mathbf{16.57} \pm 0\;[3]\) & \(\mathbf{16.57} \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(31.13 \pm 0.047\;[3]\) & \(31.13 \pm 0.047\;[3]\) & \(31.15 \pm 0\;[3]\) & \(31.15 \pm 0\;[3]\) \\
+P-EAGLE & \(29.17 \pm 0.15\;[3]\) & \(29.17 \pm 0.15\;[3]\) & \(29.26 \pm 0.0011\;[3]\) & \(29.26 \pm 0.0011\;[3]\) \\
+DFlash & \(32.13 \pm 0.11\;[3]\) & \(32.13 \pm 0.11\;[3]\) & \(32.2 \pm 0.016\;[3]\) & \(32.2 \pm 0.016\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(31.97 \pm 0.07\;[3]\) & \(31.97 \pm 0.07\;[3]\) & \(32.01 \pm 0\;[3]\) & \(32.01 \pm 0\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(29.16 \pm 0.07\;[3]\) & \(29.16 \pm 0.07\;[3]\) & \(29.2 \pm 0\;[3]\) & \(29.2 \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(18.13 \pm 0.45\;[3]\) & \(18.13 \pm 0.45\;[3]\) & \(18.39 \pm 0.015\;[3]\) & \(18.39 \pm 0.015\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(\mathbf{16.57} \pm 0\;[2]\) & \(\mathbf{16.57} \pm 0\;[2]\) & \(\mathbf{16.57} \pm 0\;[2]\) & \(\mathbf{16.57} \pm 0\;[2]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Record the highest observed memory use on each GPU during the stated interval. Keep separate readings for memory used on the whole device, memory occupied by live tensors and memory reserved by the framework. A gibibyte (GiB) equals 1,073,741,824 bytes.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Lower values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Peak GPU memory; Framework-allocated memory (GiB/device).}
+\label{tab:appendix-metric-memory-framework-allocated-memory-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(30.38 \pm 0\;[3]\) & \(30.39 \pm 0\;[3]\) & \(30.46 \pm 0\;[3]\) \\
+DFlash &  &  &  \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(30.39 \pm 0\;[3]\) & \(30.38 \pm 0\;[3]\) & \(30.42 \pm 0\;[3]\) \\
+DFlash &  &  &  \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(\mathbf{30.38} \pm 0\;[3]\) & \(\mathbf{30.38} \pm 7\times 10^{-5}\;[3]\) & \(\mathbf{30.51} \pm 7.5\times 10^{-5}\;[3]\) & \(\mathbf{30.47} \pm 0\;[3]\) \\
+DFlash & \(31.29\;[1]\) & \(31.28\;[1]\) & \(31.42\;[1]\) & \(31.41\;[1]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Record the highest observed memory use on each GPU during the stated interval. Keep separate readings for memory used on the whole device, memory occupied by live tensors and memory reserved by the framework. A gibibyte (GiB) equals 1,073,741,824 bytes.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Lower values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Peak GPU memory; Framework-reserved memory (GiB/device).}
+\label{tab:appendix-metric-memory-framework-reserved-memory-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(30.61 \pm 0.0011\;[3]\) & \(30.61 \pm 0.0011\;[3]\) & \(30.61 \pm 0.0011\;[3]\) \\
+DFlash &  &  &  \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(30.61 \pm 0.0011\;[3]\) & \(30.61 \pm 0.0011\;[3]\) & \(30.61 \pm 0.0011\;[3]\) \\
+DFlash &  &  &  \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(\mathbf{30.56} \pm 0.081\;[3]\) & \(\mathbf{30.56} \pm 0.081\;[3]\) & \(\mathbf{30.61} \pm 0\;[3]\) & \(\mathbf{30.61} \pm 0\;[3]\) \\
+DFlash & \(31.47\;[1]\) & \(31.47\;[1]\) & \(31.65\;[1]\) & \(31.65\;[1]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Record the highest observed memory use on each GPU during the stated interval. Keep separate readings for memory used on the whole device, memory occupied by live tensors and memory reserved by the framework. A gibibyte (GiB) equals 1,073,741,824 bytes.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Lower values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Output throughput per GPU (output tokens/s/GPU).}
+\label{tab:appendix-metric-per-gpu-throughput-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(106.5 \pm 1.1\;[3]\) & \(103.2 \pm 0.086\;[3]\) & \(104.2 \pm 0.26\;[3]\) \\
+P-EAGLE & \(117.5 \pm 0.82\;[3]\) & \(\mathbf{153.5} \pm 0.012\;[3]\) & \(\mathbf{157.9} \pm 0.0071\;[3]\) \\
+DFlash & \(\mathbf{213.4} \pm 0.29\;[3]\) & \(138.8 \pm 0.31\;[3]\) & \(154.9 \pm 0.062\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(43.27 \pm 0.046\;[3]\) & \(43.44 \pm 0.0078\;[3]\) & \(43.34 \pm 0.058\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(46.28 \pm 0.0013\;[3]\) & \(46.47 \pm 0.002\;[3]\) & \(46.3 \pm 0.00078\;[3]\) \\
+Pilot FFN 100\% & \(39.02 \pm 0.036\;[3]\) & \(33.96 \pm 0.022\;[3]\) & \(32.42 \pm 0.026\;[3]\) \\
+Pilot FFN 75\% & \(39.02 \pm 0.045\;[3]\) & \(31.92 \pm 2.8\;[3]\) & \(32.74 \pm 0.054\;[3]\) \\
+Pilot FFN 50\% & \(37.59 \pm 0.082\;[3]\) & \(32.85 \pm 0.22\;[3]\) & \(31.56 \pm 0.035\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(40.17 \pm 0.15\;[3]\) & \(40.01 \pm 0.027\;[3]\) & \(39.12 \pm 0.05\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(100.3 \pm 0.28\;[3]\) & \(110.7 \pm 1.1\;[3]\) & \(99.48 \pm 0.39\;[3]\) \\
+P-EAGLE & \(114.1 \pm 0.011\;[3]\) & \(124.9 \pm 0.0019\;[3]\) & \(107.9 \pm 0.01\;[3]\) \\
+DFlash & \(\mathbf{137.2} \pm 1.4\;[3]\) & \(\mathbf{155.1} \pm 0.35\;[3]\) & \(\mathbf{117.2} \pm 0.21\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(42.88 \pm 0.081\;[3]\) & \(43.27 \pm 0.056\;[3]\) & \(43.27 \pm 0.043\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(45.72 \pm 0.0035\;[3]\) & \(46.17 \pm 0.029\;[3]\) & \(46.21 \pm 0.021\;[3]\) \\
+Pilot FFN 100\% & \(36.12 \pm 0.052\;[3]\) & \(37.1 \pm 0.057\;[3]\) & \(35.49 \pm 0.18\;[3]\) \\
+Pilot FFN 75\% & \(35.42 \pm 0.064\;[3]\) & \(35.39 \pm 0.044\;[3]\) & \(35.1 \pm 0.082\;[3]\) \\
+Pilot FFN 50\% & \(35.66 \pm 0.13\;[3]\) & \(36.68 \pm 0.06\;[3]\) & \(34.45 \pm 0.03\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(39.73 \pm 0.077\;[3]\) & \(40.03 \pm 0.042\;[3]\) & \(39.87 \pm 0.13\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(\mathbf{110.3} \pm 0.77\;[3]\) & \(116.7 \pm 0.37\;[3]\) & \(94.66 \pm 0.49\;[3]\) & \(\mathbf{97.98} \pm 1.2\;[3]\) \\
+P-EAGLE & \(82.75 \pm 0.37\;[3]\) & \(105.3 \pm 0.0069\;[3]\) & \(93.02 \pm 0.12\;[3]\) & \(83.56 \pm 0.012\;[3]\) \\
+DFlash & \(109.7 \pm 0.13\;[3]\) & \(\mathbf{117.6} \pm 0.39\;[3]\) & \(\mathbf{112.3} \pm 0.14\;[3]\) & \(97.67 \pm 0.067\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(43.37 \pm 0.067\;[3]\) & \(43.38 \pm 0.011\;[3]\) & \(43.25 \pm 0.018\;[3]\) & \(43 \pm 0.044\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(46.43 \pm 0.0034\;[3]\) & \(46.37 \pm 0.0016\;[3]\) & \(46.19 \pm 0.0067\;[3]\) & \(45.8 \pm 0.0037\;[3]\) \\
+Pilot FFN 100\% & \(36.3 \pm 0.038\;[3]\) & \(36.34 \pm 0.055\;[3]\) & \(34.89 \pm 0.1\;[3]\) & \(34.28 \pm 0.019\;[3]\) \\
+Pilot FFN 75\% & \(36.33 \pm 0.0059\;[3]\) & \(36.42 \pm 0.045\;[3]\) & \(34.36 \pm 0.012\;[3]\) & \(34.48 \pm 0.044\;[3]\) \\
+Pilot FFN 50\% & \(35.71 \pm 0.11\;[3]\) & \(35.54 \pm 0.13\;[3]\) & \(33.96 \pm 0.095\;[3]\) & \(33.25 \pm 0.078\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(39.97 \pm 0.093\;[3]\) & \(40.02 \pm 0.029\;[3]\) & \(39.76 \pm 0.039\;[3]\) & \(39.39 \pm 0.013\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Divide a benchmark's delivered output tokens by its elapsed seconds multiplied by the allocated GPU count. The comparison tables use timed benchmark blocks. Complete-job resource totals retain their own allocation interval. Compute cost uses each timed benchmark interval and the GPU count from its final Slurm allocation. The interval includes client gaps between requests. Startup, warmups, and time outside the benchmark have separate whole-job accounting. Per-prompt GPU-seconds multiply the allocated GPU count by that prompt's completion time in seconds.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{End-to-end output rate per request (output tokens/s/request).}
+\label{tab:appendix-metric-request-speed-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(106.6 \pm 1.7\;[3]\) & \(103.1 \pm 0.085\;[3]\) & \(100.6 \pm 0.15\;[3]\) \\
+P-EAGLE & \(115.8 \pm 0.56\;[3]\) & \(\mathbf{152.5} \pm 0.0097\;[3]\) & \(\mathbf{151} \pm 0.017\;[3]\) \\
+DFlash & \(\mathbf{163.6} \pm 0.63\;[3]\) & \(137.3 \pm 0.27\;[3]\) & \(\mathbf{151} \pm 0.11\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(43.3 \pm 0.28\;[3]\) & \(43.44 \pm 0.0061\;[3]\) & \(43.33 \pm 0.078\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(46.23 \pm 0.0015\;[3]\) & \(46.47 \pm 0.0019\;[3]\) & \(46.28 \pm 0.0024\;[3]\) \\
+Pilot FFN 100\% & \(38.54 \pm 0.044\;[3]\) & \(34.07 \pm 0.031\;[3]\) & \(32.6 \pm 0.025\;[3]\) \\
+Pilot FFN 75\% & \(38.48 \pm 0.061\;[3]\) & \(32.75 \pm 1.7\;[3]\) & \(32.5 \pm 0.043\;[3]\) \\
+Pilot FFN 50\% & \(37.15 \pm 0.066\;[3]\) & \(33.01 \pm 0.21\;[3]\) & \(31.53 \pm 0.017\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(40.15 \pm 0.12\;[3]\) & \(40.03 \pm 0.038\;[3]\) & \(39.54 \pm 0.032\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(99.18 \pm 0.24\;[3]\) & \(108.5 \pm 1\;[3]\) & \(105.4 \pm 0.86\;[3]\) \\
+P-EAGLE & \(114.9 \pm 0.004\;[3]\) & \(125.7 \pm 0.0013\;[3]\) & \(111.2 \pm 0.015\;[3]\) \\
+DFlash & \(\mathbf{143.7} \pm 1.4\;[3]\) & \(\mathbf{153.1} \pm 0.41\;[3]\) & \(\mathbf{131.9} \pm 0.56\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(42.86 \pm 0.073\;[3]\) & \(43.18 \pm 0.11\;[3]\) & \(43.2 \pm 0.032\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(45.66 \pm 0.0037\;[3]\) & \(46.07 \pm 0.042\;[3]\) & \(46.09 \pm 0.019\;[3]\) \\
+Pilot FFN 100\% & \(35.99 \pm 0.057\;[3]\) & \(36.98 \pm 0.058\;[3]\) & \(35.62 \pm 0.16\;[3]\) \\
+Pilot FFN 75\% & \(35.32 \pm 0.075\;[3]\) & \(35.62 \pm 0.046\;[3]\) & \(35.32 \pm 0.088\;[3]\) \\
+Pilot FFN 50\% & \(35.58 \pm 0.14\;[3]\) & \(36.57 \pm 0.041\;[3]\) & \(34.62 \pm 0.036\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(39.71 \pm 0.067\;[3]\) & \(40.01 \pm 0.055\;[3]\) & \(39.89 \pm 0.17\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(111.6 \pm 1\;[3]\) & \(113.9 \pm 0.53\;[3]\) & \(98.26 \pm 0.66\;[3]\) & \(\mathbf{98.35} \pm 1.2\;[3]\) \\
+P-EAGLE & \(88.29 \pm 1.5\;[3]\) & \(103.4 \pm 0.02\;[3]\) & \(98.25 \pm 0.074\;[3]\) & \(83.52 \pm 0.012\;[3]\) \\
+DFlash & \(\mathbf{117.1} \pm 0.17\;[3]\) & \(\mathbf{121.2} \pm 0.31\;[3]\) & \(\mathbf{122.2} \pm 0.37\;[3]\) & \(97.6 \pm 0.067\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(43.3 \pm 0.054\;[3]\) & \(43.21 \pm 0.048\;[3]\) & \(43.26 \pm 0.035\;[3]\) & \(43 \pm 0.041\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(46.27 \pm 0.026\;[3]\) & \(45.94 \pm 0.0027\;[3]\) & \(46.14 \pm 0.0062\;[3]\) & \(45.8 \pm 0.0036\;[3]\) \\
+Pilot FFN 100\% & \(36.21 \pm 0.049\;[3]\) & \(36.46 \pm 0.028\;[3]\) & \(35.38 \pm 0.094\;[3]\) & \(34.3 \pm 0.019\;[3]\) \\
+Pilot FFN 75\% & \(36.22 \pm 0.039\;[3]\) & \(36.14 \pm 0.089\;[3]\) & \(34.99 \pm 0.015\;[3]\) & \(34.5 \pm 0.049\;[3]\) \\
+Pilot FFN 50\% & \(35.35 \pm 0.12\;[3]\) & \(35.16 \pm 0.17\;[3]\) & \(34.14 \pm 0.097\;[3]\) & \(33.29 \pm 0.086\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(40.01 \pm 0.11\;[3]\) & \(39.83 \pm 0.023\;[3]\) & \(39.76 \pm 0.08\;[3]\) & \(39.4 \pm 0.012\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For each completed request, divide its returned output tokens by the seconds from actual submission through completion. Average the request rates equally. The clock includes waiting, prompt processing and generation.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Time per output token (TPOT) (ms/output token).}
+\label{tab:appendix-metric-tpot-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(9.238 \pm 0.15\;[3]\) & \(9.653 \pm 0.0081\;[3]\) & \(9.967 \pm 0.015\;[3]\) \\
+P-EAGLE & \(8.386 \pm 0.0086\;[3]\) & \(\mathbf{6.474} \pm 0.00062\;[3]\) & \(\mathbf{6.646} \pm 2.5\times 10^{-5}\;[3]\) \\
+DFlash & \(\mathbf{6.485} \pm 0.034\;[3]\) & \(7.396 \pm 0.016\;[3]\) & \(6.698 \pm 0.0046\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(23.06 \pm 0.15\;[3]\) & \(23 \pm 0.0031\;[3]\) & \(23.05 \pm 0.042\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(21.5 \pm 0.00063\;[3]\) & \(21.47 \pm 0.0008\;[3]\) & \(21.57 \pm 0.00076\;[3]\) \\
+Pilot FFN 100\% & \(25.98 \pm 0.028\;[3]\) & \(29.34 \pm 0.03\;[3]\) & \(30.65 \pm 0.023\;[3]\) \\
+Pilot FFN 75\% & \(26.07 \pm 0.045\;[3]\) & \(29.61 \pm 0.039\;[3]\) & \(30.75 \pm 0.04\;[3]\) \\
+Pilot FFN 50\% & \(26.95 \pm 0.051\;[3]\) & \(30.3 \pm 0.19\;[3]\) & \(31.69 \pm 0.017\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(24.86 \pm 0.072\;[3]\) & \(24.97 \pm 0.024\;[3]\) & \(25.28 \pm 0.021\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(9.864 \pm 0.014\;[3]\) & \(9.042 \pm 0.082\;[3]\) & \(9.52 \pm 0.067\;[3]\) \\
+P-EAGLE & \(8.452 \pm 0.00073\;[3]\) & \(7.691 \pm 0.00077\;[3]\) & \(9 \pm 0.0014\;[3]\) \\
+DFlash & \(\mathbf{6.985} \pm 0.073\;[3]\) & \(\mathbf{6.447} \pm 0.017\;[3]\) & \(\mathbf{7.956} \pm 0.023\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(23.23 \pm 0.04\;[3]\) & \(23.1 \pm 0.062\;[3]\) & \(23.08 \pm 0.018\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(21.65 \pm 0.00083\;[3]\) & \(21.53 \pm 0.00065\;[3]\) & \(21.55 \pm 0.0017\;[3]\) \\
+Pilot FFN 100\% & \(27.73 \pm 0.044\;[3]\) & \(27.03 \pm 0.041\;[3]\) & \(28.04 \pm 0.12\;[3]\) \\
+Pilot FFN 75\% & \(28.28 \pm 0.058\;[3]\) & \(28.09 \pm 0.037\;[3]\) & \(28.28 \pm 0.071\;[3]\) \\
+Pilot FFN 50\% & \(28.05 \pm 0.11\;[3]\) & \(27.34 \pm 0.03\;[3]\) & \(28.88 \pm 0.028\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(25.08 \pm 0.042\;[3]\) & \(24.94 \pm 0.033\;[3]\) & \(24.99 \pm 0.11\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(8.857 \pm 0.067\;[3]\) & \(8.61 \pm 0.032\;[3]\) & \(10.41 \pm 0.054\;[3]\) & \(\mathbf{9.987} \pm 0.13\;[3]\) \\
+P-EAGLE & \(11.12 \pm 0.018\;[3]\) & \(9.429 \pm 0.0021\;[3]\) & \(10.61 \pm 0.0046\;[3]\) & \(11.7 \pm 0.0013\;[3]\) \\
+DFlash & \(\mathbf{8.524} \pm 0.011\;[3]\) & \(\mathbf{8.129} \pm 0.021\;[3]\) & \(\mathbf{8.522} \pm 0.017\;[3]\) & \(10.06 \pm 0.0078\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(23.05 \pm 0.02\;[3]\) & \(23.08 \pm 0.027\;[3]\) & \(23.05 \pm 0.018\;[3]\) & \(23.12 \pm 0.023\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(21.49 \pm 0.00035\;[3]\) & \(21.55 \pm 0.0027\;[3]\) & \(21.55 \pm 0.0015\;[3]\) & \(21.62 \pm 0.00099\;[3]\) \\
+Pilot FFN 100\% & \(27.6 \pm 0.022\;[3]\) & \(27.42 \pm 0.019\;[3]\) & \(28.3 \pm 0.071\;[3]\) & \(29.05 \pm 0.02\;[3]\) \\
+Pilot FFN 75\% & \(27.59 \pm 0.034\;[3]\) & \(27.69 \pm 0.069\;[3]\) & \(28.66 \pm 0.0098\;[3]\) & \(28.87 \pm 0.037\;[3]\) \\
+Pilot FFN 50\% & \(28.29 \pm 0.082\;[3]\) & \(28.47 \pm 0.13\;[3]\) & \(29.29 \pm 0.081\;[3]\) & \(29.93 \pm 0.072\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(24.95 \pm 0.047\;[3]\) & \(25.07 \pm 0.014\;[3]\) & \(25.08 \pm 0.051\;[3]\) & \(25.22 \pm 0.008\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For each completed response with N output tokens, require N greater than one. Subtract TTFT from end-to-end request latency and divide by N minus one. Average the eligible request values equally. Count excluded responses separately.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Lower values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Inter-chunk latency (ms/gap, p95).}
+\label{tab:appendix-metric-pooled-gap-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(32.21 \pm 0.29\;[3]\) & \(32.16 \pm 0.041\;[3]\) & \(32.52 \pm 0.13\;[3]\) \\
+P-EAGLE & \(26.27 \pm 0.26\;[3]\) & \(26.38 \pm 0.15\;[3]\) & \(27.07 \pm 0.043\;[3]\) \\
+DFlash & \(31.41 \pm 0.13\;[3]\) & \(30.99 \pm 0.039\;[3]\) & \(31.27 \pm 0.074\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(23.39 \pm 0.013\;[3]\) & \(23.18 \pm 0.018\;[3]\) & \(23.37 \pm 0.027\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(\mathbf{21.54} \pm 0.047\;[3]\) & \(\mathbf{21.54} \pm 0.0061\;[3]\) & \(\mathbf{21.81} \pm 0.01\;[3]\) \\
+Pilot FFN 100\% & \(32.22 \pm 0.024\;[3]\) & \(33.2 \pm 0.048\;[3]\) & \(37.5 \pm 0.031\;[3]\) \\
+Pilot FFN 75\% & \(32.37 \pm 0.089\;[3]\) & \(33.31 \pm 0.092\;[3]\) & \(37.51 \pm 0.082\;[3]\) \\
+Pilot FFN 50\% & \(32.81 \pm 0.084\;[3]\) & \(33.48 \pm 0.3\;[3]\) & \(37.84 \pm 0.027\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(24.92 \pm 0.057\;[3]\) & \(25.26 \pm 0.016\;[3]\) & \(26.52 \pm 0.13\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(32.62 \pm 0.76\;[3]\) & \(32.31 \pm 0.38\;[3]\) & \(32.3 \pm 0.23\;[3]\) \\
+P-EAGLE & \(26.01 \pm 0.043\;[3]\) & \(26.15 \pm 0.17\;[3]\) & \(26.32 \pm 0.034\;[3]\) \\
+DFlash & \(30.95 \pm 0.041\;[3]\) & \(30.88 \pm 0.064\;[3]\) & \(31.06 \pm 0.15\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(23.2 \pm 0.014\;[3]\) & \(23.1 \pm 0.052\;[3]\) & \(23.14 \pm 0.018\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(\mathbf{21.51} \pm 0.047\;[3]\) & \(\mathbf{21.49} \pm 0.051\;[3]\) & \(\mathbf{21.53} \pm 0.0063\;[3]\) \\
+Pilot FFN 100\% & \(32.01 \pm 0.051\;[3]\) & \(32.11 \pm 0.099\;[3]\) & \(33.18 \pm 0.025\;[3]\) \\
+Pilot FFN 75\% & \(32.07 \pm 0.06\;[3]\) & \(32.23 \pm 0.036\;[3]\) & \(33.18 \pm 0.068\;[3]\) \\
+Pilot FFN 50\% & \(32.65 \pm 0.16\;[3]\) & \(32.67 \pm 0.11\;[3]\) & \(33.88 \pm 0.065\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(24.96 \pm 0.071\;[3]\) & \(24.98 \pm 0.032\;[3]\) & \(25.24 \pm 0.042\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(32.65 \pm 0.18\;[3]\) & \(32.17 \pm 0.19\;[3]\) & \(32.62 \pm 0.29\;[3]\) & \(31.58 \pm 0.62\;[3]\) \\
+P-EAGLE & \(26.49 \pm 0.068\;[3]\) & \(26.27 \pm 0.23\;[3]\) & \(26.73 \pm 0.065\;[3]\) & \(26.57 \pm 0.11\;[3]\) \\
+DFlash & \(31.04 \pm 0.08\;[3]\) & \(30.94 \pm 0.11\;[3]\) & \(31.12 \pm 0.12\;[3]\) & \(31.19 \pm 0.1\;[3]\) \\
+AR \textperiodcentered{} SGLang & \(23.22 \pm 0.056\;[3]\) & \(23.15 \pm 0.039\;[3]\) & \(23.25 \pm 0.031\;[3]\) & \(23.27 \pm 0.019\;[3]\) \\
+AR \textperiodcentered{} vLLM ModelRunnerV1 & \(\mathbf{21.57} \pm 0.01\;[3]\) & \(\mathbf{21.49} \pm 0.026\;[3]\) & \(\mathbf{21.68} \pm 0.0078\;[3]\) & \(\mathbf{21.62} \pm 0.0038\;[3]\) \\
+Pilot FFN 100\% & \(33.87 \pm 0.04\;[3]\) & \(32.53 \pm 0.16\;[3]\) & \(35.13 \pm 0.026\;[3]\) & \(33.95 \pm 0.038\;[3]\) \\
+Pilot FFN 75\% & \(33.96 \pm 0.052\;[3]\) & \(32.53 \pm 0.086\;[3]\) & \(35.1 \pm 0.058\;[3]\) & \(34.04 \pm 0.039\;[3]\) \\
+Pilot FFN 50\% & \(34.39 \pm 0.14\;[3]\) & \(33.21 \pm 0.037\;[3]\) & \(35.66 \pm 0.039\;[3]\) & \(34.52 \pm 0.071\;[3]\) \\
+AR \textperiodcentered{} Transformers & \(25.37 \pm 0.058\;[3]\) & \(25.09 \pm 0.04\;[3]\) & \(25.49 \pm 0.019\;[3]\) & \(25.28 \pm 0.0051\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Within each response, measure the gaps between successive nonempty chunks. Pool all observed gaps and report their p95. A response with more chunks contributes more gaps.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Lower values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Draft-token acceptance rate (\% of proposed draft tokens).}
+\label{tab:appendix-metric-draft-fraction-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(16.28 \pm 0\;[3]\) & \(15.37 \pm 0\;[3]\) & \(15.52 \pm 0\;[3]\) \\
+P-EAGLE & \(30.71 \pm 0\;[3]\) & \(\mathbf{43.63} \pm 0\;[3]\) & \(\mathbf{45.7} \pm 0\;[3]\) \\
+DFlash & \(\mathbf{62.85} \pm 0\;[3]\) & \(36.63 \pm 0\;[3]\) & \(42.25 \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(3.063 \pm 0\;[3]\) & \(1.191 \pm 0\;[3]\) & \(1.515 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(3.097 \pm 0\;[3]\) & \(1.067 \pm 0\;[3]\) & \(1.657 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(2.694 \pm 0\;[3]\) & \(0.9023 \pm 0\;[3]\) & \(1.322 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(15.77 \pm 0\;[3]\) & \(17.49 \pm 0\;[3]\) & \(14.79 \pm 0\;[3]\) \\
+P-EAGLE & \(31.14 \pm 0\;[3]\) & \(33.8 \pm 0\;[3]\) & \(26.98 \pm 0\;[3]\) \\
+DFlash & \(\mathbf{38.1} \pm 0\;[3]\) & \(\mathbf{43.43} \pm 0\;[3]\) & \(\mathbf{29.67} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(1.984 \pm 0\;[3]\) & \(2.258 \pm 0\;[3]\) & \(1.962 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(1.702 \pm 0\;[3]\) & \(1.629 \pm 0\;[3]\) & \(1.846 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(2.042 \pm 0\;[3]\) & \(2.297 \pm 0\;[3]\) & \(1.8 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(17.05 \pm 0\;[3]\) & \(18.35 \pm 0\;[3]\) & \(13.63 \pm 0\;[3]\) & \(14.3 \pm 0\;[3]\) \\
+P-EAGLE & \(16.86 \pm 0\;[3]\) & \(25.55 \pm 0\;[3]\) & \(21.09 \pm 0\;[3]\) & \(17.97 \pm 0\;[3]\) \\
+DFlash & \(\mathbf{26.65} \pm 0\;[3]\) & \(\mathbf{29.55} \pm 0\;[3]\) & \(\mathbf{27.81} \pm 0\;[3]\) & \(\mathbf{23.16} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(2.227 \pm 0\;[3]\) & \(1.977 \pm 0\;[3]\) & \(1.914 \pm 0\;[3]\) & \(1.922 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(2.257 \pm 0\;[3]\) & \(2.051 \pm 0\;[3]\) & \(1.733 \pm 0\;[3]\) & \(2.034 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(2.182 \pm 0\;[3]\) & \(1.879 \pm 0\;[3]\) & \(1.733 \pm 0\;[3]\) & \(1.701 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Divide accepted draft tokens by proposed draft tokens and multiply by 100. The numerator and denominator count draft tokens only. Record target correction and bonus tokens separately. For a branching draft, state which branches the proposal count covers. The current EAGLE-3 setting proposes 15 candidate tree nodes per round. DFlash proposes nine linear draft tokens, and P-EAGLE proposes seven linear draft tokens. EAGLE-3's denominator includes candidates on alternative branches; its numerator counts the accepted path. Each linear method's denominator contains its proposed sequence. These different proposal structures limit comparisons of the acceptance percentages. The team drafter proposes eight linear tokens per round.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Accepted draft tokens per round (accepted draft tokens/round).}
+\label{tab:appendix-metric-accepted-round-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(2.443 \pm 0\;[3]\) & \(2.306 \pm 0\;[3]\) & \(2.328 \pm 0\;[3]\) \\
+P-EAGLE & \(2.15 \pm 0\;[3]\) & \(3.054 \pm 0\;[3]\) & \(3.199 \pm 0\;[3]\) \\
+DFlash & \(\mathbf{5.656} \pm 0\;[3]\) & \(\mathbf{3.297} \pm 0\;[3]\) & \(\mathbf{3.803} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0.245 \pm 0\;[3]\) & \(0.09528 \pm 0\;[3]\) & \(0.1212 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0.2478 \pm 0\;[3]\) & \(0.08539 \pm 0\;[3]\) & \(0.1326 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0.2155 \pm 0\;[3]\) & \(0.07218 \pm 0\;[3]\) & \(0.1057 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(2.365 \pm 0\;[3]\) & \(2.624 \pm 0\;[3]\) & \(2.218 \pm 0\;[3]\) \\
+P-EAGLE & \(2.179 \pm 0\;[3]\) & \(2.366 \pm 0\;[3]\) & \(1.888 \pm 0\;[3]\) \\
+DFlash & \(\mathbf{3.429} \pm 0\;[3]\) & \(\mathbf{3.909} \pm 0\;[3]\) & \(\mathbf{2.67} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0.1587 \pm 0\;[3]\) & \(0.1806 \pm 0\;[3]\) & \(0.157 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0.1362 \pm 0\;[3]\) & \(0.1303 \pm 0\;[3]\) & \(0.1477 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0.1633 \pm 0\;[3]\) & \(0.1837 \pm 0\;[3]\) & \(0.144 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(\mathbf{2.558} \pm 0\;[3]\) & \(\mathbf{2.753} \pm 0\;[3]\) & \(2.045 \pm 0\;[3]\) & \(\mathbf{2.145} \pm 0\;[3]\) \\
+P-EAGLE & \(1.18 \pm 0\;[3]\) & \(1.788 \pm 0\;[3]\) & \(1.476 \pm 0\;[3]\) & \(1.258 \pm 0\;[3]\) \\
+DFlash & \(2.399 \pm 0\;[3]\) & \(2.66 \pm 0\;[3]\) & \(\mathbf{2.503} \pm 0\;[3]\) & \(2.085 \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0.1781 \pm 0\;[3]\) & \(0.1582 \pm 0\;[3]\) & \(0.1531 \pm 0\;[3]\) & \(0.1537 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0.1805 \pm 0\;[3]\) & \(0.1641 \pm 0\;[3]\) & \(0.1386 \pm 0\;[3]\) & \(0.1628 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0.1746 \pm 0\;[3]\) & \(0.1503 \pm 0\;[3]\) & \(0.1386 \pm 0\;[3]\) & \(0.1361 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Divide the total accepted draft tokens by the number of verification rounds. Include rounds that accept zero draft tokens. Record tokens supplied by the target separately.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Mean acceptance length (\(\tau\)), averaged across requests (committed tokens/round).}
+\label{tab:appendix-metric-acceptance-length-request-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(3.451 \pm 0\;[3]\) & \(3.301 \pm 0\;[3]\) & \(3.222 \pm 0\;[3]\) \\
+DFlash & \(\mathbf{5.116} \pm 0\;[3]\) & \(\mathbf{4.25} \pm 0\;[3]\) & \(\mathbf{4.688} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(1.229 \pm 0\;[3]\) & \(1.097 \pm 0\;[3]\) & \(1.121 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(1.23 \pm 0\;[3]\) & \(1.091 \pm 0\;[3]\) & \(1.119 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(1.2 \pm 0\;[3]\) & \(1.076 \pm 0\;[3]\) & \(1.1 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(3.337 \pm 0\;[3]\) & \(3.575 \pm 0\;[3]\) & \(3.436 \pm 0\;[3]\) \\
+DFlash & \(\mathbf{4.702} \pm 0\;[3]\) & \(\mathbf{4.862} \pm 0\;[3]\) & \(\mathbf{4.164} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(1.155 \pm 0\;[3]\) & \(1.178 \pm 0\;[3]\) & \(1.158 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(1.133 \pm 0\;[3]\) & \(1.136 \pm 0\;[3]\) & \(1.15 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(1.161 \pm 0\;[3]\) & \(1.18 \pm 0\;[3]\) & \(1.146 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(3.625 \pm 0\;[3]\) & \(3.74 \pm 0\;[3]\) & \(3.145 \pm 0\;[3]\) & \(\mathbf{3.158} \pm 0\;[3]\) \\
+DFlash & \(\mathbf{3.665} \pm 0\;[3]\) & \(\mathbf{3.842} \pm 0\;[3]\) & \(\mathbf{3.808} \pm 0\;[3]\) & \(3.082 \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(1.166 \pm 0\;[3]\) & \(1.161 \pm 0\;[3]\) & \(1.163 \pm 0\;[3]\) & \(1.154 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(1.167 \pm 0\;[3]\) & \(1.157 \pm 0\;[3]\) & \(1.152 \pm 0\;[3]\) & \(1.163 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(1.152 \pm 0\;[3]\) & \(1.138 \pm 0\;[3]\) & \(1.138 \pm 0\;[3]\) & \(1.137 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For each request with at least one verification round, divide its retained tokens by its round count. Include accepted drafts and retained target tokens before final output trimming. Average the request values equally.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Delivered output tokens per round (delivered tokens/round).}
+\label{tab:appendix-metric-returned-round-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(3.408 \pm 0\;[3]\) & \(3.293 \pm 0\;[3]\) & \(3.324 \pm 0\;[3]\) \\
+DFlash & \(\mathbf{6.625} \pm 0\;[3]\) & \(\mathbf{4.287} \pm 0\;[3]\) & \(\mathbf{4.797} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(1.238 \pm 0\;[3]\) & \(1.093 \pm 0\;[3]\) & \(1.121 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(1.241 \pm 0\;[3]\) & \(1.083 \pm 0\;[3]\) & \(1.132 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(1.209 \pm 0\;[3]\) & \(1.07 \pm 0\;[3]\) & \(1.105 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(3.311 \pm 0\;[3]\) & \(3.584 \pm 0\;[3]\) & \(3.197 \pm 0\;[3]\) \\
+DFlash & \(\mathbf{4.375} \pm 0\;[3]\) & \(\mathbf{4.875} \pm 0\;[3]\) & \(\mathbf{3.655} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(1.147 \pm 0\;[3]\) & \(1.173 \pm 0\;[3]\) & \(1.152 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(1.125 \pm 0\;[3]\) & \(1.123 \pm 0\;[3]\) & \(1.143 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(1.151 \pm 0\;[3]\) & \(1.176 \pm 0\;[3]\) & \(1.139 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(\mathbf{3.546} \pm 0\;[3]\) & \(\mathbf{3.727} \pm 0\;[3]\) & \(3.028 \pm 0\;[3]\) & \(\mathbf{3.12} \pm 0\;[3]\) \\
+DFlash & \(3.39 \pm 0\;[3]\) & \(3.644 \pm 0\;[3]\) & \(\mathbf{3.493} \pm 0\;[3]\) & \(3.072 \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(1.175 \pm 0\;[3]\) & \(1.153 \pm 0\;[3]\) & \(1.149 \pm 0\;[3]\) & \(1.149 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(1.177 \pm 0\;[3]\) & \(1.159 \pm 0\;[3]\) & \(1.135 \pm 0\;[3]\) & \(1.158 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(1.172 \pm 0\;[3]\) & \(1.145 \pm 0\;[3]\) & \(1.135 \pm 0\;[3]\) & \(1.131 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+Count the output tokens from the recorded rounds that actually reach the client after stopping and output limits. Divide by all those rounds, including rounds that return zero tokens. Record any initial target token outside the rounds separately.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Prefix acceptance probability by position; Position 1 (probability at each draft position).}
+\label{tab:appendix-metric-prefix-survival-1}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(\mathbf{0.9198} \pm 0\;[3]\) & \(\mathbf{0.8594} \pm 0\;[3]\) & \(\mathbf{0.844} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0.245 \pm 0\;[3]\) & \(0.09528 \pm 0\;[3]\) & \(0.121 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0.2434 \pm 0\;[3]\) & \(0.08539 \pm 0\;[3]\) & \(0.1301 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0.2091 \pm 0\;[3]\) & \(0.07218 \pm 0\;[3]\) & \(0.105 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(\mathbf{0.8036} \pm 0\;[3]\) & \(\mathbf{0.8068} \pm 0\;[3]\) & \(\mathbf{0.79} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0.1587 \pm 0\;[3]\) & \(0.178 \pm 0\;[3]\) & \(0.1489 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0.1362 \pm 0\;[3]\) & \(0.1303 \pm 0\;[3]\) & \(0.1413 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0.1633 \pm 0\;[3]\) & \(0.1811 \pm 0\;[3]\) & \(0.136 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(\mathbf{0.7977} \pm 0\;[3]\) & \(\mathbf{0.8144} \pm 0\;[3]\) & \(\mathbf{0.7222} \pm 0\;[3]\) & \(\mathbf{0.7712} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0.1781 \pm 0\;[3]\) & \(0.1582 \pm 0\;[3]\) & \(0.1456 \pm 0\;[3]\) & \(0.1537 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0.1805 \pm 0\;[3]\) & \(0.1573 \pm 0\;[3]\) & \(0.1302 \pm 0\;[3]\) & \(0.1612 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0.1746 \pm 0\;[3]\) & \(0.1503 \pm 0\;[3]\) & \(0.1333 \pm 0\;[3]\) & \(0.1346 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For each draft position, count the rounds that proposed that position. Among those rounds, count how often the target accepted every draft token through that position before final output clipping. Divide the second count by the first.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Prefix acceptance probability by position; Position 2 (probability at each draft position).}
+\label{tab:appendix-metric-prefix-survival-2}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(\mathbf{0.8252} \pm 0\;[3]\) & \(\mathbf{0.6813} \pm 0\;[3]\) & \(\mathbf{0.6663} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0.0002453 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0.004425 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0.002478 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0.006466 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0.0007259 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(\mathbf{0.6964} \pm 0\;[3]\) & \(\mathbf{0.6818} \pm 0\;[3]\) & \(\mathbf{0.605} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0.002618 \pm 0\;[3]\) & \(0.008091 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0.006421 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0.002625 \pm 0\;[3]\) & \(0.008 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(\mathbf{0.5897} \pm 0\;[3]\) & \(\mathbf{0.634} \pm 0\;[3]\) & \(\mathbf{0.5588} \pm 0\;[3]\) & \(\mathbf{0.5339} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0.007495 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0.006838 \pm 0\;[3]\) & \(0.008466 \pm 0\;[3]\) & \(0.001565 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0.005291 \pm 0\;[3]\) & \(0.001529 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For each draft position, count the rounds that proposed that position. Among those rounds, count how often the target accepted every draft token through that position before final output clipping. Divide the second count by the first.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Prefix acceptance probability by position; Position 3 (probability at each draft position).}
+\label{tab:appendix-metric-prefix-survival-3}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(\mathbf{0.745} \pm 0\;[3]\) & \(\mathbf{0.4906} \pm 0\;[3]\) & \(\mathbf{0.5333} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(\mathbf{0.5357} \pm 0\;[3]\) & \(\mathbf{0.5227} \pm 0\;[3]\) & \(\mathbf{0.415} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(\mathbf{0.4046} \pm 0\;[3]\) & \(\mathbf{0.4433} \pm 0\;[3]\) & \(\mathbf{0.4183} \pm 0\;[3]\) & \(\mathbf{0.3263} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For each draft position, count the rounds that proposed that position. Among those rounds, count how often the target accepted every draft token through that position before final output clipping. Divide the second count by the first.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Prefix acceptance probability by position; Position 4 (probability at each draft position).}
+\label{tab:appendix-metric-prefix-survival-4}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(\mathbf{0.6447} \pm 0\;[3]\) & \(\mathbf{0.3812} \pm 0\;[3]\) & \(\mathbf{0.4472} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(\mathbf{0.4107} \pm 0\;[3]\) & \(\mathbf{0.4659} \pm 0\;[3]\) & \(\mathbf{0.285} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(\mathbf{0.2621} \pm 0\;[3]\) & \(\mathbf{0.299} \pm 0\;[3]\) & \(\mathbf{0.2941} \pm 0\;[3]\) & \(\mathbf{0.1992} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For each draft position, count the rounds that proposed that position. Among those rounds, count how often the target accepted every draft token through that position before final output clipping. Divide the second count by the first.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Prefix acceptance probability by position; Position 5 (probability at each draft position).}
+\label{tab:appendix-metric-prefix-survival-5}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(\mathbf{0.5874} \pm 0\;[3]\) & \(\mathbf{0.3031} \pm 0\;[3]\) & \(\mathbf{0.3555} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(\mathbf{0.3393} \pm 0\;[3]\) & \(\mathbf{0.4091} \pm 0\;[3]\) & \(\mathbf{0.21} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(\mathbf{0.1709} \pm 0\;[3]\) & \(\mathbf{0.1804} \pm 0\;[3]\) & \(\mathbf{0.1928} \pm 0\;[3]\) & \(\mathbf{0.1059} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For each draft position, count the rounds that proposed that position. Among those rounds, count how often the target accepted every draft token through that position before final output clipping. Divide the second count by the first.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Prefix acceptance probability by position; Position 6 (probability at each draft position).}
+\label{tab:appendix-metric-prefix-survival-6}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(\mathbf{0.5301} \pm 0\;[3]\) & \(\mathbf{0.2281} \pm 0\;[3]\) & \(\mathbf{0.2959} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(\mathbf{0.2679} \pm 0\;[3]\) & \(\mathbf{0.3182} \pm 0\;[3]\) & \(\mathbf{0.145} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(\mathbf{0.09117} \pm 0\;[3]\) & \(\mathbf{0.1082} \pm 0\;[3]\) & \(\mathbf{0.1209} \pm 0\;[3]\) & \(\mathbf{0.0678} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For each draft position, count the rounds that proposed that position. Among those rounds, count how often the target accepted every draft token through that position before final output clipping. Divide the second count by the first.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Prefix acceptance probability by position; Position 7 (probability at each draft position).}
+\label{tab:appendix-metric-prefix-survival-7}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(\mathbf{0.5014} \pm 0\;[3]\) & \(\mathbf{0.1688} \pm 0\;[3]\) & \(\mathbf{0.2603} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(\mathbf{0.1786} \pm 0\;[3]\) & \(\mathbf{0.2841} \pm 0\;[3]\) & \(\mathbf{0.09} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(\mathbf{0.04274} \pm 0\;[3]\) & \(\mathbf{0.08247} \pm 0\;[3]\) & \(\mathbf{0.08824} \pm 0\;[3]\) & \(\mathbf{0.03814} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For each draft position, count the rounds that proposed that position. Among those rounds, count how often the target accepted every draft token through that position before final output clipping. Divide the second count by the first.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Prefix acceptance probability by position; Position 8 (probability at each draft position).}
+\label{tab:appendix-metric-prefix-survival-8}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(\mathbf{0.4728} \pm 0\;[3]\) & \(\mathbf{0.1125} \pm 0\;[3]\) & \(\mathbf{0.219} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(\mathbf{0.1071} \pm 0\;[3]\) & \(\mathbf{0.25} \pm 0\;[3]\) & \(\mathbf{0.065} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(\mathbf{0.01994} \pm 0\;[3]\) & \(\mathbf{0.06186} \pm 0\;[3]\) & \(\mathbf{0.06209} \pm 0\;[3]\) & \(\mathbf{0.02542} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For each draft position, count the rounds that proposed that position. Among those rounds, count how often the target accepted every draft token through that position before final output clipping. Divide the second count by the first.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Prefix acceptance probability by position; Position 9 (probability at each draft position).}
+\label{tab:appendix-metric-prefix-survival-9}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(0.4298 \pm 0\;[3]\) & \(0.07187 \pm 0\;[3]\) & \(0.1812 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(0.08929 \pm 0\;[3]\) & \(0.1705 \pm 0\;[3]\) & \(0.065 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(0.01994 \pm 0\;[3]\) & \(0.03608 \pm 0\;[3]\) & \(0.04575 \pm 0\;[3]\) & \(0.01695 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For each draft position, count the rounds that proposed that position. Among those rounds, count how often the target accepted every draft token through that position before final output clipping. Divide the second count by the first.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Prefix acceptance probability by position; Tree-prefix diagnostic; Position 1 (probability at each draft position).}
+\label{tab:appendix-metric-prefix-survival-tree-prefix-diagnostic-1}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(0.9253 \pm 0\;[3]\) & \(0.9158 \pm 0\;[3]\) & \(0.8703 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(0.8514 \pm 0\;[3]\) & \(0.944 \pm 0\;[3]\) & \(0.8559 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(0.9493 \pm 0\;[3]\) & \(0.9948 \pm 0\;[3]\) & \(0.7994 \pm 0\;[3]\) & \(0.8755 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For EAGLE-3, count verification rounds whose proposal tree contains a node at the stated depth. Among those rounds, count rounds whose accepted path reaches that depth. Divide accepted rounds by eligible rounds. Depth one contains the root's children. The root is a previously generated target token. Counts precede final output clipping. These tree-prefix diagnostics use the recorded branching tree. The EAGLE-3 paper measures n-alpha with a chain and defines n by the draft feature history. The tree values preserve their separate interpretation.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Prefix acceptance probability by position; Tree-prefix diagnostic; Position 2 (probability at each draft position).}
+\label{tab:appendix-metric-prefix-survival-tree-prefix-diagnostic-2}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(0.8333 \pm 0\;[3]\) & \(0.7806 \pm 0\;[3]\) & \(0.7781 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(0.8243 \pm 0\;[3]\) & \(0.88 \pm 0\;[3]\) & \(0.7336 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(0.8478 \pm 0\;[3]\) & \(0.9175 \pm 0\;[3]\) & \(0.678 \pm 0\;[3]\) & \(0.7427 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For EAGLE-3, count verification rounds whose proposal tree contains a node at the stated depth. Among those rounds, count rounds whose accepted path reaches that depth. Divide accepted rounds by eligible rounds. Depth one contains the root's children. The root is a previously generated target token. Counts precede final output clipping. These tree-prefix diagnostics use the recorded branching tree. The EAGLE-3 paper measures n-alpha with a chain and defines n by the draft feature history. The tree values preserve their separate interpretation.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Prefix acceptance probability by position; Tree-prefix diagnostic; Position 3 (probability at each draft position).}
+\label{tab:appendix-metric-prefix-survival-tree-prefix-diagnostic-3}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(0.6839 \pm 0\;[3]\) & \(0.6097 \pm 0\;[3]\) & \(0.6805 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(0.6892 \pm 0\;[3]\) & \(0.8 \pm 0\;[3]\) & \(0.6288 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(0.7612 \pm 0\;[3]\) & \(0.8402 \pm 0\;[3]\) & \(0.5694 \pm 0\;[3]\) & \(0.527 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For EAGLE-3, count verification rounds whose proposal tree contains a node at the stated depth. Among those rounds, count rounds whose accepted path reaches that depth. Divide accepted rounds by eligible rounds. Depth one contains the root's children. The root is a previously generated target token. Counts precede final output clipping. These tree-prefix diagnostics use the recorded branching tree. The EAGLE-3 paper measures n-alpha with a chain and defines n by the draft feature history. The tree values preserve their separate interpretation.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Conditional acceptance rate by position; Position 1 (\% at each draft position).}
+\label{tab:appendix-metric-conditional-acceptance-1}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(\mathbf{91.98} \pm 0\;[3]\) & \(\mathbf{85.94} \pm 0\;[3]\) & \(\mathbf{84.4} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(24.5 \pm 0\;[3]\) & \(9.528 \pm 0\;[3]\) & \(12.1 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(24.34 \pm 0\;[3]\) & \(8.539 \pm 0\;[3]\) & \(13.01 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(20.91 \pm 0\;[3]\) & \(7.218 \pm 0\;[3]\) & \(10.5 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(\mathbf{80.36} \pm 0\;[3]\) & \(\mathbf{80.68} \pm 0\;[3]\) & \(\mathbf{79} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(15.87 \pm 0\;[3]\) & \(17.8 \pm 0\;[3]\) & \(14.89 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(13.62 \pm 0\;[3]\) & \(13.03 \pm 0\;[3]\) & \(14.13 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(16.33 \pm 0\;[3]\) & \(18.11 \pm 0\;[3]\) & \(13.6 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(\mathbf{79.77} \pm 0\;[3]\) & \(\mathbf{81.44} \pm 0\;[3]\) & \(\mathbf{72.22} \pm 0\;[3]\) & \(\mathbf{77.12} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(17.81 \pm 0\;[3]\) & \(15.82 \pm 0\;[3]\) & \(14.56 \pm 0\;[3]\) & \(15.37 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(18.05 \pm 0\;[3]\) & \(15.73 \pm 0\;[3]\) & \(13.02 \pm 0\;[3]\) & \(16.12 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(17.46 \pm 0\;[3]\) & \(15.03 \pm 0\;[3]\) & \(13.33 \pm 0\;[3]\) & \(13.46 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+At each draft position, count rounds that proposed the position and accepted every earlier proposal. Among these eligible rounds, count how often the current proposal passes. Divide passes by eligible rounds and multiply by 100. Report a result only when the eligible count is positive.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Conditional acceptance rate by position; Position 2 (\% at each draft position).}
+\label{tab:appendix-metric-conditional-acceptance-2}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(\mathbf{89.72} \pm 0\;[3]\) & \(\mathbf{79.27} \pm 0\;[3]\) & \(\mathbf{78.94} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0.2028 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(1.818 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(1.905 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(3.093 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0.6912 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(\mathbf{86.67} \pm 0\;[3]\) & \(\mathbf{84.51} \pm 0\;[3]\) & \(\mathbf{76.58} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(1.471 \pm 0\;[3]\) & \(5.435 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(4.545 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(1.449 \pm 0\;[3]\) & \(5.882 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(\mathbf{73.93} \pm 0\;[3]\) & \(\mathbf{77.85} \pm 0\;[3]\) & \(\mathbf{77.38} \pm 0\;[3]\) & \(\mathbf{69.23} \pm 0\;[3]\) \\
+Pilot FFN 100\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(5.147 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) & \(4.348 \pm 0\;[3]\) & \(6.504 \pm 0\;[3]\) & \(0.9709 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(3.968 \pm 0\;[3]\) & \(1.136 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+At each draft position, count rounds that proposed the position and accepted every earlier proposal. Among these eligible rounds, count how often the current proposal passes. Divide passes by eligible rounds and multiply by 100. Report a result only when the eligible count is positive.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Conditional acceptance rate by position; Position 3 (\% at each draft position).}
+\label{tab:appendix-metric-conditional-acceptance-3}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(\mathbf{90.28} \pm 0\;[3]\) & \(72.02 \pm 0\;[3]\) & \(\mathbf{80.03} \pm 0\;[3]\) \\
+Pilot FFN 100\% &  &  & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% & \(0 \pm 0\;[3]\) &  & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% & \(0 \pm 0\;[3]\) &  & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(76.92 \pm 0\;[3]\) & \(\mathbf{76.67} \pm 0\;[3]\) & \(\mathbf{68.6} \pm 0\;[3]\) \\
+Pilot FFN 100\% &  & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 75\% &  &  & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% &  & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(68.6 \pm 0\;[3]\) & \(\mathbf{69.92} \pm 0\;[3]\) & \(\mathbf{74.85} \pm 0\;[3]\) & \(\mathbf{61.11} \pm 0\;[3]\) \\
+Pilot FFN 100\% &  &  & \(0 \pm 0\;[3]\) &  \\
+Pilot FFN 75\% &  & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+Pilot FFN 50\% &  &  & \(0 \pm 0\;[3]\) & \(0 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+At each draft position, count rounds that proposed the position and accepted every earlier proposal. Among these eligible rounds, count how often the current proposal passes. Divide passes by eligible rounds and multiply by 100. Report a result only when the eligible count is positive.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Conditional acceptance rate by position; Position 4 (\% at each draft position).}
+\label{tab:appendix-metric-conditional-acceptance-4}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(86.54 \pm 0\;[3]\) & \(77.71 \pm 0\;[3]\) & \(83.87 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(76.67 \pm 0\;[3]\) & \(89.13 \pm 0\;[3]\) & \(68.67 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(64.79 \pm 0\;[3]\) & \(67.44 \pm 0\;[3]\) & \(70.31 \pm 0\;[3]\) & \(61.04 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+At each draft position, count rounds that proposed the position and accepted every earlier proposal. Among these eligible rounds, count how often the current proposal passes. Divide passes by eligible rounds and multiply by 100. Report a result only when the eligible count is positive.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Conditional acceptance rate by position; Position 5 (\% at each draft position).}
+\label{tab:appendix-metric-conditional-acceptance-5}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(91.11 \pm 0\;[3]\) & \(79.51 \pm 0\;[3]\) & \(79.49 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(82.61 \pm 0\;[3]\) & \(87.8 \pm 0\;[3]\) & \(73.68 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(65.22 \pm 0\;[3]\) & \(60.34 \pm 0\;[3]\) & \(65.56 \pm 0\;[3]\) & \(53.19 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+At each draft position, count rounds that proposed the position and accepted every earlier proposal. Among these eligible rounds, count how often the current proposal passes. Divide passes by eligible rounds and multiply by 100. Report a result only when the eligible count is positive.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Conditional acceptance rate by position; Position 6 (\% at each draft position).}
+\label{tab:appendix-metric-conditional-acceptance-6}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(90.24 \pm 0\;[3]\) & \(75.26 \pm 0\;[3]\) & \(83.23 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(78.95 \pm 0\;[3]\) & \(77.78 \pm 0\;[3]\) & \(69.05 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(53.33 \pm 0\;[3]\) & \(60 \pm 0\;[3]\) & \(62.71 \pm 0\;[3]\) & \(64 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+At each draft position, count rounds that proposed the position and accepted every earlier proposal. Among these eligible rounds, count how often the current proposal passes. Divide passes by eligible rounds and multiply by 100. Report a result only when the eligible count is positive.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Conditional acceptance rate by position; Position 7 (\% at each draft position).}
+\label{tab:appendix-metric-conditional-acceptance-7}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(94.59 \pm 0\;[3]\) & \(73.97 \pm 0\;[3]\) & \(87.98 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(66.67 \pm 0\;[3]\) & \(89.29 \pm 0\;[3]\) & \(62.07 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(46.88 \pm 0\;[3]\) & \(76.19 \pm 0\;[3]\) & \(72.97 \pm 0\;[3]\) & \(56.25 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+At each draft position, count rounds that proposed the position and accepted every earlier proposal. Among these eligible rounds, count how often the current proposal passes. Divide passes by eligible rounds and multiply by 100. Report a result only when the eligible count is positive.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Conditional acceptance rate by position; Position 8 (\% at each draft position).}
+\label{tab:appendix-metric-conditional-acceptance-8}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(94.29 \pm 0\;[3]\) & \(66.67 \pm 0\;[3]\) & \(84.14 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(60 \pm 0\;[3]\) & \(88 \pm 0\;[3]\) & \(72.22 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(46.67 \pm 0\;[3]\) & \(75 \pm 0\;[3]\) & \(70.37 \pm 0\;[3]\) & \(66.67 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+At each draft position, count rounds that proposed the position and accepted every earlier proposal. Among these eligible rounds, count how often the current proposal passes. Divide passes by eligible rounds and multiply by 100. Report a result only when the eligible count is positive.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Conditional acceptance rate by position; Position 9 (\% at each draft position).}
+\label{tab:appendix-metric-conditional-acceptance-9}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+DFlash & \(90.91 \pm 0\;[3]\) & \(63.89 \pm 0\;[3]\) & \(82.72 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+DFlash & \(83.33 \pm 0\;[3]\) & \(68.18 \pm 0\;[3]\) & \(100 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+DFlash & \(100 \pm 0\;[3]\) & \(58.33 \pm 0\;[3]\) & \(73.68 \pm 0\;[3]\) & \(66.67 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+At each draft position, count rounds that proposed the position and accepted every earlier proposal. Among these eligible rounds, count how often the current proposal passes. Divide passes by eligible rounds and multiply by 100. Report a result only when the eligible count is positive.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Conditional acceptance rate by position; Tree-prefix diagnostic; Position 1 (\% at each draft position).}
+\label{tab:appendix-metric-conditional-acceptance-tree-prefix-diagnostic-1}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(92.53 \pm 0\;[3]\) & \(91.58 \pm 0\;[3]\) & \(87.03 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(85.14 \pm 0\;[3]\) & \(94.4 \pm 0\;[3]\) & \(85.59 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(94.93 \pm 0\;[3]\) & \(99.48 \pm 0\;[3]\) & \(79.94 \pm 0\;[3]\) & \(87.55 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For EAGLE-3, count verification rounds whose accepted path reaches the preceding depth and has at least one proposed child at the stated depth. Among those rounds, count rounds that accept a child. Divide accepted rounds by eligible rounds and multiply by 100. A leaf has no eligible next proposal. Counts precede final output clipping. These tree-prefix diagnostics use the recorded branching tree. The EAGLE-3 paper measures n-alpha with a chain and defines n by the draft feature history. The tree values preserve their separate interpretation.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Conditional acceptance rate by position; Tree-prefix diagnostic; Position 2 (\% at each draft position).}
+\label{tab:appendix-metric-conditional-acceptance-tree-prefix-diagnostic-2}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(90.06 \pm 0\;[3]\) & \(85.96 \pm 0\;[3]\) & \(89.7 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(96.83 \pm 0\;[3]\) & \(93.22 \pm 0\;[3]\) & \(86.6 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(90.45 \pm 0\;[3]\) & \(92.23 \pm 0\;[3]\) & \(86.64 \pm 0\;[3]\) & \(85.65 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For EAGLE-3, count verification rounds whose accepted path reaches the preceding depth and has at least one proposed child at the stated depth. Among those rounds, count rounds that accept a child. Divide accepted rounds by eligible rounds and multiply by 100. A leaf has no eligible next proposal. Counts precede final output clipping. These tree-prefix diagnostics use the recorded branching tree. The EAGLE-3 paper measures n-alpha with a chain and defines n by the draft feature history. The tree values preserve their separate interpretation.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Conditional acceptance rate by position; Tree-prefix diagnostic; Position 3 (\% at each draft position).}
+\label{tab:appendix-metric-conditional-acceptance-tree-prefix-diagnostic-3}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(90.15 \pm 0\;[3]\) & \(79.93 \pm 0\;[3]\) & \(89.95 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(83.61 \pm 0\;[3]\) & \(91.74 \pm 0\;[3]\) & \(89.44 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(92.39 \pm 0\;[3]\) & \(94.22 \pm 0\;[3]\) & \(87.39 \pm 0\;[3]\) & \(76.05 \pm 0\;[3]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+For EAGLE-3, count verification rounds whose accepted path reaches the preceding depth and has at least one proposed child at the stated depth. Among those rounds, count rounds that accept a child. Divide accepted rounds by eligible rounds and multiply by 100. A leaf has no eligible next proposal. Counts precede final output clipping. These tree-prefix diagnostics use the recorded branching tree. The EAGLE-3 paper measures n-alpha with a chain and defines n by the draft feature history. The tree values preserve their separate interpretation.
+The bold mean is the best observed value in each benchmark column. The comparison covers the recorded implementations under their stated configurations. At least two eligible method entries are required. Ties at the displayed precision share bold formatting. Bold formatting conveys an observed comparison and makes no statistical-significance claim. Brackets show the available repetition count. Response differences remain part of the interpretation. Higher values are preferred. Tree and linear proposal denominators form separate comparison groups.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Draft latency, verification latency and round latency; Round latency (ms/round).}
+\label{tab:appendix-metric-component-time-round-latency-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(33.45 \pm 0.09\;[3]\) & \(33.43 \pm 0.11\;[3]\) & \(33.56 \pm 0.054\;[3]\) \\
+DFlash &  &  &  \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(32.94 \pm 0.29\;[3]\) & \(33.18 \pm 0.2\;[3]\) & \(33.37 \pm 0.2\;[3]\) \\
+DFlash &  &  &  \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(33.44 \pm 0.21\;[3]\) & \(33.36 \pm 0.2\;[3]\) & \(33.47 \pm 0.023\;[3]\) & \(33.49 \pm 0.11\;[3]\) \\
+DFlash & \(31.25\;[1]\) & \(31.32\;[1]\) & \(31.36\;[1]\) & \(31.41\;[1]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+In a separate timing trace, measure a full cycle from drafting through verification and the final state update. Measure the time spent drafting, checking and moving data within that cycle. Record which operations overlap and average times over the observed cycles. Round latency uses host monotonic timestamps from drafting through the final state update. Draft and verification latency use CUDA events around their recorded operations. EAGLE-3's draft interval covers proposal generation. Draft extension remains inside the full round. P-EAGLE links each draft to its later verification, and its consecutive full-round intervals can overlap. Diagnostic measurements include synchronization and recording overhead. The evidence identifies each operation and records the overlap counts.
+Component times support an explanation of measured runtime. Each method performs different work per verification round. A shorter component can still accompany a longer whole response. The table therefore reports component durations with equal emphasis.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Draft latency, verification latency and round latency; Draft latency (ms/round).}
+\label{tab:appendix-metric-component-time-draft-latency-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(4.365 \pm 0.053\;[3]\) & \(4.359 \pm 0.042\;[3]\) & \(4.343 \pm 0.014\;[3]\) \\
+DFlash &  &  &  \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(4.179 \pm 0.058\;[3]\) & \(4.301 \pm 0.07\;[3]\) & \(4.343 \pm 0.077\;[3]\) \\
+DFlash &  &  &  \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(4.355 \pm 0.072\;[3]\) & \(4.367 \pm 0.06\;[3]\) & \(4.357 \pm 0.011\;[3]\) & \(4.347 \pm 0.026\;[3]\) \\
+DFlash & \(5.777\;[1]\) & \(5.861\;[1]\) & \(5.832\;[1]\) & \(5.856\;[1]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+In a separate timing trace, measure a full cycle from drafting through verification and the final state update. Measure the time spent drafting, checking and moving data within that cycle. Record which operations overlap and average times over the observed cycles. Round latency uses host monotonic timestamps from drafting through the final state update. Draft and verification latency use CUDA events around their recorded operations. EAGLE-3's draft interval covers proposal generation. Draft extension remains inside the full round. P-EAGLE links each draft to its later verification, and its consecutive full-round intervals can overlap. Diagnostic measurements include synchronization and recording overhead. The evidence identifies each operation and records the overlap counts.
+Component times support an explanation of measured runtime. Each method performs different work per verification round. A shorter component can still accompany a longer whole response. The table therefore reports component durations with equal emphasis.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[!htp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Draft latency, verification latency and round latency; Verification latency (ms/round).}
+\label{tab:appendix-metric-component-time-verification-latency-none}
+\textit{Mathematics}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & GSM8K & MATH-500 & AIME 2025 \\
+\midrule
+EAGLE-3 & \(24.18 \pm 0.023\;[3]\) & \(24.21 \pm 0.021\;[3]\) & \(24.33 \pm 0.0039\;[3]\) \\
+DFlash &  &  &  \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Code}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrr@{}}
+\toprule
+Method & HumanEval & MBPP & LiveCodeBench \\
+\midrule
+EAGLE-3 & \(24.12 \pm 0.026\;[3]\) & \(24.11 \pm 0.028\;[3]\) & \(24.23 \pm 0.031\;[3]\) \\
+DFlash &  &  &  \\
+\bottomrule
+\end{tabular}\par\medskip
+\textit{Conversation, instruction following, and summarization}\par\smallskip
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}rrrr@{}}
+\toprule
+Method & MT-Bench & Alpaca & Arena-Hard & CNN/DailyMail \\
+\midrule
+EAGLE-3 & \(24.21 \pm 0.031\;[3]\) & \(24.14 \pm 0.041\;[3]\) & \(24.26 \pm 0.0095\;[3]\) & \(24.32 \pm 0.019\;[3]\) \\
+DFlash & \(23.62\;[1]\) & \(23.52\;[1]\) & \(23.59\;[1]\) & \(23.63\;[1]\) \\
+\bottomrule
+\end{tabular}\par\medskip
+\begin{minipage}{\linewidth}\footnotesize
+In a separate timing trace, measure a full cycle from drafting through verification and the final state update. Measure the time spent drafting, checking and moving data within that cycle. Record which operations overlap and average times over the observed cycles. Round latency uses host monotonic timestamps from drafting through the final state update. Draft and verification latency use CUDA events around their recorded operations. EAGLE-3's draft interval covers proposal generation. Draft extension remains inside the full round. P-EAGLE links each draft to its later verification, and its consecutive full-round intervals can overlap. Diagnostic measurements include synchronization and recording overhead. The evidence identifies each operation and records the overlap counts.
+Component times support an explanation of measured runtime. Each method performs different work per verification round. A shorter component can still accompany a longer whole response. The table therefore reports component durations with equal emphasis.
+Brackets give eligible repetition counts. Standard deviation appears when at least two repetitions are available. Each repetition uses three prompts. The evidence records preserve observation counts and measurement scopes. Empty cells lack an eligible measured value.
+\end{minipage}
+\end{table*}

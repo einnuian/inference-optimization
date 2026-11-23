@@ -1,0 +1,20 @@
+{
+  "job_id": "14056875",
+  "start": "2026-11-22T15:06:26",
+  "end": "2026-11-22T18:06:45",
+  "elapsed_seconds": 10819,
+  "gpu_count": 1,
+  "allocated_gpu_seconds": 10819,
+  "state": "TIMEOUT",
+  "alloc_tres": "billing=16,cpu=16,gres/gpu:l40s=1,gres/gpu=1,mem=96G,node=1",
+  "source_command": [
+    "sacct",
+    "-n",
+    "-P",
+    "-X",
+    "-j",
+    "14056875",
+    "--format=JobIDRaw,Start,End,ElapsedRaw,AllocTRES,State"
+  ],
+  "raw_sacct": "14056875|2026-11-22T15:06:26|2026-11-22T18:06:45|10819|billing=16,cpu=16,gres/gpu:l40s=1,gres/gpu=1,mem=96G,node=1|TIMEOUT\n"
+}
