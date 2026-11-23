@@ -2,7 +2,7 @@
 
 This Columbia High Performance Machine Learning project investigates how a language model can generate responses faster while using less GPU time per output token. The study compares released speculative-decoding methods and evaluates feed-forward compression in a custom P-EAGLE-style drafter. The research goal is to improve generation speed and compute efficiency while preserving the target model's response behavior.
 
-**The initial evaluation is complete.** Nine configurations produce 810 timed responses from 30 selected prompts and three repetitions. DFlash leads six of the ten benchmarks in observed throughput and GPU-time efficiency. The 75% and 50% pilot widths remain slower than their matching ordinary-generation reference on every benchmark. These findings establish the next research priority: improve proposal acceptance and reduce drafting cost, then test whether the resulting architecture delivers a consistent advantage.
+In our initial evaluation, Nine configurations produce 810 timed responses from 30 selected prompts and three repetitions. DFlash leads six of the ten benchmarks in observed throughput and GPU-time efficiency. The 75% and 50% pilot widths remain slower than their matching ordinary-generation reference on every benchmark. These findings establish the next research priority: improve proposal acceptance and reduce drafting cost, then test whether the resulting architecture delivers a consistent advantage.
 
 ## Research motivation
 
