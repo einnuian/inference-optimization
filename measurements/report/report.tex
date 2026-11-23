@@ -1,0 +1,197 @@
+% The generated directory contains evidence-derived results and tables.
+% The original project proposal remains in PROJECT/proposal.
+\documentclass[conference,onecolumn]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{array,booktabs}
+\usepackage{cite}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\interdisplaylinepenalty=2500
+\pagestyle{plain}
+
+\begin{document}
+\title{Baseline evaluation for speculative decoding and drafter feed-forward compression}
+\author{\IEEEauthorblockN{Ayo Adetayo, Anh Nguyen, Pilar Maldonado, and Quang Nguyen}
+\IEEEauthorblockA{Columbia University}}
+\maketitle
+\thispagestyle{plain}
+
+\begin{abstract}
+Speculative decoding uses a small drafter to propose tokens that a target language model verifies together. This study measures EAGLE-3, P-EAGLE, DFlash, and three pilot feed-forward widths on 30 prompts from ten benchmarks. Nine configurations complete 810 timed responses across three repetitions, using greedy decoding and one NVIDIA L40S GPU per run. DFlash leads the five initial configurations in output tokens per second and timed GPU efficiency on six benchmarks. The 75\% and 50\% pilots are slower than their matched autoregressive (AR) reference on every benchmark. The observed width results provide no consistent speed or compute-cost advantage from narrowing. Mean acceptance length is approximately 1.1--1.25 tokens per pilot verification round. Exact response mismatches remain unresolved, and task accuracy remains unmeasured. These findings motivate further drafter optimization and architecture experiments against ordinary generation and the released methods.
+\end{abstract}
+
+\begin{IEEEkeywords}
+speculative decoding, parallel drafting, language-model inference, feed-forward compression, reproducible evaluation
+\end{IEEEkeywords}
+
+\section{Principal findings}
+DFlash has the highest observed mean output tokens per second (OTPS) on six of the ten benchmarks in the initial comparison. The five compared rows are EAGLE-3, DFlash, P-EAGLE, AR SGLang, and AR vLLM ModelRunnerV1. P-EAGLE leads on MATH-500 and AIME 2025. EAGLE-3 leads on MT-Bench and CNN/DailyMail. DFlash is therefore the strongest current released-method speed reference in this trial. The conclusion concerns these 30 selected prompts and their observed responses. The response differences limit an exact-preservation interpretation of the speed gains.
+
+Compute cost describes the GPU time and memory used to produce the responses. Within each one-GPU benchmark repetition, GPU-seconds per delivered token equal the reciprocal of OTPS. Across the recorded repetitions, DFlash has the lowest mean timed GPU time per token on six benchmarks. P-EAGLE and EAGLE-3 each lead on two. Table~\ref{tab:gpu-time} reports that compute-cost measure in the main results. The measured interval includes the benchmark's requests and client gaps. Model startup, warmups, and time outside the benchmark have separate accounting scopes.
+
+The pilot results answer two separate questions. Across the observed width means, 100\% leads on six benchmarks and 75\% leads on four. The 50\% width leads on none. Within the matched continuation, both narrowed pilots are slower than ordinary AR generation on all ten benchmarks. Narrowing therefore provides no consistent observed speed or compute-cost advantage in this pilot.
+
+\section{Research objective}
+An autoregressive language model predicts the next token from the preceding context. Speculative decoding adds a cheaper model that proposes several tokens. The target then verifies the proposals in a common pass. A suitable acceptance procedure preserves the target distribution under its stated assumptions~\cite{leviathan2023}. Practical acceleration depends on drafting cost, verification cost, and the number of retained tokens per round.
+
+The project examines whether feed-forward compression improves that tradeoff. A feed-forward network transforms each hidden vector within a transformer layer. Reducing its intermediate width reduces matrix sizes while preserving the layer's input and output dimensions. A smaller drafter can also change proposal quality. The experiment therefore measures both execution speed and accepted output.
+
+The current study has two parts. The first part measures three existing speculative methods and their matching autoregressive references. The second part measures the P-EAGLE-style pilot at 100\%, 75\%, and 50\% feed-forward width. The pilot uses a Transformers reference. The observations characterize the current checkpoints and identify requirements for a controlled width study.
+
+\section{Methods and implementation scope}
+EAGLE-3 predicts tokens from target-model features and trains the drafter with a training-time test procedure~\cite{eagle3}. P-EAGLE drafts multiple future positions in parallel~\cite{peagle}. DFlash uses a block-diffusion drafter conditioned on target features~\cite{dflash}.
+
+\subsection{Five initial configurations}
+The autoregressive (AR) baseline runs the target model one token at a time. Its recorded responses and timings provide the reference for each speculative method. Matching the inference engine keeps the target's serving implementation consistent within each pair.
+
+The current initial trial contains EAGLE-3, DFlash, and P-EAGLE, together with two autoregressive references. EAGLE-3 and DFlash run in SGLang and share the SGLang AR reference. P-EAGLE uses the H-Spec reproduction with vLLM ModelRunnerV1 and its corresponding AR reference~\cite{hspec}. These five configurations contain 450 completed timed request executions.
+
+Each speedup uses the reference from the same inference engine and model runner. The comparison therefore measures the implemented method together with its serving path. Cross-engine differences remain part of the whole-implementation comparison. The local H-Spec configurations retain their reproduction labels because their target models and serving settings differ from the original papers' complete experimental setups.
+
+The EAGLE-3 configuration uses three drafting steps, a top-$k$ value of four, and 16 total draft-tree tokens. The tree contains one previously generated root token and 15 new candidate nodes. The DFlash configuration uses a block size of ten, which supplies nine draft proposals per verification round. The P-EAGLE reproduction proposes seven linear draft tokens per round.
+
+\subsection{Pilot width comparison}
+The pilot compares four configurations: the Transformers AR reference and the 100\%, 75\%, and 50\% feed-forward variants. Each speculative variant uses the team's custom four-layer P-EAGLE-style drafter and proposes eight tokens per round. The released P-EAGLE reproduction keeps its own result row.
+
+The supplied pilot dataset contains 200 training rows. Its verified SHA-256 checksum begins with \texttt{d13b9f2c7948d88d}. The import manifest records the full checksum. The supplied file contains no held-out examples. The imported checkpoints' original held-out data, training seed, and complete training history remain unresolved. The notebook describes one epoch and 50 optimizer updates per width. The imported artifacts retain their own provenance records.
+
+The evaluation loader validates each checkpoint's weights, model dimensions, vocabulary, and target compatibility. All three pilot widths use the imported original checkpoints. Their run records preserve the checkpoint hashes and available training provenance. The three widths and the active Transformers AR reference contribute 360 completed timed responses.
+
+\section{Evaluation procedure}
+\subsection{Prompts and repetitions}
+The trial takes the first three prepared prompts from each of ten benchmark families. The mathematics benchmarks are GSM8K, MATH-500, and AIME 2025. The code benchmarks are HumanEval, MBPP, and LiveCodeBench. MT-Bench, Alpaca, and Arena-Hard supply conversational or instruction-following prompts. CNN/DailyMail supplies article-summarization prompts.
+
+The prepared bundle contains 30 unique prompts. Each prompt uses one turn and recurs in three timing repetitions. A complete configuration therefore contains 90 timed request executions. A benchmark block contains the three prompts for one benchmark in one repetition. Every configuration uses the same prepared input token IDs and prompt order. The saved bundle and request evidence preserve the exact text and token sequence.
+
+The first-three selection supports a small, reproducible trial. Its observations describe these selected prompts. Three timing repetitions measure variation across repeated execution of the same inputs. Broader claims about benchmark performance require a larger prompt sample. In particular, a percentile calculated from three requests has limited resolution.
+
+\subsection{Target, hardware, and generation settings}
+The target is Meta Llama-3.1-8B-Instruct at the recorded model revision. The five initial configurations and the complete 100\% pilot run on one NVIDIA L40S on Insomnia node \texttt{ins061}. The 75\%, 50\%, and active Transformers AR configurations run on another L40S on \texttt{ins060}. Run records identify the physical GPU, driver, host, Slurm job, model revision, and prepared-bundle hash. A paired comparison requires matching target, inputs, output rules, repetitions, and physical GPU evidence.
+
+The active tables use the complete original 100\% run because its continuation replay ends during launch preparation. Its different physical L40S limits conclusions about small width effects. Its paired AR speedup and agreement cells remain empty. The complete continuation AR supports the 75\% and 50\% comparisons. The original partial AR remains separate historical evidence.
+
+Generation uses greedy decoding with temperature zero. The client submits one request at a time, so concurrency is one. The output ends at a configured terminal token or the 2,048-token limit. The primary stream records preserve native output token IDs, delivered token IDs, and stopping reasons. Delivered counts exclude the terminal stop token. Warmups, stream qualification, training, and diagnostic requests retain their own records and accounting scopes.
+
+\subsection{Timing and throughput}
+The measurement client runs on the compute node and connects to the model server through the loopback interface. A monotonic nanosecond clock records submission and streaming events. Time to first token (TTFT) measures the interval from submission to the first nonempty decoded output chunk. Metadata-only events contribute no first-content observation. A chunk can contain several tokens, so TTFT describes delivery to this client. Browser refresh time lies outside the measurement interval.
+
+End-to-end request latency measures submission through stream completion. Output tokens per second (OTPS) divides the total delivered tokens in a benchmark block by the complete block interval. That interval includes the sequential requests and their client-side gaps. The following equation defines OTPS for benchmark $b$ and repetition $r$:
+\begin{equation}
+\mathrm{OTPS}_{b,r} =
+\frac{\sum_{q=1}^{3} N_{b,r,q}}
+{t^{\mathrm{end}}_{b,r}-t^{\mathrm{start}}_{b,r}},
+\end{equation}
+where $N_{b,r,q}$ is the delivered output-token count for request $q$. The paired speedup uses the matching AR measurement:
+\begin{equation}
+S_{b,r}=\frac{\mathrm{OTPS}^{\mathrm{method}}_{b,r}}
+{\mathrm{OTPS}^{\mathrm{AR}}_{b,r}}.
+\end{equation}
+The tables summarize the repetition estimates with their mean, sample standard deviation, and eligible repetition count. A single eligible repetition contributes its observed value and count. Repetitions with missing or invalid evidence leave a documented gap.
+
+\subsection{Acceptance and response agreement}
+Mean acceptance length, denoted by $\tau$, measures committed progress per target verification round. Let $A_j$ count accepted draft tokens and $B_j$ count retained target correction or bonus tokens in round $j$. The project uses
+\begin{equation}
+\tau = \frac{\sum_{j=1}^{R}(A_j+B_j)}{R}.
+\end{equation}
+The numerator counts committed tokens before final output trimming. Any initial target token generated outside verification rounds has a separate count. Pooling the rounds gives each verification round equal weight. A supporting request-averaged measure first calculates each request's mean acceptance length, then averages those means equally.
+
+For the pinned SGLang runtime, validated raw counters provide accepted draft tokens and verification rounds. The implementation retains one target token per round before output trimming, giving a committed count of accepted drafts plus rounds~\cite{sglangsource}. The exporter checks count aliases, proposal totals, histograms, retractions, and terminal trimming. DFlash's fixed-width histogram also supports positions one through nine.
+
+Draft-token acceptance rate divides accepted draft tokens by all proposed draft tokens. The recorded EAGLE-3 setting contributes 15 candidate tree nodes to the denominator per round. DFlash contributes nine linear proposals, and P-EAGLE contributes seven linear proposals. EAGLE-3 counts candidates on alternative branches in its denominator and counts the accepted path in its numerator. Each linear method counts its proposed sequence. These distinct proposal structures limit direct comparisons of the acceptance percentages. The exported evidence preserves each native counter interval and its source-file hash.
+
+EAGLE-3's branching proposal tree has a separate tree-prefix diagnostic. Prefix survival counts rounds whose tree reaches the stated depth and measures the fraction whose accepted path reaches that depth. Conditional acceptance counts rounds whose accepted prefix has a proposed child at the next depth. A leaf has no eligible next proposal. The exporter validates the captured tree, accepted path, verification result, and native round identity. EAGLE-3's paper defines its $n$-$\alpha$ study with a chain and a draft-feature-history convention~\cite{eagle3}. The report preserves that distinction in separate table variants.
+
+Exact output agreement compares each speculative response with its matching AR response. A match requires identical delivered token IDs, output length, and stopping reason. This measure checks response preservation on the selected inputs. Task accuracy requires a separate scoring procedure for mathematics answers, code tests, summaries, or conversational responses.
+
+\section{Results and interpretation}
+\input{generated/tables.tex}
+\input{generated/results-summary.tex}
+
+\subsection{Results by benchmark category}
+\paragraph*{Code throughput}
+DFlash has the highest observed mean OTPS on HumanEval, MBPP, and LiveCodeBench: 137.18, 155.12, and 117.21 tokens/s, respectively (Table~\ref{tab:otps}). Both narrowed pilots remain below their matched Transformers AR reference on all three code benchmarks.
+
+\paragraph*{Code GPU time}
+DFlash also uses the least timed GPU time per million output tokens on HumanEval, MBPP, and LiveCodeBench: 7{,}290, 6{,}447, and 8{,}532 GPU-seconds, respectively (Table~\ref{tab:gpu-time}). Both narrowed pilots use more GPU time per output token than their matched AR reference on all three benchmarks.
+
+\paragraph*{Conversation and instruction-following throughput}
+EAGLE-3 leads MT-Bench at 110.29 tokens/s, while DFlash leads Alpaca and Arena-Hard at 117.62 and 112.30 tokens/s (Table~\ref{tab:otps}). The 75\% pilot exceeds the 50\% pilot on these three benchmarks, and both remain below their matched AR reference.
+
+\paragraph*{Conversation and instruction-following GPU time}
+EAGLE-3 uses the least GPU time per million output tokens on MT-Bench at 9{,}067 GPU-seconds, and DFlash leads Alpaca and Arena-Hard at 8{,}502 and 8{,}904 GPU-seconds (Table~\ref{tab:gpu-time}). The 75\% pilot uses less GPU time per token than the 50\% pilot on these benchmarks, and both use more than their matched AR reference.
+
+\paragraph*{Summarization throughput}
+On CNN/DailyMail, EAGLE-3 has the highest observed mean OTPS at 97.98 tokens/s, followed by DFlash at 97.67 tokens/s (Table~\ref{tab:otps}). The 75\% and 50\% pilots deliver 34.48 and 33.25 tokens/s, respectively, compared with 39.39 tokens/s for their matched AR reference.
+
+\paragraph*{Summarization GPU time}
+EAGLE-3 has the lowest observed mean GPU time per million output tokens on CNN/DailyMail at 10{,}210 GPU-seconds, followed by DFlash at 10{,}240 GPU-seconds (Table~\ref{tab:gpu-time}). Both narrowed pilots use more GPU time per output token than their matched AR reference.
+
+\subsection{Interpretation of the initial comparison}
+Across the five initial configurations, DFlash has the highest observed mean OTPS on six of the ten benchmarks in Table~\ref{tab:otps}. P-EAGLE leads on MATH-500 and AIME 2025. EAGLE-3 leads on MT-Bench and CNN/DailyMail. These rankings describe the recorded implementations and selected prompts. The three repetitions quantify execution variation on the same fixed prompt sample.
+
+Absolute throughput and paired speedup answer different questions. On AIME 2025, P-EAGLE delivers approximately 158 tokens/s and DFlash delivers approximately 155 tokens/s. Their paired speedups are approximately $3.41\times$ and $3.57\times$, respectively. P-EAGLE uses the faster vLLM ModelRunnerV1 AR reference in its ratio. Each speedup therefore retains its own reference, and OTPS supports the direct comparison of observed output delivery.
+
+DFlash's mean acceptance length exceeds EAGLE-3's on seven benchmarks. EAGLE-3 has the higher value on MT-Bench, Alpaca, and CNN/DailyMail. Throughput reflects both acceptance length and execution cost. For example, DFlash has slightly higher OTPS on Alpaca even though EAGLE-3 retains more tokens per verification round. The drafting and verification costs also contribute to elapsed time. Complete diagnostic observations can quantify those costs where validated evidence is available. The report leaves unavailable component measurements empty.
+
+The output-length differences materially affect the interpretation of speedup. On the third GSM8K prompt, EAGLE-3 returns 329 tokens and stops at a terminal token. Its SGLang AR reference reaches the 2,048-token limit. Their three-prompt blocks therefore contain 596 and 2,315 delivered tokens, respectively.\footnote{The saved records are \path{eagle3/01-gsm8k.json} and \path{ar-sglang/01-gsm8k.json}, relative to \path{measurements/trial-first30-20261122}. Their SHA-256 prefixes are \texttt{39aa3d823455e6d2} and \texttt{30e40dc9e6cd872b}. The export's \path{measurement-evidence.json} preserves the full source hashes.} OTPS describes the delivered tokens and elapsed time of these observed responses. An identical-response acceleration claim requires resolving the response differences.
+
+The two AR serving paths also produce different responses. SGLang AR and vLLM ModelRunnerV1 AR match exactly on 11 of the 30 distinct prompts. Their outputs remain stable across the three repetitions.\footnote{The comparison pairs the delivered token IDs, lengths, and stopping reasons in the ten \texttt{01-*} benchmark files under \path{ar-sglang} and \path{ar-vllm-v1}. The corresponding \texttt{02-*} and \texttt{03-*} files establish repetition stability. All paths are relative to the same trial directory, and the export preserves their hashes.} Each speculative method therefore retains its matched serving reference. The AR difference also motivates checking the target's serving and numerical execution paths. The current records establish the observed differences. Their cause remains unresolved.
+
+\subsection{Pilot results and implications}
+The width comparison and the AR comparison have different conclusions. Among the observed width means, 100\% has the highest OTPS on six benchmarks. The 75\% width leads on MT-Bench, Alpaca, CNN/DailyMail, and AIME 2025. The 50\% width leads on none. On GSM8K, 100\% and 75\% differ by less than 0.01 tokens/s and both display as 39.02. The table preserves that displayed tie.
+
+Relative to the observed 100\% means, the 75\% width delivers 94.0\%--101.0\% of its throughput across benchmarks. The 50\% width delivers 96.3\%--98.9\%. The timed GPU-cost comparison has the same per-benchmark leaders. Within the same-device comparison of the narrowed widths, 75\% leads on seven benchmarks. The 50\% width leads on MATH-500, HumanEval, and MBPP. These observations provide no consistent throughput or compute-cost improvement from reducing width.
+
+Both narrowed pilots have a complete matching AR reference. The 75\% width achieves $0.798\times$--$0.971\times$ the AR throughput, and the 50\% width achieves $0.807\times$--$0.936\times$. Each pilot is slower than AR on all ten benchmarks. Their normalized GPU time per output token is correspondingly higher. This result answers whether the narrowed pilots accelerate ordinary generation under the recorded procedure.
+
+The pilot acceptance lengths remain approximately 1.1--1.25 committed tokens per verification round, despite proposing eight draft tokens. Most committed progress therefore comes from the retained target token, and accepted drafts add little progress per round. That limited acceptance helps explain why drafting offers little opportunity to recover its execution cost. The saved counts establish the acceptance result. Detailed pilot component timing remains unavailable.
+
+Both narrowed pilots match their AR reference on 12 of 30 distinct prompts, or 36 of 90 repeated executions. The remaining output differences constrain an exact-preservation claim. The checkpoints' small training set and unresolved original training details also limit generalization. The present evidence supports improving and verifying the full-width drafter before selecting a narrower model for a larger study.
+
+\section{Resource accounting}
+Table~\ref{tab:allocations} reports the two evaluation allocations once each. The initial configurations and original 100\% pilot share job \texttt{14056875}. The narrowed pilots and active Transformers AR reference use job \texttt{14058516}. Their allocated GPU-hours and CPU-hours include model loading, warmups, qualification, idle periods, inference, diagnostics, and incomplete attempts within each job. The separate project ledger preserves preparation allocations. Output-token ratios for incomplete whole-job evidence remain empty.
+
+Method-by-benchmark compute cost uses each benchmark's measured elapsed time and the GPU count from its matching final Slurm record. Allocated GPU time per million output tokens equals that timed interval multiplied by the GPU count, divided by delivered tokens, and multiplied by one million. Output throughput per GPU divides delivered tokens by allocated GPU-seconds. The interval includes client gaps within the block. Startup, warmups, and time outside the block remain in the whole-job accounting scope.
+
+Per-prompt GPU-seconds multiply the allocated GPU count by the prompt's end-to-end completion time in seconds. With one allocated GPU, a response that takes two seconds consumes two GPU-seconds during that request. The request-latency tables report milliseconds, so dividing those values by 1,000 gives the corresponding per-prompt GPU-seconds. Peak memory provides a separate measure of the capacity occupied during the recorded interval.
+
+Memory observations retain separate scopes. Whole-device samples describe memory used on the physical GPU. Framework-allocated memory describes live tensors, and framework-reserved memory describes the framework's retained memory pool. Diagnostic peaks require a reset scope covering the measured requests. Whole-device sampling at 100\,ms can miss shorter peaks. The tables identify the memory measure and its unit explicitly.
+
+The continuation's passive sampler records 5,647 observations from 01:41:44.425 to 01:51:09.615 UTC on November 23, 2026. Sampling starts after the 75\% and 50\% runs and during AR evaluation. Their two pilot memory rows therefore remain empty. AR memory cells contain two or three eligible repetitions, depending on benchmark coverage. The original 100\% run has its own matching sampler log. A sampled memory cell requires that its matching log span the entire timed benchmark interval.
+
+\section{Limitations and next experiments}
+The sample contains three fixed prompts per benchmark. Each run uses one GPU, one active request, greedy decoding, and a fixed output limit. Each released-method result reflects its recorded local implementation. Each team result identifies its checkpoint origin and available training history. Benchmark task accuracy remains unmeasured. Component times describe the saved instrumented executions, including their synchronization overhead. Partial diagnostic coverage limits comparisons for methods with fewer eligible repetitions.
+
+Response differences remain a limitation of the speed comparison. An exact-preservation claim requires an explanation of the divergent outputs or a corrected implementation that passes the check. Saved streams and score probes preserve evidence for that future investigation.
+
+The next research phase targets higher speed and lower compute cost than ordinary generation and the released methods. A stronger, verified full-width pilot provides the starting point. The 75\% width is the more promising narrowed candidate in the present observations because it leads 50\% on seven benchmarks. A controlled conditioning experiment can compare full width with 75\% while holding training data, updates, seeds, target revision, hardware, and evaluation settings fixed. Further architecture experiments can vary the drafter's conditioning, layer count, and proposal length. Each experiment should measure whether improved acceptance offsets drafting and verification costs. The same OTPS, GPU-time, and response-preservation checks support comparison with matched AR, EAGLE-3, DFlash, and P-EAGLE. Repeated training seeds and a larger held-out evaluation can then estimate variability and generalization.
+
+\begin{thebibliography}{8}
+\bibitem{leviathan2023}
+Y. Leviathan, M. Kalman, and Y. Matias, ``Fast inference from transformers via speculative decoding,'' in \emph{Proc. 40th Int. Conf. Machine Learning}, PMLR, vol.~202, pp.~19274--19286, 2023. \url{https://proceedings.mlr.press/v202/leviathan23a.html}.
+\bibitem{eagle3}
+Y. Li, F. Wei, C. Zhang, and H. Zhang, ``EAGLE-3: Scaling up inference acceleration of large language models via training-time test,'' arXiv:2503.01840, 2025. \url{https://arxiv.org/abs/2503.01840}.
+\bibitem{peagle}
+M. Hui \emph{et al.}, ``P-EAGLE: Parallel-drafting EAGLE with scalable training,'' arXiv:2602.01469, 2026. \url{https://arxiv.org/abs/2602.01469}.
+\bibitem{dflash}
+J. Chen, Y. Liang, and Z. Liu, ``DFlash: Block diffusion for flash speculative decoding,'' arXiv:2602.06036, 2026. \url{https://arxiv.org/abs/2602.06036}.
+\bibitem{hspec}
+W. Jiang \emph{et al.}, ``H-Spec: Parallel speculative decoding without a drafter-side KV cache,'' arXiv:2609.24197, 2026. \url{https://arxiv.org/abs/2609.24197}.
+\bibitem{sglangsource}
+SGLang contributors, ``Speculative decoding result processing,'' source revision \texttt{0bcd822377da}, 2026. \url{https://github.com/sgl-project/sglang/blob/0bcd822377da7b5718e674eaf9c870d349424dd1/python/sglang/srt/managers/scheduler_components/batch_result_processor.py}.
+\end{thebibliography}
+
+\clearpage
+\appendices
+\section{Metric definitions}
+\input{generated/metric-definitions.tex}
+\section{Evidence availability}
+\input{generated/evidence-availability.tex}
+\section{Additional measured results}
+The following tables preserve the method-by-benchmark structure. Each table reports one metric, variant, and draft position where applicable. Tables appear when at least one measured cell exists. An empty cell within a measured table retains its evidence reason in the export.
+\input{generated/appendix-tables.tex}
+\end{document}

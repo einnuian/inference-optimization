@@ -1,0 +1,81 @@
+Each table uses the following measurement definition. Repetition estimates are summarized by their mean and sample standard deviation.
+
+\subsection{Output tokens per second (OTPS)}
+
+\textit{Unit: output tokens/s.} Add the output tokens that all requests receive, including partial responses. Divide the total by the measured interval through the final completion or timeout. Count output tokens after the stopping and output-length rules apply.
+
+\subsection{Allocated GPU time per million output tokens}
+
+\textit{Unit: GPU-seconds/million output tokens.} Multiply the benchmark's elapsed seconds by the number of allocated GPUs. Divide by its delivered output tokens and multiply by one million. The comparison tables cover each timed benchmark block. Full-job accounting also includes model loading, warmups and idle time outside those blocks.
+
+\subsection{Exact output agreement with AR}
+
+\textit{Unit: \% of checked requests.} Under greedy decoding, compare each method with the target model generating alone in the same engine. Match the prompt and generation settings. Count requests with identical output token IDs, output lengths and stopping reasons. Divide by all checked requests and multiply by 100.
+
+\subsection{Speedup over AR}
+
+\textit{Unit: \(\times\).} Divide the method's OTPS by the OTPS of autoregressive decoding in the matching engine. Match the prompts, output rules, hardware and request schedule. A ratio of 1.2 means the method delivers 20\% more output per second.
+
+\subsection{End-to-end request latency}
+
+\textit{Unit: ms/request, median and p95.} Time each successful request from actual submission until completion. Sort those times and report the median and the 95th percentile (p95). The median describes the middle request. The p95 describes the time within which roughly 95\% of successful requests finish.
+
+\subsection{Time to first token (TTFT)}
+
+\textit{Unit: ms/request, median and p95.} Time each request from actual client submission until the first streamed output arrives. Use the first nonempty output chunk as the client observation. Exclude metadata-only events. Report the median and p95 among requests that return output, and count requests that return none.
+
+\subsection{Maximum inter-chunk latency per request}
+
+\textit{Unit: ms, p95 across eligible requests.} A streaming server sends an answer in pieces called chunks. For each request with at least two nonempty chunks, find the longest gap between successive chunks. Take the p95 of those longest gaps, giving each eligible request one observation.
+
+\subsection{Peak GPU memory}
+
+\textit{Unit: GiB/device.} Record the highest observed memory use on each GPU during the stated interval. Keep separate readings for memory used on the whole device, memory occupied by live tensors and memory reserved by the framework. A gibibyte (GiB) equals 1,073,741,824 bytes.
+
+\subsection{Output throughput per GPU}
+
+\textit{Unit: output tokens/s/GPU.} Divide a benchmark's delivered output tokens by its elapsed seconds multiplied by the allocated GPU count. The comparison tables use timed benchmark blocks. Complete-job resource totals retain their own allocation interval.
+
+\subsection{End-to-end output rate per request}
+
+\textit{Unit: output tokens/s/request.} For each completed request, divide its returned output tokens by the seconds from actual submission through completion. Average the request rates equally. The clock includes waiting, prompt processing and generation.
+
+\subsection{Time per output token (TPOT)}
+
+\textit{Unit: ms/output token.} For each completed response with N output tokens, require N greater than one. Subtract TTFT from end-to-end request latency and divide by N minus one. Average the eligible request values equally. Count excluded responses separately.
+
+\subsection{Inter-chunk latency}
+
+\textit{Unit: ms/gap, p95.} Within each response, measure the gaps between successive nonempty chunks. Pool all observed gaps and report their p95. A response with more chunks contributes more gaps.
+
+\subsection{Draft-token acceptance rate}
+
+\textit{Unit: \% of proposed draft tokens.} Divide accepted draft tokens by proposed draft tokens and multiply by 100. The numerator and denominator count draft tokens only. Record target correction and bonus tokens separately. For a branching draft, state which branches the proposal count covers.
+
+\subsection{Accepted draft tokens per round}
+
+\textit{Unit: accepted draft tokens/round.} Divide the total accepted draft tokens by the number of verification rounds. Include rounds that accept zero draft tokens. Record tokens supplied by the target separately.
+
+\subsection{Mean acceptance length (\(\tau\))}
+
+\textit{Unit: committed tokens/round.} Add the tokens retained across all verification rounds before final output trimming. Include accepted draft tokens and any target correction or bonus tokens that the decoder retains. Divide by the total round count, giving each round equal weight. Record initial tokens generated outside verification rounds separately.
+
+\subsection{Mean acceptance length (\(\tau\)), averaged across requests}
+
+\textit{Unit: committed tokens/round.} For each request with at least one verification round, divide its retained tokens by its round count. Include accepted drafts and retained target tokens before final output trimming. Average the request values equally.
+
+\subsection{Delivered output tokens per round}
+
+\textit{Unit: delivered tokens/round.} Count the output tokens from the recorded rounds that actually reach the client after stopping and output limits. Divide by all those rounds, including rounds that return zero tokens. Record any initial target token outside the rounds separately.
+
+\subsection{Prefix acceptance probability by position}
+
+\textit{Unit: probability at each draft position.} For each draft position, count the rounds that proposed that position. Among those rounds, count how often the target accepted every draft token through that position before final output clipping. Divide the second count by the first.
+
+\subsection{Conditional acceptance rate by position}
+
+\textit{Unit: \% at each draft position.} At each draft position, count rounds that proposed the position and accepted every earlier proposal. Among these eligible rounds, count how often the current proposal passes. Divide passes by eligible rounds and multiply by 100. Report a result only when the eligible count is positive.
+
+\subsection{Draft latency, verification latency and round latency}
+
+\textit{Unit: ms/round for each component.} In a separate timing trace, measure a full cycle from drafting through verification and the final state update. Measure the time spent drafting, checking and moving data within that cycle. Record which operations overlap and average times over the observed cycles.
